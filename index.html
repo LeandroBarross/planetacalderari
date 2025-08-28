@@ -9,7 +9,7 @@
 </head>
 <body>
     
-    <!-- Menu de Navegação para telas grandes -->
+    <!-- Menu de Navegação para telas grandes (mantido, mas não exibido por padrão) -->
     <nav class="menu-fixo">
         <a href="#galeria">Nossas Festas</a>
         <a href="#contato">Contato</a>
@@ -18,14 +18,14 @@
     
     <!-- Menu de Navegação para telas pequenas (Hambúrguer) -->
     <nav class="menu-hamburguer">
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-icone">
+        <!-- IDs para o JavaScript encontrar os elementos facilmente -->
+        <label id="menu-toggle-label" class="menu-icone">
             <i class="fas fa-bars"></i>
         </label>
         
-        <div class="menu-links">
-            <label for="menu-toggle" class="menu-fechar">
-                <i class="fas fa-xmark"></i>
+        <div id="menu-links-container" class="menu-links">
+            <label id="menu-fechar-label" class="menu-fechar">
+                <i class="fas fa-times"></i>
             </label>
             <a href="#galeria">Nossas Festas</a>
             <a href="#contato">Contato</a>
@@ -35,9 +35,6 @@
 
     <!-- Cabeçalho -->
     <header>
-        <!-- A tag src abaixo é um placeholder para a sua logo. 
-             Certifique-se de substituir o caminho da imagem 'img/logo.png' 
-             pelo caminho da sua própria logo. -->
         <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
         <h1>Planeta Calderari</h1>
         <h2>Venha realizar seu sonho!</h2>
@@ -47,8 +44,6 @@
     <section id="galeria">
         <h2>Nossas Festas</h2>
         <div class="galeria-fotos">
-            <!-- As tags src abaixo são placeholders para as suas fotos.
-                 Certifique-se de substituir os caminhos das imagens. -->
             <div class="foto-item">
                 <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
             </div>
@@ -71,12 +66,10 @@
         <p>Entre em contato pelas nossas redes sociais!</p>
         
         <div class="contato-botoes">
-            <!-- Botão para o Instagram -->
             <a href="https://www.instagram.com/planetacalderari/" target="_blank" class="botao-contato instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
 
-            <!-- Botão para o WhatsApp -->
             <a href="https://api.whatsapp.com/send?phone=5511959455698" target="_blank" class="botao-contato whatsapp">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
