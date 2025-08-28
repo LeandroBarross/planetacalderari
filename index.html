@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planeta Calderari - Decorações</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    
+    <!-- Menu de Navegação para telas grandes -->
+    <nav class="menu-fixo">
+        <a href="#galeria">Nossas Festas</a>
+        <a href="#contato">Contato</a>
+        <a href="#sobre-nos">Sobre Nós</a>
+    </nav>
+    
+    <!-- Menu de Navegação para telas pequenas (Hambúrguer) -->
+    <nav class="menu-hamburguer">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icone">
+            <i class="fas fa-bars"></i>
+        </label>
+        
+        <div class="menu-links">
+            <label for="menu-toggle" class="menu-fechar">
+                <i class="fas fa-xmark"></i>
+            </label>
+            <a href="#galeria">Nossas Festas</a>
+            <a href="#contato">Contato</a>
+            <a href="#sobre-nos">Sobre Nós</a>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header>
+        <!-- A tag src abaixo é um placeholder para a sua logo. 
+             Certifique-se de substituir o caminho da imagem 'img/logo.png' 
+             pelo caminho da sua própria logo. -->
+        <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
+        <h1>Planeta Calderari</h1>
+        <h2>Venha realizar seu sonho!</h2>
+    </header>
+
+    <!-- Seção de Galeria -->
+    <section id="galeria">
+        <h2>Nossas Festas</h2>
+        <div class="galeria-fotos">
+            <!-- As tags src abaixo são placeholders para as suas fotos.
+                 Certifique-se de substituir os caminhos das imagens. -->
+            <div class="foto-item">
+                <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
+            </div>
+            
+            <div class="foto-item">
+                <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
+            </div>
+
+            <div class="foto-item">
+                <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
+            </div>
+            
+            <!-- Adicione mais divs 'foto-item' para mais fotos -->
+        </div>
+    </section>
+
+    <!-- Seção de Contato -->
+    <section id="contato">
+        <h2>Fale Conosco</h2>
+        <p>Entre em contato pelas nossas redes sociais!</p>
+        
+        <div class="contato-botoes">
+            <!-- Botão para o Instagram -->
+            <a href="https://www.instagram.com/planetacalderari/" target="_blank" class="botao-contato instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+
+            <!-- Botão para o WhatsApp -->
+            <a href="https://api.whatsapp.com/send?phone=5511959455698" target="_blank" class="botao-contato whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Seção Sobre Nós -->
+    <section id="sobre-nos">
+        <h2>Sobre Nós</h2>
+        <p>
+            O Planeta Calderari é especializado em tornar cada celebração única e inesquecível.
+            Nossa missão é transformar seus sonhos em realidade, cuidando de cada detalhe, desde
+            o planejamento até a execução. Com anos de experiência e uma equipe apaixonada,
+            garantimos que seu evento seja um sucesso absoluto.
+        </p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Planeta Calderari. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Adiciona o arquivo JavaScript para funcionalidade do menu hambúrguer -->
+    <script src="script.js"></script>
+
+</body>
+</html>
