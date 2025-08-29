@@ -67,7 +67,7 @@ section h2 {
 /* Estilos para o Container das Fotos do Carrossel */
 .carousel-container {
     position: relative;
-    max-width: 600px; /* Tamanho reduzido para as fotos */
+    max-width: 500px; /* Tamanho reduzido para as fotos */
     margin: auto;
     overflow: hidden;
     border-radius: 1.5rem;
