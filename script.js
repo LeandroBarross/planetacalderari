@@ -34,3 +34,41 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
+    // --- Lógica do Carrossel ---
+    const track = document.getElementById('carousel-track');
+    const prevButton = document.getElementById('prev-button');
+    const nextButton = document.getElementById('next-button');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    let currentIndex = 0;
+
+    // Função para atualizar a posição do carrossel
+    const updateCarousel = () => {
+        if (items.length > 0) {
+            const itemWidth = items[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+    };
+
+    // Adiciona event listeners para os botões de navegação
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+            updateCarousel();
+        });
+    }
+
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+    }
+
+    // Atualiza o carrossel quando a janela for redimensionada
+    window.addEventListener('resize', updateCarousel);
+    
+    // Chamada inicial para posicionar o carrossel
+    updateCarousel(); 
+

@@ -51,34 +51,71 @@ section h2 {
     text-align: center;
 }
 
-/* -------------------- Galeria de Fotos -------------------- */
-.galeria-fotos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-    justify-content: center;
-    padding: 0 1rem;
+/* Estilos para a Seção de Galeria */
+#galeria {
+    text-align: center;
 }
 
-.foto-item {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+#galeria h2 {
+    text-align: center;
+    color: var(--rosa-claro);
+    border-bottom: 2px solid var(--rosa-claro);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos para o Container das Fotos do Carrossel */
+.carousel-container {
+    position: relative;
+    max-width: 600px; /* Tamanho reduzido para as fotos */
+    margin: auto;
     overflow: hidden;
-    transition: transform 0.3s ease-in-out;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.foto-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 8px;
+.carousel-track {
+    display: flex;
     transition: transform 0.5s ease-in-out;
 }
 
-.foto-item:hover {
-    transform: scale(1.05);
+.carousel-item {
+    min-width: 100%;
 }
+
+.carousel-item img {
+    width: 100%;
+    height: 400px; /* Altura fixa para as fotos */
+    object-fit: cover; /* Recorta a imagem para preencher o espaço */
+    display: block;
+}
+
+.carousel-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+    color: #f59bb7;
+}
+
+.carousel-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#prev-button {
+    left: 1rem;
+}
+
+#next-button {
+    right: 1rem;
+}
+
 
 /* -------------------- Botões de Contato -------------------- */
 #contato {

@@ -45,25 +45,34 @@
         <h2>Venha realizar seu sonho!</h2>
     </header>
 
-    <!-- Seção de Galeria -->
+  <!-- Seção de Galeria -->
     <section id="galeria">
         <h2>Nossas Festas</h2>
-        <div class="galeria-fotos">
-            <!-- As tags src abaixo são placeholders para as suas fotos.
-                 Certifique-se de substituir os caminhos das imagens. -->
-            <div class="foto-item">
-                <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
-            </div>
-            
-            <div class="foto-item">
-                <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
+        <div class="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Certifique-se de substituir os caminhos das imagens. -->
+                <div class="carousel-item">
+                    <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
+                </div>
+                
+                <div class="carousel-item">
+                    <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
+                </div>
+
+                <div class="carousel-item">
+                    <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
+                </div>
+                
+                <!-- Adicione mais divs 'carousel-item' para mais fotos -->
             </div>
 
-            <div class="foto-item">
-                <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
-            </div>
-            
-            <!-- Adicione mais divs 'foto-item' para mais fotos -->
+            <!-- Botões de navegação -->
+            <button id="prev-button" class="carousel-nav-button">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="next-button" class="carousel-nav-button">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
