@@ -387,8 +387,6 @@ footer {
 
 /* Estilos responsivos */
 @media (max-width: 768px) {
-    .carousel-container {
-        /* Proporção 4:3 para telas menores */
-        padding-bottom: 75%;
-    }
+   
 }
+
