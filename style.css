@@ -67,22 +67,27 @@ section h2 {
 /* Estilos para o Container das Fotos do Carrossel */
 .carousel-container {
     position: relative;
-    max-width: 550px; /* Tamanho reduzido para as fotos */
+    max-width: 550px;
     margin: auto;
     overflow: hidden;
     border-radius: 1.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-   
 }
 
+
+/* Track do Carrossel */
 .carousel-track {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    height: 100%;
 }
 
-.carousel-item {
-    min-width: 100%;
-     height: 100%;
+/* Imagem do Carrossel */
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta a imagem para preencher o contêiner, mantendo a proporção. */
+    display: block;
 }
 
 
@@ -389,4 +394,3 @@ footer {
 @media (max-width: 768px) {
    
 }
-

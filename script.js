@@ -1,5 +1,3 @@
-// Adiciona um listener para o evento DOMContentLoaded, garantindo que o script
-// só será executado depois que o HTML for completamente carregado.
 console.log('Script.js carregado na página:', window.location.pathname);
 document.addEventListener('DOMContentLoaded', (event) => {
     
@@ -19,6 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Adiciona um evento de clique no ícone do menu hambúrguer
     if (menuToggleLabel && menuLinks) {
         menuToggleLabel.addEventListener('click', () => {
+
             // Adiciona a classe 'menu-aberto' para mostrar o menu
             menuLinks.classList.add('menu-aberto');
         });
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-    // --- Lógica do Carrossel - VERSÃO UNIVERSAL ---
+    []
     // Esta versão funciona com múltiplos carrosséis na mesma página
     console.log('Inicializando carrosséis...');
     
