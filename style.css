@@ -371,25 +371,70 @@ footer {
 
 /* -------------------- Responsividade -------------------- */
 @media (max-width: 768px) {
-    /* ... outros estilos ... */
-    
-    section {
-        padding: 1.5rem 0; /* Removido o padding horizontal */
-        margin: 1rem 0;
+    .carousel-container {
+        width: 90%; /* Adicione esta linha */
+        aspect-ratio: 4/3;
     }
     
-    /* ... outros estilos ... */
-}
+    .carousel-nav-button {
+        /* Mantenha como está */
+    }
+    
+    .prev-button {
+        /* Mantenha como está */
+    }
+    
+    .next-button {
+        /* Mantenha como está */
+    }
 
-@media (max-width: 480px) {
-    /* ... outros estilos ... */
-    
-    section {
-        padding: 1.5rem 0; /* Removido o padding horizontal */
-        margin: 1rem 0;
+    .festa-container,
+    .feedback-container {
+        /* Mantenha como está */
     }
     
-    /* ... outros estilos ... */
+    .contato-botoes {
+        /* Mantenha como está */
+    }
+    
+    section {
+        padding: 1.5rem 0.5rem; /* Removido o padding horizontal */
+        margin: 1rem 0.5rem;
+    }
+    
+    .festa-item img {
+        /* Mantenha como está */
+    }
+}
+@media (max-width: 480px) {
+    .carousel-container {
+        width: 100%; /* Adicione esta linha */
+        aspect-ratio: 1/1;
+    }
+    
+    .carousel-nav-button {
+        /* Mantenha como está */
+    }
+    
+    .prev-button {
+        /* Mantenha como está */
+    }
+    
+    .next-button {
+        /* Mantenha como está */
+    }
+    
+    .carousel-indicators {
+        /* Mantenha como está */
+    }
+    
+    .carousel-indicator {
+        /* Mantenha como está */
+    }
+    
+    .festa-item img {
+        /* Mantenha como está */
+    }
 }
 .botao-interesse {
     display: block; 
