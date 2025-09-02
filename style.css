@@ -371,69 +371,25 @@ footer {
 
 /* -------------------- Responsividade -------------------- */
 @media (max-width: 768px) {
-    .carousel-container {
-        max-width: 90%;
-        aspect-ratio: 4/3; /* Proporção mais adequada para mobile */
-    }
-    
-    .carousel-nav-button {
-        width: 40px;
-        height: 40px;
-        padding: 0.8rem;
-    }
-    
-    .festa-container,
-    .feedback-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .contato-botoes {
-        flex-direction: column;
-        align-items: center;
-    }
+    /* ... outros estilos ... */
     
     section {
-        padding: 1.5rem 0.5rem;
-        margin: 1rem 0.5rem;
+        padding: 1.5rem 0; /* Removido o padding horizontal */
+        margin: 1rem 0;
     }
     
-    .festa-item img {
-        height: 180px;
-    }
+    /* ... outros estilos ... */
 }
 
 @media (max-width: 480px) {
-    .carousel-container {
-        width: 100%; /* Esta é a alteração principal */
-        aspect-ratio: 1/1; /* Proporção quadrada para telas muito pequenas */
+    /* ... outros estilos ... */
+    
+    section {
+        padding: 1.5rem 0; /* Removido o padding horizontal */
+        margin: 1rem 0;
     }
     
-    .carousel-nav-button {
-        width: 35px;
-        height: 35px;
-        padding: 0.6rem;
-    }
-    
-    #prev-button {
-        left: 0.5rem;
-    }
-    
-    #next-button {
-        right: 0.5rem;
-    }
-    
-    .carousel-indicators {
-        bottom: 0.5rem;
-    }
-    
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
-    }
-    
-    .festa-item img {
-        height: 150px;
-    }
+    /* ... outros estilos ... */
 }
 .botao-interesse {
     display: block; 
