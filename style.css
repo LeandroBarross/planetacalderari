@@ -1,7 +1,7 @@
 /* Paleta de Cores (Boas práticas de uso de variáveis) */
 :root {
     --rosa-claro: #FADADD;
-    --bege: #F5F5DC;
+    --branco: #d8d6d6;
     --branco: #FFFFFF;
     --cinza-escuro: #333333;
 }
@@ -404,6 +404,7 @@ footer {
 
 @media (max-width: 480px) {
     .carousel-container {
+        width: 100%; /* Esta é a alteração principal */
         aspect-ratio: 1/1; /* Proporção quadrada para telas muito pequenas */
     }
     
@@ -455,38 +456,4 @@ footer {
     background-color: #128C7E; 
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-/* Estilos para o Card da Festa */
-.festa-card {
-    background-color: #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    margin: 2rem auto; /* Centraliza o card na página */
-    text-align: center;
-    max-width: 450px; /* Largura máxima para os cards, ajuste conforme necessário */
-    transition: transform 0.3s ease-in-out;
-}
-
-.festa-card:hover {
-    transform: translateY(-5px);
-}
-
-/* Estilos para os títulos dentro do card */
-.festa-card h3 {
-    color: var(--rosa-claro);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Estilos para a descrição ou parágrafo */
-.festa-card p {
-    color: var(--cinza-escuro);
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-}
-
-/* Garante que o carrossel tenha bordas arredondadas */
-.carousel-container {
-    border-radius: 10px;
 }
