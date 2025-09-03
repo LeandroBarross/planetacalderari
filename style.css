@@ -372,68 +372,67 @@ footer {
 /* -------------------- Responsividade -------------------- */
 @media (max-width: 768px) {
     .carousel-container {
-        width: 90%; /* Adicione esta linha */
-        aspect-ratio: 4/3;
+        max-width: 90%;
+        aspect-ratio: 4/3; /* Proporção mais adequada para mobile */
     }
     
     .carousel-nav-button {
-        /* Mantenha como está */
+        width: 40px;
+        height: 40px;
+        padding: 0.8rem;
     }
     
-    .prev-button {
-        /* Mantenha como está */
-    }
-    
-    .next-button {
-        /* Mantenha como está */
-    }
-
     .festa-container,
     .feedback-container {
-        /* Mantenha como está */
+        grid-template-columns: 1fr;
     }
     
     .contato-botoes {
-        /* Mantenha como está */
+        flex-direction: column;
+        align-items: center;
     }
     
     section {
-        padding: 1.5rem 0.5rem; /* Removido o padding horizontal */
+        padding: 1.5rem 0.5rem;
         margin: 1rem 0.5rem;
     }
     
     .festa-item img {
-        /* Mantenha como está */
+        height: 180px;
     }
 }
+
 @media (max-width: 480px) {
     .carousel-container {
-        width: 100%; /* Adicione esta linha */
-        aspect-ratio: 1/1;
+        width: 100%; /* Esta é a alteração principal */
+        aspect-ratio: 1/1; /* Proporção quadrada para telas muito pequenas */
     }
     
     .carousel-nav-button {
-        /* Mantenha como está */
+        width: 35px;
+        height: 35px;
+        padding: 0.6rem;
     }
     
-    .prev-button {
-        /* Mantenha como está */
+    #prev-button {
+        left: 0.5rem;
     }
     
-    .next-button {
-        /* Mantenha como está */
+    #next-button {
+        right: 0.5rem;
     }
     
     .carousel-indicators {
-        /* Mantenha como está */
+        bottom: 0.5rem;
     }
     
     .carousel-indicator {
-        /* Mantenha como está */
+        width: 10px;
+        height: 10px;
     }
     
     .festa-item img {
-        /* Mantenha como está */
+        height: 150px;
     }
 }
 .botao-interesse {
