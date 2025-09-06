@@ -2,7 +2,7 @@
 :root {
     --rosa-claro: #FADADD;
     --branco: #e9cdcd;
-    --branco: #FFFFFF;
+    --branco: #ffffff;
     --cinza-escuro: #333333;
 }
 
@@ -90,13 +90,16 @@ section h2 {
     box-sizing: border-box;
     flex-shrink: 0;
 }
-
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Mantém a proporção e preenche o container */
-    display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* ajusta a altura máxima */
+  object-fit: contain;
+  display: block;
+  background: #ffffff; /* ou a cor do seu container */
+  border-radius: 12px;
 }
+
 
 /* BOTÕES DO CARROSSEL - VERSÃO CONSOLIDADA E CORRIGIDA */
 .carousel-nav-button {
