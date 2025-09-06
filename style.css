@@ -93,23 +93,20 @@ section h2 {
 .carousel-item img {
   width: 100%;
   height: auto;
-  max-height: 400px; /* ajusta a altura máxima */
-  object-fit: contain;
+  object-fit: contain; /* mostra a imagem inteira no celular */
   display: block;
-  background: #ffffff; /* ou a cor do seu container */
   border-radius: 12px;
+  max-height: 400px; /* controla a altura máxima */
 }
-@media (max-width: 768px) {
+
+/* Telas maiores (tablet/desktop) */
+@media (min-width: 768px) {
   .carousel-item img {
-    height: 250px;
+    height: 400px;     /* altura fixa */
+    object-fit: cover; /* preenche todo o espaço */
   }
 }
 
-@media (min-width: 769px) {
-  .carousel-item img {
-    height: 400px;
-  }
-}
 
 
 
