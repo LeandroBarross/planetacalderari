@@ -1,21 +1,21 @@
 /* Paleta de Cores (Boas práticas de uso de variáveis) */
+/* Paleta de Cores (Boas práticas de uso de variáveis) */
 :root {
-    --rosa-claro: #FADADD;
-    --branco: #e9cdcd;
-    --branco: #ffffff;
-    --cinza-escuro: #333333;
+--rosa-claro: #FADADD;
+--branco: #ffffff; /* Use apenas uma vez */
+--cinza-escuro: #333333;
+--branco: #f8f8f8; /* Adicione esta linha, ou use um valor como #f0f0f0 para um cinza claro */
 }
 
 /* Estilos Globais */
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--bege);
-    color: var(--cinza-escuro);
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+font-family: Arial, sans-serif;
+background-color: var(--bege); /* Garante que o fundo use a variável correta */
+color: var(--cinza-escuro);
+margin: 0;
+padding: 0;
+line-height: 1.6;
 }
-
 /* -------------------- Estilos do Cabeçalho -------------------- */
 header {
     background-color: var(--rosa-claro);
