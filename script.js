@@ -89,5 +89,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
         window.addEventListener('resize', updateCarousel);
         
         updateCarousel();
+        const track = document.querySelector('.carousel-track');
+        const item = document.querySelector('.carousel-item');
+
+// Exemplo de como a navegação para a próxima imagem funcionaria
+function nextImage() {
+    currentIndex++;
+    // Garante que não ultrapasse a última imagem
+    // Por exemplo, se tiver 3 imagens, o índice máximo é 2.
+    if (currentIndex >= track.children.length) {
+        currentIndex = 0; // Volta para o início se chegar ao fim
+    }
+    
+    // A translação deve ser baseada na largura do item do carrossel
+    const itemWidth = item.getBoundingClientRect().width;
+    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}
     }
 });
