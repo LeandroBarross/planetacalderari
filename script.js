@@ -1,7 +1,17 @@
 console.log('Script.js carregado na página:', window.location.pathname);
 
+// Adicione esta variável fora do 'DOMContentLoaded'
+let carouselsInitialized = false;
+
 document.addEventListener('DOMContentLoaded', (event) => {
     
+    // VERIFICAÇÃO DE INICIALIZAÇÃO
+    if (carouselsInitialized) {
+        console.log('Carrosséis já foram inicializados. Abortando a segunda execução.');
+        return; // Sai da função para evitar duplicação
+    }
+    carouselsInitialized = true; // Marca como inicializado
+
     // --- Lógica do Menu Hambúrguer ---
     const menuToggleLabel = document.getElementById('menu-toggle-label');
     const menuLinks = document.querySelector('.menu-links');
@@ -42,7 +52,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         const updateCarousel = () => {
             if (items.length > 0) {
-                // AQUI ESTÁ A CORREÇÃO: Usamos a largura em pixels do item.
                 const itemWidth = items[0].getBoundingClientRect().width;
                 track.style.transform = `translateX(-${currentItem * itemWidth}px)`;
             }
@@ -62,10 +71,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             });
         }
 
-        // Adiciona um listener para atualizar o carrossel quando a janela for redimensionada
         window.addEventListener('resize', updateCarousel);
-
-        // Atualiza a posição inicial do carrossel ao carregar a página
+        
         updateCarousel();
     });
 });
