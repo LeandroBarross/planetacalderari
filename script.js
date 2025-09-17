@@ -1,4 +1,5 @@
 console.log('Script.js carregado na página:', window.location.pathname);
+
 document.addEventListener('DOMContentLoaded', (event) => {
     
     // --- Lógica do Menu Hambúrguer ---
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-    // --- Lógica do Carrossel (Versão para Múltiplos Carrosséis) ---
+    // --- Lógica do Carrossel (Única e Correta) ---
     console.log('Inicializando carrosséis...');
     
     const carousels = document.querySelectorAll('.carousel-container');
@@ -40,7 +41,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let currentItem = 0;
 
         const updateCarousel = () => {
-            track.style.transform = `translateX(-${currentItem * 100}%)`;
+            if (items.length > 0) {
+                // AQUI ESTÁ A CORREÇÃO: Usamos a largura em pixels do item.
+                const itemWidth = items[0].getBoundingClientRect().width;
+                track.style.transform = `translateX(-${currentItem * itemWidth}px)`;
+            }
         };
 
         if (nextButton) {
@@ -56,54 +61,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 updateCarousel();
             });
         }
-    });
 
-    // --- Código Original do Carrossel (para compatibilidade) ---
-    // Este código é mantido para não quebrar as outras páginas
-    const track = document.getElementById('carousel-track');
-    const prevButton = document.getElementById('prev-button');
-    const nextButton = document.getElementById('next-button');
-    
-    if (track && prevButton && nextButton) {
-        const items = track.querySelectorAll('.carousel-item');
-        const totalItems = items.length;
-        let currentIndex = 0;
-
-        const updateCarousel = () => {
-            if (items.length > 0) {
-                const itemWidth = items[0].getBoundingClientRect().width;
-                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-            }
-        };
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
-            updateCarousel();
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
-            updateCarousel();
-        });
-
+        // Adiciona um listener para atualizar o carrossel quando a janela for redimensionada
         window.addEventListener('resize', updateCarousel);
-        
-        updateCarousel();
-        const track = document.querySelector('.carousel-track');
-        const item = document.querySelector('.carousel-item');
 
-// Exemplo de como a navegação para a próxima imagem funcionaria
-function nextImage() {
-    currentIndex++;
-    // Garante que não ultrapasse a última imagem
-    // Por exemplo, se tiver 3 imagens, o índice máximo é 2.
-    if (currentIndex >= track.children.length) {
-        currentIndex = 0; // Volta para o início se chegar ao fim
-    }
-    
-    // A translação deve ser baseada na largura do item do carrossel
-    const itemWidth = item.getBoundingClientRect().width;
-    track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
-}
-    }
+        // Atualiza a posição inicial do carrossel ao carregar a página
+        updateCarousel();
+    });
 });
