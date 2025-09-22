@@ -9,27 +9,25 @@
 </head>
 <body>
     
-    <!-- Menu de Navegação para telas grandes -->
     <nav class="menu-fixo">
         <a href="festas.html">Pegue e monte</a>
         <a href="categorias.html">Categorias</a>
     </nav>
     
-   <!-- Menu de Navegação para telas pequenas (Hambúrguer) -->
-<nav class="menu-hamburguer">
-    <label id="menu-toggle-label" class="menu-icone">
-        <i class="fas fa-bars"></i>
-    </label>
-    
-    <div id="menu-links" class="menu-links">
-        <label id="menu-fechar-label" class="menu-fechar">
-            <i class="fas fa-xmark"></i>
+    <nav class="menu-hamburguer">
+        <label id="menu-toggle-label" class="menu-icone">
+            <i class="fas fa-bars"></i>
         </label>
-        <a href="index.html">Página Inicial</a>
-        <a href="festas.html">Pegue e monte</a>
-        <a href="#contato">Contato</a>
-    </div>
-</nav>
+        
+        <div id="menu-links" class="menu-links">
+            <label id="menu-fechar-label" class="menu-fechar">
+                <i class="fas fa-xmark"></i>
+            </label>
+            <a href="index.html">Página Inicial</a>
+            <a href="festas.html">Pegue e monte</a>
+            <a href="#contato">Contato</a>
+        </div>
+    </nav>
 
     <header>
         <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
@@ -38,124 +36,111 @@
     </header>
 
     <section class="galeria-temas">
-    <div class="tema-carrossel">
-    <h2>Chá de Bebê</h2>
 
-    <div class="carousel-container" id="container-cha-de-bebe">
-        <div class="carousel-track" id="track-cha-de-bebe">
-             <div class="carousel-item">
-            <img src="img/foto1.jpeg"
-                 srcset="img/foto1.jpeg 480w, 
-                         img/foto1.jpeg 800w, 
-                         img/foto1.jpeg 1200w"
-                 sizes="(max-width: 480px) 480px, 
-                        (max-width: 800px) 800px, 
-                        1200px"
-                 alt="Descrição da imagem 1">
-        </div>
-
-        <!-- Item 2 - Imagem 2 com versões responsivas -->
-        <div class="carousel-item">
-            <img src="img/foto2.jpeg"
-                 srcset="img/foto2.jpeg 480w, 
-                         img/foto2.jpeg 800w, 
-                         img/foto2.jpeg 1200w"
-                 sizes="(max-width: 480px) 480px, 
-                        (max-width: 800px) 800px, 
-                        1200px"
-                 alt="Descrição da imagem 2">
-        </div>
-
-</div>
-
-        <button class="carousel-nav-button prev-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-nav-button next-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="botao-galeria-container">
-        <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o."
-           target="_blank" 
-           class="botao-interesse">
-            Tenho interesse!
-        </a>
-    </div>
-</div>
-            
-
-        <!-- Carrossel para Festa Infantil -->
         <div class="tema-carrossel">
-    <h2>Chá de Bebê</h2>
+            <h2>Chá de Bebê</h2>
 
-    <div class="carousel-container" id="container-cha-de-bebe">
-        <div class="carousel-track" id="track-cha-de-bebe">
-            <div class="carousel-item">
-                <img src="img/foto4.jpeg" alt="Decoração de Chá de Bebê">
+            <div class="carousel-container" id="container-cha-de-bebe">
+                <div class="carousel-track" id="track-cha-de-bebe">
+                    <div class="carousel-item">
+                        <img src="img/foto1.jpeg"
+                            srcset="img/foto1.jpeg 480w, 
+                                    img/foto1.jpeg 800w, 
+                                    img/foto1.jpeg 1200w"
+                            sizes="(max-width: 480px) 480px, 
+                                   (max-width: 800px) 800px, 
+                                   1200px"
+                            alt="Decoração de Chá de Bebê">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="img/foto2.jpeg"
+                            srcset="img/foto2.jpeg 480w, 
+                                    img/foto2.jpeg 800w, 
+                                    img/foto2.jpeg 1200w"
+                            sizes="(max-width: 480px) 480px, 
+                                   (max-width: 800px) 800px, 
+                                   1200px"
+                            alt="Decoração de Chá de Bebê">
+                    </div>
+                </div>
+
+                <button class="carousel-nav-button prev-button" data-carousel="cha-de-bebe">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-button next-button" data-carousel="cha-de-bebe">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div> <div class="botao-galeria-container">
+                <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o%20de%20Ch%C3%A1%20de%20Beb%C3%AA."
+                    target="_blank" 
+                    class="botao-interesse">
+                    Tenho interesse!
+                </a>
             </div>
-            <div class="carousel-item">
-                <img src="img/foto5.jpeg" alt="Decoração de Chá de Bebê">
-            </div>
-            <div class="carousel-item">
-                <img src="img/foto6.jpeg" alt="Decoração de Chá de Bebê">
-            </div>
-        </div>
+        </div> 
 
-        <button class="carousel-nav-button prev-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-nav-button next-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="botao-galeria-container">
-        <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o." target="_blank" class="botao-interesse">
-            Tenho interesse!
-        </a>
-    </div>
-
-</div> 
-
-        <!-- Carrossel para Festas de Aniversário Adulto -->
         <div class="tema-carrossel">
-    <h2>Aniversário Adulto</h2>
+            <h2>Festa Infantil</h2>
 
-    <div class="carousel-container" id="container-aniversario-adulto">
-        <div class="carousel-track" id="track-aniversario-adulto">
-            <div class="carousel-item">
-                <img src="img/foto7.jpeg" alt="Decoração">
+            <div class="carousel-container" id="container-festa-infantil">
+                <div class="carousel-track" id="track-festa-infantil">
+                    <div class="carousel-item">
+                        <img src="img/foto4.jpeg" alt="Decoração de Festa Infantil">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/foto5.jpeg" alt="Decoração de Festa Infantil">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/foto6.jpeg" alt="Decoração de Festa Infantil">
+                    </div>
+                </div>
+
+                <button class="carousel-nav-button prev-button" data-carousel="festa-infantil">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-button next-button" data-carousel="festa-infantil">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-            <div class="carousel-item">
-                <img src="img/foto8.jpeg" alt="Decoração de Aniversário">
+
+            <div class="botao-galeria-container">
+                <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o%20Infantil." target="_blank" class="botao-interesse">
+                    Tenho interesse!
+                </a>
             </div>
-            <div class="carousel-item">
-                <img src="img/foto9.jpeg" alt="Decoração de Aniversário Adulto">
+        </div> 
+
+        <div class="tema-carrossel">
+            <h2>Aniversário Adulto</h2>
+
+            <div class="carousel-container" id="container-aniversario-adulto">
+                <div class="carousel-track" id="track-aniversario-adulto">
+                    <div class="carousel-item">
+                        <img src="img/foto7.jpeg" alt="Decoração de Aniversário Adulto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/foto8.jpeg" alt="Decoração de Aniversário Adulto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/foto9.jpeg" alt="Decoração de Aniversário Adulto">
+                    </div>
+                </div>
+
+                <button class="carousel-nav-button prev-button" data-carousel="aniversario-adulto">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-nav-button next-button" data-carousel="aniversario-adulto">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-        </div>
 
-        <button class="carousel-nav-button prev-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-nav-button next-button" data-carousel="aniversario-adulto">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-    </div>
-
-    <div class="botao-galeria-container">
-        <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o." target="_blank" class="botao-interesse">
-            Tenho interesse!
-        </a>
-    </div>
-
-</div> 
-
-
-</section>
-
-    <!-- Seção de Contato -->
+            <div class="botao-galeria-container">
+                <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20uma%20decora%C3%A7%C3%A3o%20Adulto." target="_blank" class="botao-interesse">
+                    Tenho interesse!
+                </a>
+            </div>
+        </div> </section>
     <section id="contato">
         <h2>Fale Conosco</h2>
         <p>Entre em contato pelas nossas redes sociais!</p>
@@ -170,12 +155,10 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Planeta Calderari. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Adiciona os arquivos JavaScript externos -->
     <script src="script.js"></script>
 
 </body>
