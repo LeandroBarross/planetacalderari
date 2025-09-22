@@ -1,16 +1,14 @@
-/* Paleta de Cores (Boas práticas de uso de variáveis) */
-/* Paleta de Cores (Boas práticas de uso de variáveis) */
 :root {
 --rosa-claro: #FADADD;
---branco: #ffffff; /* Use apenas uma vez */
+--branco: #ffffff; 
 --cinza-escuro: #333333;
---branco: #f8f8f8; /* Adicione esta linha, ou use um valor como #f0f0f0 para um cinza claro */
+--branco: #f8f8f8; 
 }
 
 /* Estilos Globais */
 body {
 font-family: Arial, sans-serif;
-background-color: var(--bege); /* Garante que o fundo use a variável correta */
+background-color: var(--branco); /* Garante que o fundo use a variável correta */
 color: var(--cinza-escuro);
 margin: 0;
 padding: 0;
@@ -20,7 +18,7 @@ line-height: 1.6;
 header {
     background-color: var(--rosa-claro);
     color: var(--branco);
-    padding: 1rem 0; /* Valor ajustado */
+    padding: 1rem 0; 
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -404,4 +402,54 @@ footer {
     background-color: #128C7E; 
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+/* 1. Estilo para o Título (Centralizado e com Cor) */
+#galeria h2 {
+    text-align: center;
+    color: var(--rosa-claro); /* Cor do seu tema */
+    border-bottom: 2px solid var(--rosa-claro);
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+/* 2. CONTÊINER DO GRID DAS FOTOS (O elemento que ALINHA AS 3 COLUNAS) */
+.galeria-fotos-grid { 
+    /* Garante 3 colunas de largura igual */
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    
+    /* Centraliza o bloco na página */
+    max-width: 1000px;
+    margin: 0 auto; 
+}
+
+/* 3. ESTILO DE CADA ITEM DE FOTO (A DIV ENVOLVENDO A IMAGEM) */
+.galeria-foto {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* 4. ESTILO DA IMAGEM (Onde você corrige a ALTURA/ACHATAMENTO) */
+.galeria-foto img {
+    width: 100%;
+    
+    /* ESSAS DUAS LINHAS RESOLVEM O ACHATAMENTO E O TAMANHO GIGANTE */
+    height: 280px; /* Define uma altura uniforme para todas */
+    object-fit: cover; /* Mantém a proporção da imagem cortando as bordas */
+    
+    display: block;
+}
+
+/* 5. Responsividade (para telas menores) */
+@media (max-width: 768px) {
+    .galeria-fotos-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media (max-width: 480px) {
+    .galeria-fotos-grid {
+        grid-template-columns: 1fr; /* 1 coluna em celular */
+    }
 }
