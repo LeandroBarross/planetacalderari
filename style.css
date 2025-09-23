@@ -1,21 +1,20 @@
 :root {
   --rosa-claro: #FADADD;
-  --branco: #f8f8f8;  /* Removida duplicata; mantido o valor final original para consistência */
+  --branco: #f8f8f8;  
   --cinza-escuro: #333333;
-  --branco: #ffffff;  /* Adicionado para corrigir variável indefinida em .festa-item; cor neutra que combina com o tema */
+  --branco: #ffffff;  
 }
 
-/* Estilos Globais */
 body {
   font-family: Arial, sans-serif;
-  background-color: var(--branco); /* Garante que o fundo use a variável correta */
+  background-color: var(--branco); 
   color: var(--cinza-escuro);
   margin: 0;
   padding: 0;
   line-height: 1.6;
 }
 
-/* -------------------- Estilos do Cabeçalho -------------------- */
+/* Estilos do Cabeçalho */
 header {
   background-color: var(--rosa-claro);
   color: var(--branco);
@@ -34,13 +33,13 @@ header {
   border-radius: 50%;
 }
 
-/* -------------------- Estilos das Seções -------------------- */
+/* Estilos das Seções */
 section {
   padding: 2rem 1rem;
   margin-bottom: 1rem;
   background-color: var(--branco);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.003);
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -132,7 +131,7 @@ footer {
 }
 
 .festa-item {
-  background-color: var(--bege);
+  background-color: var();
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -235,21 +234,18 @@ footer {
   margin: 0 auto; 
 }
 
-/* ESTILO DE CADA ITEM DE FOTO (A DIV ENVOLVENDO A IMAGEM) */
+/* ESTILO DE CADA ITEM DE FOTO */
 .galeria-foto {
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* ESTILO DA IMAGEM (Onde você corrige a ALTURA/ACHATAMENTO) */
+/* ESTILO DA IMAGEM  */
 .galeria-foto img {
   width: 100%;
-  
-  /* ESSAS DUAS LINHAS RESOLVEM O ACHATAMENTO E O TAMANHO GIGANTE */
-  height: 280px; /* Define uma altura uniforme para todas */
-  object-fit: cover; /* Mantém a proporção da imagem cortando as bordas */
-  
+  height: 280px; 
+  object-fit: cover; 
   display: block;
 }
 
@@ -262,7 +258,7 @@ footer {
 
 @media (max-width: 480px) {
   .galeria-fotos-grid {
-    grid-template-columns: 1fr; /* 1 coluna em celular */
+    grid-template-columns: 3fr; /* 1 coluna em celular */
   }
 }
 
