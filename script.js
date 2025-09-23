@@ -34,3 +34,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.log('Apenas o Menu Hambúrguer está ativo neste script.');
 
 });
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleciona todos os botões de toggle (incluindo o de CATEGORIAS)
+    const toggleButtons = document.querySelectorAll('.toggle-submenu');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // O submenu é o elemento irmão imediato do botão
+            const submenu = this.nextElementSibling;
+            
+            if (submenu && submenu.classList.contains('submenu')) {
+                // Alterna a classe 'is-open' no SUBMENU (mostra/esconde a lista)
+                submenu.classList.toggle('is-open');
+                
+                // Alterna a classe 'is-open' no BOTÃO (gira a seta)
+                this.classList.toggle('is-open');
+            }
+        });
+    });
+});

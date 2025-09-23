@@ -8,26 +8,37 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+ <nav class="menu-hamburguer">
+    <label id="menu-toggle-label" class="menu-icone">
+        <i class="fas fa-bars"></i>
+    </label>
     
-    <nav class="menu-fixo">
-        <a href="festas.html">Pegue e monte</a>
-        <a href="categorias.html">Categorias</a>
-    </nav>
-    
-    <nav class="menu-hamburguer">
-        <label id="menu-toggle-label" class="menu-icone">
-            <i class="fas fa-bars"></i>
+    <div class="menu-links">
+        <label id="menu-fechar-label" class="menu-fechar">
+            <i class="fas fa-xmark"></i>
         </label>
         
-        <div id="menu-links" class="menu-links">
-            <label id="menu-fechar-label" class="menu-fechar">
-                <i class="fas fa-xmark"></i>
-            </label>
-            <a href="index.html">Página Inicial</a>
-            <a href="festas.html">Pegue e monte</a>
-            <a href="#contato">Contato</a>
-        </div>
-    </nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="festas.html">Pegue e monte</a></li>
+            
+            <li class="has-submenu">
+                <button class="toggle-submenu">CATEGORIAS</button> 
+                
+                <ul class="submenu">
+                <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
+                    <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
+                    <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
+                    <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
+                    
+                </ul>
+            </li>
+            
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+        
+    </div>
+</nav>
 
     <header>
         <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
@@ -35,9 +46,9 @@
         <h2>Confira nossas decorações por tema</h2>
     </header>
 
-    <section class="galeria-temas">
+    <section class="galeria-temas" id="galeria-temas">
 
-        <div class="tema-galeria">
+        <div class="tema-galeria" id="cha-de-bebe">
             <h2>Chá de Bebê</h2>
             
             <div class="galeria-fotos-grid">
@@ -61,7 +72,7 @@
             </div>
         </div> 
 
-        <div class="tema-galeria">
+        <div class="tema-galeria" id="festa-infantil">
             <h2>Festa Infantil</h2>
 
             <div class="galeria-fotos-grid">
@@ -83,7 +94,7 @@
             </div>
         </div> 
 
-        <div class="tema-galeria">
+        <div class="tema-galeria" id="aniversario-adulto">
             <h2>Aniversário Adulto</h2>
 
             <div class="galeria-fotos-grid">

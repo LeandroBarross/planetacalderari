@@ -8,21 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Menu de Navegação (Hambúrguer) -->
-    <nav class="menu-hamburguer">
-        <label id="menu-toggle-label" class="menu-icone">
-            <i class="fas fa-bars"></i>
+<nav class="menu-hamburguer">
+    <label id="menu-toggle-label" class="menu-icone">
+        <i class="fas fa-bars"></i>
+    </label>
+    
+    <div class="menu-links">
+        <label id="menu-fechar-label" class="menu-fechar">
+            <i class="fas fa-xmark"></i>
         </label>
-        <div id="menu-links-container" class="menu-links">
-            <label id="menu-fechar-label" class="menu-fechar">
-                <i class="fas fa-times"></i>
-            </label>
-            <a href="index.html">Página Inicial</a>
-            <a href="categorias.html">Categorias</a>
-           <a href="#feedbacks">Feedbacks</a>
-        </div>
-    </nav>
+        
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="festas.html">Pegue e monte</a></li>
+            
+            <li class="has-submenu">
+                <button class="toggle-submenu">CATEGORIAS</button> 
+                
+                <ul class="submenu">
+                   <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
+                    <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
+                    <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
+                    <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
+            </li>
+           
+        </ul>
+         <li> <a href="#feedbacks">Feedbacks</a></li>
+        
+    </div>
+</nav>
 
     <header>
         <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">

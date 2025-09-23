@@ -8,24 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+      
+ <nav class="menu-hamburguer">
+    <label id="menu-toggle-label" class="menu-icone">
+        <i class="fas fa-bars"></i>
+    </label>
     
-    <!-- Menu de Navegação (Hambúrguer) -->
-    <nav class="menu-hamburguer">
-        <label id="menu-toggle-label" class="menu-icone">
-            <i class="fas fa-bars"></i>
+    <div class="menu-links">
+        <label id="menu-fechar-label" class="menu-fechar">
+            <i class="fas fa-xmark"></i>
         </label>
         
-        <div class="menu-links">
-            <label id="menu-fechar-label" class="menu-fechar">
-                <i class="fas fa-xmark"></i>
-            </label>
-            <a href="index.html">Página Inicial</a>
-            <a href="festas.html">Pegue e monte</a>
-            <a href="categorias.html">Categorias</a>
-            <a href="#contato">Contato</a>
-            <a href="#sobre-nos">Sobre Nós</a>
-        </div>
-    </nav>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="festas.html">Pegue e monte</a></li>
+            
+            <li class="has-submenu">
+                <button class="toggle-submenu">CATEGORIAS</button> 
+                
+                <ul class="submenu">
+                   <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
+                    <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
+                    <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
+                    <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
+            </li>
+        </ul>
+        
+            <li><a href="#sobre-nos">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+            
+        
+    </div>
+</nav>
 
     <!-- Cabeçalho -->
     <header>

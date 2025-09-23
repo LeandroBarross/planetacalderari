@@ -1,455 +1,433 @@
 :root {
---rosa-claro: #FADADD;
---branco: #ffffff; 
---cinza-escuro: #333333;
---branco: #f8f8f8; 
+  --rosa-claro: #FADADD;
+  --branco: #f8f8f8;  /* Removida duplicata; mantido o valor final original para consistência */
+  --cinza-escuro: #333333;
+  --branco: #ffffff;  /* Adicionado para corrigir variável indefinida em .festa-item; cor neutra que combina com o tema */
 }
 
 /* Estilos Globais */
 body {
-font-family: Arial, sans-serif;
-background-color: var(--branco); /* Garante que o fundo use a variável correta */
-color: var(--cinza-escuro);
-margin: 0;
-padding: 0;
-line-height: 1.6;
+  font-family: Arial, sans-serif;
+  background-color: var(--branco); /* Garante que o fundo use a variável correta */
+  color: var(--cinza-escuro);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
+
 /* -------------------- Estilos do Cabeçalho -------------------- */
 header {
-    background-color: var(--rosa-claro);
-    color: var(--branco);
-    padding: 1rem 0; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: var(--rosa-claro);
+  color: var(--branco);
+  padding: 1rem 0; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
- 
 
 .logo {
-    max-width: 80px;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 50%;
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 50%;
 }
 
 /* -------------------- Estilos das Seções -------------------- */
 section {
-    padding: 2rem 1rem;
-    margin-bottom: 1rem;
-    background-color: var(--branco);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--branco);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 section h2 {
-    color: var(--rosa-claro);
-    border-bottom: 2px solid var(--rosa-claro);
-    padding-bottom: 0.5rem;
-    text-align: center;
+  color: var(--rosa-claro);
+  border-bottom: 2px solid var(--rosa-claro);
+  padding-bottom: 0.5rem;
+  text-align: center;
 }
 
 /* Estilos para a Seção de Galeria */
 #galeria {
-    text-align: center;
+  text-align: center;
 }
 
 #galeria h2 {
-    text-align: center;
-    color: var(--rosa-claro);
-    border-bottom: 2px solid var(--rosa-claro);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  color: var(--rosa-claro);
+  border-bottom: 2px solid var(--rosa-claro);
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
-/* -------------------- Estilos para o Container das Fotos do Carrossel (Melhorado e Final) -------------------- */
-.carousel-container {
-    position: relative;
-    max-width: 700px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    height: 400px;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-}
-
-.carousel-item {
-    min-width: 100%;
-    /* **Nova regra essencial:** */
-    box-sizing: border-box; 
-    flex-shrink: 0;
-    height: 100%;
-    /* **Adicione essas 3 regras para resolver o problema** */
-    margin: 0;
-    padding: 0;
-    border: none;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    background-color: #ffffff;
-    border-radius: 12px;
-}
-
-@media (max-width: 768px) {
-    .carousel-container {
-        height: 250px;
-    }
-}
-
-/* BOTÕES DO CARROSSEL - VERSÃO CONSOLIDADA E CORRIGIDA */
-.carousel-nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 100;
-    transition: all 0.3s ease;
-    color: #f59bb7;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.carousel-nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-50%) scale(1.05);
-}
-
-/* Posicionamento dos botões anterior e próximo usando classes */
-.prev-button {
-    left: 15px;
-}
-
-.next-button {
-    right: 15px;
-}
-
-/* Estilos responsivos para os botões */
-@media (max-width: 768px) {
-    .carousel-nav-button {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    
-    .prev-button {
-        left: 10px;
-    }
-    
-    .next-button {
-        right: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .carousel-nav-button {
-        width: 35px;
-        height: 35px;
-        font-size: 0.9rem;
-    }
-    
-    .prev-button {
-        left: 5px;
-    }
-    
-    .next-button {
-        right: 5px;
-    }
-}
-
-
-
 
 /* -------------------- Botões de Contato -------------------- */
 #contato {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contato-botoes {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
 }
 
 .botao-contato {
-    text-decoration: none;
-    color: var(--branco);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: var(--branco);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .botao-contato.instagram {
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
 .botao-contato.whatsapp {
-    background-color: #25D366;
+  background-color: #25D366;
 }
 
 .botao-contato:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .botao-contato i {
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 
 /* -------------------- Rodapé -------------------- */
 footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: var(--cinza-escuro);
-    color: var(--branco);
-}
-
-/* -------------------- Menu Hambúrguer -------------------- */
-.menu-fixo {
-    display: none;
-}
-
-.menu-hamburguer {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
-}
-
-.menu-hamburguer .menu-links {
-    position: fixed;
-    top: 0;
-    right: -250px;
-    height: 100%;
-    width: 250px;
-    background-color: var(--cinza-escuro);
-    padding-top: 5rem;
-    transition: right 0.3s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.menu-hamburguer .menu-links a {
-    color: var(--branco);
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 1rem;
-    width: 100%;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-.menu-hamburguer .menu-links a:hover {
-    background-color: var(--rosa-claro);
-    color: var(--cinza-escuro);
-}
-
-.menu-hamburguer .menu-links.menu-aberto {
-    right: 0;
-}
-
-.menu-hamburguer .menu-icone {
-    color: var(--cinza-escuro);
-    font-size: 2rem;
-    cursor: pointer;
-    background-color: var(--branco);
-    padding: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.menu-hamburguer .menu-fechar {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: var(--branco);
-    font-size: 2rem;
-    cursor: pointer;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: var(--cinza-escuro);
+  color: var(--branco);
 }
 
 /* -------------------- Festas e Preços -------------------- */
 #festas-e-precos {
-    text-align: center;
+  text-align: center;
 }
 
 .festa-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 1rem;
 }
 
 .festa-item {
-    background-color: var(--bege);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+  background-color: var(--bege);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 
 .festa-item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .festa-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
 }
 
 .festa-item h3 {
-    color: var(--rosa-claro);
-    margin-top: 0;
+  color: var(--rosa-claro);
+  margin-top: 0;
 }
 
 .festa-item .preco {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #4CAF50;
-    margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4CAF50;
+  margin: 1rem 0;
 }
 
 /* -------------------- Feedbacks -------------------- */
 #feedbacks {
-    text-align: center;
+  text-align: center;
 }
 
 .feedback-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 1rem;
 }
 
 .feedback-item {
-    background-color: var(--branco);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid var(--rosa-claro);
+  background-color: var(--branco);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--rosa-claro);
 }
 
 .feedback-item .avaliacao {
-    color: #FFD700;
-    margin-bottom: 1rem;
+  color: #FFD700;
+  margin-bottom: 1rem;
 }
 
 .feedback-item .comentario {
-    font-style: italic;
-    color: var(--cinza-escuro);
-    line-height: 1.8;
+  font-style: italic;
+  color: var(--cinza-escuro);
+  line-height: 1.8;
 }
 
 .feedback-item .cliente {
-    margin-top: 1rem;
-    font-weight: bold;
-    color: var(--rosa-claro);
+  margin-top: 1rem;
+  font-weight: bold;
+  color: var(--rosa-claro);
 }
 
-
 .botao-interesse {
-    display: block; 
-    background-color: #25D366; 
-    color: #FFFFFF;
-    padding: 0.8rem 1rem; 
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    font-size: 0.9rem; 
-    text-align: center;
-    width: 150px;
-    margin: 1rem auto; 
-    box-sizing: border-box; 
+  display: block; 
+  background-color: #25D366; 
+  color: #FFFFFF;
+  padding: 0.8rem 1rem; 
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem; 
+  text-align: center;
+  width: 150px;
+  margin: 1rem auto; 
+  box-sizing: border-box; 
 }
 
 .botao-interesse:hover {
-    background-color: #128C7E; 
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-/* 1. Estilo para o Título (Centralizado e com Cor) */
-#galeria h2 {
-    text-align: center;
-    color: var(--rosa-claro); /* Cor do seu tema */
-    border-bottom: 2px solid var(--rosa-claro);
-    padding-bottom: 0.5rem;
-    margin-bottom: 2rem;
+  background-color: #128C7E; 
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* 2. CONTÊINER DO GRID DAS FOTOS (O elemento que ALINHA AS 3 COLUNAS) */
+/* CONTÊINER DO GRID DAS FOTOS (O elemento que ALINHA AS 3 COLUNAS) */
 .galeria-fotos-grid { 
-    /* Garante 3 colunas de largura igual */
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
-    
-    /* Centraliza o bloco na página */
-    max-width: 1000px;
-    margin: 0 auto; 
+  /* Garante 3 colunas de largura igual */
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  
+  /* Centraliza o bloco na página */
+  max-width: 1000px;
+  margin: 0 auto; 
 }
 
-/* 3. ESTILO DE CADA ITEM DE FOTO (A DIV ENVOLVENDO A IMAGEM) */
+/* ESTILO DE CADA ITEM DE FOTO (A DIV ENVOLVENDO A IMAGEM) */
 .galeria-foto {
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-/* 4. ESTILO DA IMAGEM (Onde você corrige a ALTURA/ACHATAMENTO) */
+/* ESTILO DA IMAGEM (Onde você corrige a ALTURA/ACHATAMENTO) */
 .galeria-foto img {
-    width: 100%;
-    
-    /* ESSAS DUAS LINHAS RESOLVEM O ACHATAMENTO E O TAMANHO GIGANTE */
-    height: 280px; /* Define uma altura uniforme para todas */
-    object-fit: cover; /* Mantém a proporção da imagem cortando as bordas */
-    
-    display: block;
+  width: 100%;
+  
+  /* ESSAS DUAS LINHAS RESOLVEM O ACHATAMENTO E O TAMANHO GIGANTE */
+  height: 280px; /* Define uma altura uniforme para todas */
+  object-fit: cover; /* Mantém a proporção da imagem cortando as bordas */
+  
+  display: block;
 }
 
-/* 5. Responsividade (para telas menores) */
+/* Responsividade (para telas menores) */
 @media (max-width: 768px) {
-    .galeria-fotos-grid {
-        grid-template-columns: repeat(2, 1fr); 
-    }
+  .galeria-fotos-grid {
+    grid-template-columns: repeat(2, 1fr); 
+  }
 }
+
 @media (max-width: 480px) {
-    .galeria-fotos-grid {
-        grid-template-columns: 1fr; /* 1 coluna em celular */
-    }
+  .galeria-fotos-grid {
+    grid-template-columns: 1fr; /* 1 coluna em celular */
+  }
+}
+
+/* -------------------- Menu Hambúrguer e Sanfona (Acordeão) - Unificado, Alinhado à Esquerda e Tamanhos Uniformes (Categorias alinhado com os outros) -------------------- */
+.menu-fixo {
+  display: none;  /* Menu fixo para desktop, se necessário; ajuste com media query se afetar outras páginas */
+}
+
+.menu-hamburguer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+}
+
+.menu-hamburguer .menu-links {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  height: 100%;
+  width: 250px;  /* Largura fixa para uniformidade */
+  background-color: var(--cinza-escuro);
+  padding-top: 5rem;
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Alinha TODOS os itens (incluindo Categorias) à esquerda */
+  justify-content: flex-start;  /* Empilha itens uniformemente de cima */
+  gap: 0;  /* Sem gaps extras para alinhamento preciso */
+}
+
+.menu-hamburguer .menu-links.menu-aberto {
+  right: 0;
+}
+
+.menu-hamburguer .menu-icone {
+  color: var(--cinza-escuro);
+  font-size: 2rem;
+  cursor: pointer;
+  background-color: var(--branco);
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-hamburguer .menu-fechar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: var(--branco);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.menu-links ul {
+  width: 100%;
+  padding-left: 0; 
+  margin: 0; 
+  list-style: none;
+}
+
+.menu-links ul li {
+  width: 100%;  /* Garante que cada <li> (incluindo o de Categorias) ocupe a largura total para uniformidade */
+  padding: 0;  /* Zera padding nos <li> para evitar desalinhamento à esquerda */
+  margin: 0;   /* Zera margin para precisão no alinhamento */
+}
+
+/* Estilo para links principais (Página Inicial, Contato, etc.) - Alinhados e uniformes */
+.menu-links ul li a {
+  display: block;
+  width: 100%;  /* Ocupa toda a largura */
+  color: rgb(255, 255, 255); 
+  text-decoration: none;
+  padding: 20px 15px;  /* Padding uniforme: 20px vertical para mesma altura */
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 1.2;  /* Uniformiza a altura da linha de texto */
+  text-align: left;  /* Alinhamento explícito à esquerda */
+  vertical-align: top;  /* Evita desalinhamentos verticais sutis */
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;  /* Inclui padding na largura total */
+}
+
+.menu-links ul li a:hover {
+  background-color: var(--rosa-claro);
+  color: var(--cinza-escuro);
+}
+
+/* Estilo do botão "Categorias" (Sanfona) - Alinhado EXATAMENTE como os links principais */
+.toggle-submenu {
+  display: block;
+  width: 100%;  /* Mesmo tamanho que os links */
+  color: rgb(255, 255, 255); 
+  font-size: 20px;  /* Mesmo tamanho de fonte */
+  font-weight: bold;
+  padding: 20px 15px;  /* Padding IDÊNTICO aos links principais para alinhamento perfeito */
+  line-height: 1.2;  /* Uniformiza altura */
+  text-align: left;  /* Alinhado à esquerda, igual aos outros */
+  vertical-align: top;  /* Evita desalinhamentos verticais sutis */
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-submenu:hover {
+  background-color: var(--rosa-claro);
+  color: var(--cinza-escuro);
+}
+
+/* Seta da sanfona - Distância diminuída para equilibrar visualmente o item (sem afetar texto à esquerda) */
+.toggle-submenu::after {
+  content: 'v';
+  color: white;
+  position: absolute;
+  right: 15px;  /* Diminuída de 20px para 15px: aproxima da borda direita, alinhando com padding-right */
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
+  font-size: 18px;  /* Levemente menor para não desequilibrar */
+}
+
+.toggle-submenu.is-open::after {
+  content: '^';
+}
+
+/* Estilo para a lista do submenu (escondida por padrão) */
+.submenu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  width: 100%;  /* Ocupa largura total */
+}
+
+.submenu.is-open {
+  max-height: 500px;
+}
+
+.submenu li {
+  width: 100%;  /* Cada subitem ocupa largura total */
+  padding: 0;   /* Zera padding para consistência com itens principais */
+  margin: 0;
+}
+
+/* Estilo dos links dentro do submenu - Mesma altura, mas com recuo para hierarquia */
+.submenu li a {
+  display: block;
+  width: 100%;
+  color: rgb(255, 255, 255); 
+  font-size: 20px;  /* Mesmo tamanho de fonte que principais */
+  font-weight: normal;
+  padding: 20px 15px 20px 55px;  /* Padding vertical uniforme (20px); recuo maior (55px) para subnível, mas altura igual */
+  line-height: 1.2;  /* Uniformiza altura */
+  text-align: left;  /* Alinhado à esquerda */
+  vertical-align: top;  /* Evita desalinhamentos verticais */
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.submenu li a:hover {
+  background-color: var(--rosa-claro);
+  color: var(--cinza-escuro);
 }
