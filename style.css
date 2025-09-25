@@ -1,24 +1,38 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
   --rosa-claro: #FADADD;
-  --branco: #f8f8f8;  
-  --cinza-escuro: #333333;
-  --branco: #ffffff;  
+  --branco: #ffffff; /* Cor principal de fundo e texto claro */
+  --cinza-escuro: #000000e4; /* Cor principal de texto escuro e fundo do menu */
+  --verde-whatsapp: #25D366;
+  --verde-whatsapp-hover: #128C7E;
+  --amarelo-estrela: #FFD700;
+  --sombra-leve: rgba(224, 224, 224, 0.999); /* Sombra mais suave */
+  --sombra-media: rgba(255, 255, 255, 0.811); /* Sombra para hover */
+  --transicao-padrao: all 0.3s ease-in-out; /* Transição unificada */
+}
+
+/* -------------------- Estilos Globais e Reset Básico -------------------- */
+* {
+  box-sizing: border-box; /* Facilita o layout e a responsividade */
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: var(--branco); 
+  font-family: 'Poppins', sans-serif; /* Fonte mais moderna e legível */
+  background-color: var(--branco);
   color: var(--cinza-escuro);
-  margin: 0;
-  padding: 0;
   line-height: 1.6;
+  scroll-behavior: smooth; /* Rolagem suave para âncoras */
 }
 
-/* Estilos do Cabeçalho */
+/* -------------------- Cabeçalho -------------------- */
 header {
   background-color: var(--rosa-claro);
-  color: var(--branco);
-  padding: 1rem 0; 
+  color: var(--cinza-escuro); /* Texto do cabeçalho em cinza escuro para melhor legibilidade */
+  padding: 2rem 1rem; /* Aumenta o padding para mais espaço */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -26,56 +40,118 @@ header {
   justify-content: center;
 }
 
-.logo {
-  max-width: 80px;
-  height: auto;
-  margin-bottom: 1rem;
-  border-radius: 50%;
+header h1 {
+  font-size: 2.8rem; /* Título maior */
+  margin-bottom: 0.5rem;
+  color: var(--branco);
 }
 
-/* Estilos das Seções */
+header h2 {
+  font-size: 1.5rem; /* Subtítulo maior */
+  font-weight: normal;
+ color: var(--branco);
+}
+
+.logo {
+  max-width: 120px; /* Aumenta o tamanho do logo */
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  border: 3px solid var(--branco); /* Borda branca para destacar */
+  box-shadow: 0 0 15px var(--sombra-media); /* Sombra no logo */
+}
+
+/* -------------------- Seções Gerais -------------------- */
 section {
-  padding: 2rem 1rem;
-  margin-bottom: 1rem;
+  padding: 4rem 1.5rem; /* Mais padding para seções */
+  margin-bottom: 2rem; /* Mais espaço entre seções */
   background-color: var(--branco);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.003);
+  border-radius: 12px; /* Bordas mais arredondadas */
+  box-shadow: 0 8px 20px var(--sombra-leve); /* Sombra mais pronunciada */
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  transition: var(--transicao-padrao); /* Transição para hover em seções */
+}
+
+section:hover {
+  box-shadow: 0 12px 25px var(--sombra-media); /* Sombra maior no hover */
 }
 
 section h2 {
+  font-size: 2.2rem; /* Títulos de seção maiores */
   color: var(--rosa-claro);
-  border-bottom: 2px solid var(--rosa-claro);
-  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--rosa-claro); /* Borda mais grossa */
+  padding-bottom: 0.8rem;
+  margin-bottom: 3rem; /* Mais espaço abaixo do título */
   text-align: center;
+  position: relative;
 }
 
-/* Estilos para a Seção de Galeria */
-#galeria {
-  text-align: center;
+/* Detalhe decorativo para títulos de seção */
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Ajusta a posição abaixo da borda */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px; /* Largura do detalhe */
+  height: 3px;
+  background-color: var(--branco); /* Cor do detalhe */
+  border-radius: 5px;
 }
 
-#galeria h2 {
-  text-align: center;
-  color: var(--rosa-claro);
-  border-bottom: 2px solid var(--rosa-claro);
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
+/* -------------------- Galeria de Fotos (index.html e categorias.html) -------------------- */
+.galeria-fotos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Melhor adaptação */
+  gap: 25px; /* Aumenta o espaçamento */
+  max-width: 1100px; /* Aumenta a largura máxima da grid */
+  margin: 0 auto 3rem auto; /* Centraliza e adiciona margem inferior */
 }
 
-/* -------------------- Botões de Contato -------------------- */
+.galeria-foto {
+  overflow: hidden;
+  border-radius: 10px; /* Bordas mais arredondadas */
+  box-shadow: 0 6px 15px var(--sombra-leve);
+  transition: var(--transicao-padrao);
+  background-color: var(--branco);
+}
+
+.galeria-foto:hover {
+  transform: translateY(-8px) scale(1.02); /* Efeito de "levantar" e aumentar */
+  box-shadow: 0 12px 25px var(--sombra-media);
+}
+
+.galeria-foto img {
+  width: 100%;
+  height: 250px; /* Altura ligeiramente ajustada */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease; /* Transição para zoom na imagem */
+}
+
+.galeria-foto:hover img {
+  transform: scale(1.08); /* Zoom sutil na imagem ao passar o mouse */
+}
+
+/* -------------------- Botões de Contato (Geral) -------------------- */
 #contato {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+}
+
+#contato p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
 .contato-botoes {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 2rem; /* Aumenta o espaçamento entre botões */
   margin-top: 2rem;
   flex-wrap: wrap;
 }
@@ -83,13 +159,14 @@ section h2 {
 .botao-contato {
   text-decoration: none;
   color: var(--branco);
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2rem; /* Aumenta o padding dos botões */
   border-radius: 50px;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem; /* Aumenta a fonte */
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: var(--transicao-padrao);
+  box-shadow: 0 4px 10px var(--sombra-leve);
 }
 
 .botao-contato.instagram {
@@ -97,197 +174,193 @@ section h2 {
 }
 
 .botao-contato.whatsapp {
-  background-color: #25D366;
+  background-color: var(--verde-whatsapp);
 }
 
 .botao-contato:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px) scale(1.05); /* Efeito mais pronunciado no hover */
+  box-shadow: 0 8px 20px var(--sombra-media);
+}
+
+.botao-contato.whatsapp:hover {
+  background-color: var(--verde-whatsapp-hover);
 }
 
 .botao-contato i {
-  margin-right: 0.5rem;
-  font-size: 1.2rem;
+  margin-right: 0.8rem; /* Mais espaço para o ícone */
+  font-size: 1.4rem; /* Ícone maior */
 }
 
 /* -------------------- Rodapé -------------------- */
 footer {
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.5rem 1rem; /* Mais padding */
   background-color: var(--cinza-escuro);
   color: var(--branco);
+  font-size: 0.9rem;
+  margin-top: 3rem; /* Mais espaço antes do rodapé */
 }
 
-/* -------------------- Festas e Preços -------------------- */
+/* -------------------- Festas e Preços (festas.html) -------------------- */
 #festas-e-precos {
   text-align: center;
 }
 
 .festa-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajuste para 300px */
+  gap: 2.5rem; /* Aumenta o espaçamento */
   padding: 2rem 1rem;
 }
 
 .festa-item {
-  background-color: var();
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  background-color: var(--branco);
+  padding: 2rem; /* Mais padding */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px var(--sombra-leve);
+  transition: var(--transicao-padrao);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .festa-item:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 25px var(--sombra-media);
 }
 
 .festa-item img {
   width: 100%;
-  height: 200px;
+  height: 220px; /* Altura da imagem */
   object-fit: cover;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px var(--sombra-leve);
 }
 
 .festa-item h3 {
   color: var(--rosa-claro);
-  margin-top: 0;
+  font-size: 1.6rem; /* Título do item maior */
+  margin-bottom: 0.8rem;
+}
+
+.festa-item p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .festa-item .preco {
-  font-size: 1.2rem;
+  font-size: 1.4rem; /* Preço maior */
   font-weight: bold;
-  color: #4CAF50;
-  margin: 1rem 0;
+  color: var(--verde-whatsapp); /* Cor do WhatsApp para o preço */
+  margin: 1.5rem 0;
 }
 
-/* -------------------- Feedbacks -------------------- */
+/* Botão de orçamento dentro do item da festa */
+.festa-item .botao-contato.whatsapp {
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  margin-top: auto; /* Empurra o botão para baixo */
+}
+
+/* -------------------- Feedbacks (festas.html) -------------------- */
 #feedbacks {
   text-align: center;
 }
 
 .feedback-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajuste para 300px */
+  gap: 2rem;
   padding: 2rem 1rem;
 }
 
 .feedback-item {
   background-color: var(--branco);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-left: 5px solid var(--rosa-claro);
+  padding: 2.5rem; /* Mais padding */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px var(--sombra-leve);
+  border-left: 6px solid var(--rosa-claro); /* Borda mais grossa */
+  transition: var(--transicao-padrao);
+  text-align: left; /* Alinha o texto do feedback à esquerda */
+}
+
+.feedback-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px var(--sombra-media);
 }
 
 .feedback-item .avaliacao {
-  color: #FFD700;
-  margin-bottom: 1rem;
+  color: var(--amarelo-estrela);
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem; /* Estrelas maiores */
 }
 
 .feedback-item .comentario {
   font-style: italic;
   color: var(--cinza-escuro);
   line-height: 1.8;
+  margin-bottom: 1.5rem;
 }
 
 .feedback-item .cliente {
   margin-top: 1rem;
   font-weight: bold;
   color: var(--rosa-claro);
+  font-size: 1.1rem;
+}
+
+/* -------------------- Botão "Tenho interesse!" (categorias.html) -------------------- */
+.botao-galeria-container {
+  text-align: center;
+  margin-top: 2.5rem; /* Mais espaço acima do botão */
+  margin-bottom: 2rem;
 }
 
 .botao-interesse {
-  display: block; 
-  background-color: #25D366; 
-  color: #FFFFFF;
-  padding: 0.8rem 1rem; 
+  display: inline-block; /* Para centralizar melhor */
+  background-color: var(--verde-whatsapp);
+  color: var(--branco);
+  padding: 1rem 2.5rem; /* Aumenta o padding */
   text-decoration: none;
   font-weight: bold;
   border-radius: 50px;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  font-size: 0.9rem; 
+  transition: var(--transicao-padrao);
+  box-shadow: 0 4px 10px var(--sombra-leve);
+  font-size: 1.1rem; /* Aumenta a fonte */
   text-align: center;
-  width: 150px;
-  margin: 1rem auto; 
-  box-sizing: border-box; 
+  min-width: 200px; /* Largura mínima para o botão */
 }
 
 .botao-interesse:hover {
-  background-color: #128C7E; 
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: var(--verde-whatsapp-hover);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px var(--sombra-media);
 }
 
-/* CONTÊINER DO GRID DAS FOTOS (O elemento que ALINHA AS 3 COLUNAS) */
-.galeria-fotos-grid { 
-  /* Garante 3 colunas de largura igual */
-  display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 20px; 
-  
-  /* Centraliza o bloco na página */
-  max-width: 1000px;
-  margin: 0 auto; 
-}
-
-/* ESTILO DE CADA ITEM DE FOTO */
-.galeria-foto {
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-/* ESTILO DA IMAGEM  */
-.galeria-foto img {
-  width: 100%;
-  height: 280px; 
-  object-fit: cover; 
-  display: block;
-}
-
-/* Responsividade (para telas menores) */
-@media (max-width: 768px) {
-  .galeria-fotos-grid {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media (max-width: 480px) {
-  .galeria-fotos-grid {
-    grid-template-columns: 3fr; /* 1 coluna em celular */
-  }
-}
-
-/* -------------------- Menu Hambúrguer e Sanfona (Acordeão) - Unificado, Alinhado à Esquerda e Tamanhos Uniformes (Categorias alinhado com os outros) -------------------- */
-.menu-fixo {
-  display: none;  /* Menu fixo para desktop, se necessário; ajuste com media query se afetar outras páginas */
-}
-
+/* -------------------- Menu Hambúrguer e Sanfona -------------------- */
 .menu-hamburguer {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem; /* Ajusta a posição superior */
+  right: 1.5rem; /* Ajusta a posição direita */
   z-index: 1000;
 }
 
 .menu-hamburguer .menu-links {
   position: fixed;
   top: 0;
-  right: -250px;
+  right: -280px; /* Aumenta a largura do menu fechado */
   height: 100%;
-  width: 250px;  /* Largura fixa para uniformidade */
+  width: 250px; /* Largura do menu aberto */
   background-color: var(--cinza-escuro);
-  padding-top: 5rem;
-  transition: right 0.3s ease-in-out;
+  padding-top: 6rem; /* Mais padding no topo */
+  transition: right 0.4s ease-in-out; /* Transição mais suave */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;  /* Alinha TODOS os itens (incluindo Categorias) à esquerda */
-  justify-content: flex-start;  /* Empilha itens uniformemente de cima */
-  gap: 0;  /* Sem gaps extras para alinhamento preciso */
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: -5px 0 15px var(--sombra-media); /* Sombra no menu lateral */
 }
 
 .menu-hamburguer .menu-links.menu-aberto {
@@ -295,135 +368,303 @@ footer {
 }
 
 .menu-hamburguer .menu-icone {
-  color: var(--cinza-escuro);
-  font-size: 2rem;
-  cursor: pointer;
-  background-color: var(--branco);
-  padding: 0.5rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+color: var(--cinza-escuro); /* MUDANÇA: Cor das linhas (ícone) é preta */
+font-size: 2.2rem; 
+cursor: pointer;
+background-color: var(--branco); /* MUDANÇA: Cor de fundo do círculo é branca */
+padding: 0.6rem; 
+border-radius: 8px; 
+box-shadow: 0 3px 8px var(--sombra-leve);
+transition: var(--transicao-padrao);
+}
+
+.menu-hamburguer .menu-icone:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 12px var(--sombra-media);
 }
 
 .menu-hamburguer .menu-fechar {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.5rem; /* Ajusta a posição superior */
+  right: 1.5rem; /* Ajusta a posição direita */
   color: var(--branco);
-  font-size: 2rem;
+  font-size: 2.2rem; /* Ícone maior */
   cursor: pointer;
+  transition: var(--transicao-padrao);
+}
+
+.menu-hamburguer .menu-fechar:hover {
+  transform: rotate(90deg); /* Efeito de rotação no fechar */
+  color: var(--rosa-claro);
 }
 
 .menu-links ul {
   width: 100%;
-  padding-left: 0; 
-  margin: 0; 
+  padding-left: 0;
+  margin: 0;
   list-style: none;
 }
 
 .menu-links ul li {
-  width: 100%;  /* Garante que cada <li> (incluindo o de Categorias) ocupe a largura total para uniformidade */
-  padding: 0;  /* Zera padding nos <li> para evitar desalinhamento à esquerda */
-  margin: 0;   /* Zera margin para precisão no alinhamento */
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
 }
 
-/* Estilo para links principais (Página Inicial, Contato, etc.) - Alinhados e uniformes */
+.menu-links ul li:last-child {
+  border-bottom: none;
+}
+
 .menu-links ul li a {
   display: block;
-  width: 100%;  /* Ocupa toda a largura */
-  color: rgb(255, 255, 255); 
+  width: 100%;
+  color: var(--branco);
   text-decoration: none;
-  padding: 20px 15px;  /* Padding uniforme: 20px vertical para mesma altura */
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 1.2;  /* Uniformiza a altura da linha de texto */
-  text-align: left;  /* Alinhamento explícito à esquerda */
-  vertical-align: top;  /* Evita desalinhamentos verticais sutis */
-  transition: background-color 0.3s ease;
-  box-sizing: border-box;  /* Inclui padding na largura total */
+  padding: 18px 20px; /* Padding ajustado */
+  font-size: 1.1rem; /* Fonte ligeiramente menor para mais itens */
+  font-weight: 500; /* Peso da fonte ajustado */
+  line-height: 1.2;
+  text-align: left;
+  vertical-align: top;
+  transition: var(--transicao-padrao);
+  box-sizing: border-box;
 }
 
 .menu-links ul li a:hover {
   background-color: var(--rosa-claro);
   color: var(--cinza-escuro);
+  padding-left: 25px; /* Pequeno efeito de deslize no hover */
 }
 
-/* Estilo do botão "Categorias" (Sanfona) - Alinhado EXATAMENTE como os links principais */
 .toggle-submenu {
   display: block;
-  width: 100%;  /* Mesmo tamanho que os links */
-  color: rgb(255, 255, 255); 
-  font-size: 20px;  /* Mesmo tamanho de fonte */
-  font-weight: bold;
-  padding: 20px 15px;  /* Padding IDÊNTICO aos links principais para alinhamento perfeito */
-  line-height: 1.2;  /* Uniformiza altura */
-  text-align: left;  /* Alinhado à esquerda, igual aos outros */
-  vertical-align: top;  /* Evita desalinhamentos verticais sutis */
+  width: 100%;
+  color: var(--branco);
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 18px 20px;
+  line-height: 1.2;
+  text-align: left;
+  vertical-align: top;
   background: none;
   border: none;
   cursor: pointer;
   position: relative;
   box-sizing: border-box;
-  transition: background-color 0.3s ease;
+  transition: var(--transicao-padrao);
 }
 
 .toggle-submenu:hover {
   background-color: var(--rosa-claro);
   color: var(--cinza-escuro);
+  padding-left: 25px;
 }
 
-/* Seta da sanfona - Distância diminuída para equilibrar visualmente o item (sem afetar texto à esquerda) */
 .toggle-submenu::after {
-  content: 'v';
+  content: '\f078'; /* Ícone de seta para baixo (Font Awesome) */
+  font-family: "Font Awesome 6 Free"; /* Garante que o ícone seja renderizado */
+  font-weight: 900; /* Para ícones sólidos */
   color: white;
   position: absolute;
-  right: 15px;  /* Diminuída de 20px para 15px: aproxima da borda direita, alinhando com padding-right */
+  right: 20px; /* Ajusta a posição da seta */
   top: 50%;
-  transform: translateY(-50%);
-  transition: transform 0.3s;
-  font-size: 18px;  /* Levemente menor para não desequilibrar */
+  transform: translateY(-50%) rotate(0deg);
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
 }
 
 .toggle-submenu.is-open::after {
-  content: '^';
+  content: '\f077'; /* Ícone de seta para cima (Font Awesome) */
+  transform: translateY(-50%) rotate(0deg); /* Não rotaciona, apenas muda o ícone */
 }
 
-/* Estilo para a lista do submenu (escondida por padrão) */
 .submenu {
   list-style: none;
   padding-left: 0;
   margin: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-in-out;
-  width: 100%;  /* Ocupa largura total */
+  transition: max-height 0.4s ease-in-out; /* Transição mais suave */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2); /* Fundo sutil para o submenu */
 }
 
 .submenu.is-open {
-  max-height: 500px;
+  max-height: 300px; /* Altura máxima ajustada */
 }
 
 .submenu li {
-  width: 100%;  /* Cada subitem ocupa largura total */
-  padding: 0;   /* Zera padding para consistência com itens principais */
+  width: 100%;
+  padding: 0;
   margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador mais leve */
 }
 
-/* Estilo dos links dentro do submenu - Mesma altura, mas com recuo para hierarquia */
+.submenu li:last-child {
+  border-bottom: none;
+}
+
 .submenu li a {
   display: block;
   width: 100%;
-  color: rgb(255, 255, 255); 
-  font-size: 20px;  /* Mesmo tamanho de fonte que principais */
+  color: var(--branco);
+  font-size: 1rem; /* Fonte ligeiramente menor para subitens */
   font-weight: normal;
-  padding: 20px 15px 20px 55px;  /* Padding vertical uniforme (20px); recuo maior (55px) para subnível, mas altura igual */
-  line-height: 1.2;  /* Uniformiza altura */
-  text-align: left;  /* Alinhado à esquerda */
-  vertical-align: top;  /* Evita desalinhamentos verticais */
-  transition: background-color 0.3s ease;
+  padding: 15px 20px 15px 40px; /* Recuo ajustado */
+  line-height: 1.2;
+  text-align: left;
+  vertical-align: top;
+  transition: var(--transicao-padrao);
   box-sizing: border-box;
 }
 
 .submenu li a:hover {
   background-color: var(--rosa-claro);
   color: var(--cinza-escuro);
+  padding-left: 45px; /* Efeito de deslize no hover */
+}
+
+/* -------------------- Responsividade -------------------- */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+  header h2 {
+    font-size: 1.3rem;
+  }
+  section {
+    padding: 3rem 1rem;
+  }
+  section h2 {
+    font-size: 2rem;
+  }
+  .galeria-fotos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .festa-container, .feedback-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+  header h1 {
+    font-size: 2.2rem;
+  }
+  header h2 {
+    font-size: 1.1rem;
+  }
+  .logo {
+    max-width: 100px;
+    margin-bottom: 1rem;
+  }
+  section {
+    padding: 2.5rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .galeria-fotos-grid {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    gap: 1.5rem;
+  }
+  .galeria-foto img {
+    height: 200px;
+  }
+  .contato-botoes {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .botao-contato {
+    width: 80%; /* Ocupa mais largura */
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+  .festa-container, .feedback-container {
+    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    gap: 1.5rem;
+  }
+  .festa-item {
+    padding: 1.5rem;
+  }
+  .festa-item img {
+    height: 180px;
+  }
+  .festa-item h3 {
+    font-size: 1.4rem;
+  }
+  .festa-item .preco {
+    font-size: 1.2rem;
+  }
+  .feedback-item {
+    padding: 2rem;
+  }
+  .botao-interesse {
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+    min-width: 180px;
+  }
+  .menu-hamburguer {
+    top: 1rem;
+    right: 1rem;
+  }
+  .menu-hamburguer .menu-icone,
+  .menu-hamburguer .menu-fechar {
+    font-size: 1.8rem;
+    padding: 0.4rem;
+  }
+  .menu-hamburguer .menu-links {
+    width: 220px; /* Largura do menu em mobile */
+    right: -220px;
+    padding-top: 5rem;
+  }
+  .menu-links ul li a,
+  .toggle-submenu {
+    font-size: 1rem;
+    padding: 15px 15px;
+  }
+  .submenu li a {
+    font-size: 0.9rem;
+    padding: 12px 15px 12px 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header h2 {
+    font-size: 1rem;
+  }
+  .logo {
+    max-width: 80px;
+  }
+  section h2 {
+    font-size: 1.6rem;
+  }
+  .botao-contato {
+    width: 90%;
+  }
+  .menu-hamburguer .menu-links {
+    width: 180px; /* Largura ainda menor para telas muito pequenas */
+    right: -180px;
+  }
+  .menu-links ul li a,
+  .toggle-submenu {
+    font-size: 0.95rem;
+    padding: 12px 10px;
+  }
+  .submenu li a {
+    font-size: 0.85rem;
+    padding: 10px 10px 10px 30px;
+  }
 }
