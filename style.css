@@ -88,18 +88,6 @@ section h2 {
   position: relative;
 }
 
-/* Detalhe decorativo para títulos de seção */
-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: -5px; /* Ajusta a posição abaixo da borda */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px; /* Largura do detalhe */
-  height: 3px;
-  background-color: var(--branco); /* Cor do detalhe */
-  border-radius: 5px;
-}
 
 /* -------------------- Galeria de Fotos (index.html e categorias.html) -------------------- */
 .galeria-fotos-grid {
@@ -350,9 +338,9 @@ footer {
 .menu-hamburguer .menu-links {
   position: fixed;
   top: 0;
-  right: -280px; /* Aumenta a largura do menu fechado */
+  right: -300px; /* Aumenta a largura do menu fechado */
   height: 100%;
-  width: 250px; /* Largura do menu aberto */
+  width: 280px; /* Largura do menu aberto */
   background-color: var(--cinza-escuro);
   padding-top: 6rem; /* Mais padding no topo */
   transition: right 0.4s ease-in-out; /* Transição mais suave */
