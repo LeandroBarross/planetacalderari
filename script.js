@@ -1,6 +1,5 @@
 console.log('Script.js carregado na página:', window.location.pathname);
 
-let carouselsInitialized = false; // Esta variável não é mais estritamente necessária, mas mantive para evitar erros de referência se o HTML ainda a chamar.
 
 document.addEventListener('DOMContentLoaded', (event) => {
     
