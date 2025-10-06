@@ -656,3 +656,49 @@ transition: var(--transicao-padrao);
     padding: 10px 10px 10px 30px;
   }
 }
+
+
+
+/* --- ESTILOS DO CARROSSEL --- */
+.carrossel-container {
+  width: 90%; /* Ajuste a largura, 90% para ser responsivo ou um valor fixo */
+  max-width: 600px; /* Limite o tamanho máximo */
+  margin: 20px auto; /* Adiciona margem acima/abaixo e centraliza */
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+}
+.carrossel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+.carrossel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+.carrossel-slide img {
+  width: 100%;
+  display: block;
+}
+.carrossel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6); 
+  color: #fff;
+  border: none;
+  font-size: 1.5rem; 
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  z-index: 1;
+  outline: none;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+.carrossel-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+.carrossel-btn.prev { left: 10px; }
+.carrossel-btn.next { right: 10px; }
