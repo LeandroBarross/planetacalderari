@@ -8,69 +8,64 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-        
-    <nav class="menu-hamburguer">
-        <label id="menu-toggle-label" class="menu-icone">
-            <i class="fas fa-bars"></i>
+      
+ <nav class="menu-hamburguer">
+    <label id="menu-toggle-label" class="menu-icone">
+        <i class="fas fa-bars"></i>
+    </label>
+    
+    <div class="menu-links">
+        <label id="menu-fechar-label" class="menu-fechar">
+            <i class="fas fa-xmark"></i>
         </label>
         
-        <div class="menu-links">
-            <label id="menu-fechar-label" class="menu-fechar">
-                <i class="fas fa-xmark"></i>
-            </label>
+        <ul>
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="festas.html">Pegue e monte</a></li>
             
-            <ul>
-                <li><a href="index.html">Página Inicial</a></li>
-                <li><a href="festas.html">Pegue e monte</a></li>
+            <li class="has-submenu">
+                <button class="toggle-submenu">CATEGORIAS</button> 
                 
-                <li class="has-submenu">
-                    <button class="toggle-submenu">CATEGORIAS</button> 
-                    
-                    <ul class="submenu">
-                       <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
-                        <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
-                        <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
-                        <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
-                    </ul>
-                </li> <li><a href="#sobre-nos">Sobre Nós</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul> </div>
-    </nav>
+                <ul class="submenu">
+                   <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
+                    <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
+                    <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
+                    <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
+            </li>
+        </ul>
+        
+            <li><a href="#sobre-nos">Sobre Nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+            
+        
+    </div>
+</nav>
 
+    <!-- Cabeçalho -->
     <header>
         <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
         <h1>Planeta Calderari</h1>
         <h2>Venha realizar seu sonho!</h2>
     </header>
 
-    <div class="carrossel-container">
-        <button class="carrossel-btn prev">&#10094;</button>
-        <div class="carrossel-slides">
-            <div class="carrossel-slide"><img src="img/foto1.jpeg" alt="Slide 1"></div>
-            <div class="carrossel-slide"><img src="img/foto2.jpeg" alt="Slide 2"></div>
-            <div class="carrossel-slide"><img src="img/foto3.jpeg" alt="Slide 3"></div>
-        </div>
-        <button class="carrossel-btn next">&#10095;</button>
-    </div>
-    <section id="galeria">
-        <h2>Nossas festas</h2>
+   <section id="galeria">
+    <h2>Nossas festas</h2>
+    
+    <div class="galeria-fotos-grid"> 
         
-        <div class="galeria-fotos-grid"> 
-            
-            <div class="galeria-foto"> 
-                <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
-            </div>
-            
-            <div class="galeria-foto"> 
-                <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
-            </div>
+        <div class="galeria-foto"> 
+            <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
+        </div>
+        
+        <div class="galeria-foto"> 
+            <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
+        </div>
 
-            <div class="galeria-foto"> 
-                <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
-            </div>
-            
-        </div> 
-    </section>
+        <div class="galeria-foto"> 
+            <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
+        </div>
+        
+    </div> </section>
 
     <section id="sobre-nos">
         <h2>Sobre Nós</h2>
@@ -82,6 +77,7 @@
         </p>
     </section>
 
+     <!-- Contato -->
     <section id="contato">
         <h2>Fale Conosco</h2>
         <p>Entre em contato pelas nossas redes sociais!</p>
@@ -102,27 +98,5 @@
 
     <script src="script.js"></script>
 
-    <script>
-        const slides = document.querySelector('.carrossel-slides');
-        const slideCount = document.querySelectorAll('.carrossel-slide').length;
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            slides.style.transform = `translateX(-${index * 100}%)`;
-        }
-
-        document.querySelector('.carrossel-btn.prev').addEventListener('click', () => {
-            currentIndex = (currentIndex === 0) ? slideCount - 1 : currentIndex - 1;
-            showSlide(currentIndex);
-        });
-
-        document.querySelector('.carrossel-btn.next').addEventListener('click', () => {
-            currentIndex = (currentIndex === slideCount - 1) ? 0 : currentIndex + 1;
-            showSlide(currentIndex);
-        });
-
-        // Inicializa o carrossel
-        showSlide(currentIndex);
-    </script>
-    </body>
+</body>
 </html>
