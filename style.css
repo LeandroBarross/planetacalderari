@@ -143,16 +143,17 @@ section h2 {
   margin-top: 2rem;
   flex-wrap: wrap;
 }
-
 .botao-contato {
   text-decoration: none;
   color: var(--branco);
-  padding: 1rem 2rem; /* Aumenta o padding dos botões */
+  padding: 1rem 2rem;
   border-radius: 50px;
   font-weight: bold;
-  font-size: 1.1rem; /* Aumenta a fonte */
+  font-size: 1.1rem;
   display: flex;
-  align-items: center;
+  align-items: center;      /* Centraliza verticalmente */
+  justify-content: center;   /* Centraliza horizontalmente */
+  text-align: center;
   transition: var(--transicao-padrao);
   box-shadow: 0 4px 10px var(--sombra-leve);
 }
@@ -879,3 +880,15 @@ transition: var(--transicao-padrao);
     }
 }
 
+@media (max-width: 768px) {
+  .botao-contato {
+    width: 90%;            /* Aumentado para melhor toque no celular */
+    max-width: 300px;
+    margin: 0 auto;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    display: flex;         /* Garante que o flex continue ativo */
+    justify-content: center;
+    align-items: center;
+  }
+}
