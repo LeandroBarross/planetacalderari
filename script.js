@@ -76,4 +76,50 @@ function moveSlide(button, direction) {
     track.style.transform = `translateX(${offset}%)`;
 }
 
+const slider = document.querySelector('.slider');
+const items = document.querySelectorAll('.item');
 
+// Pausa ao tocar
+slider.addEventListener('touchstart', () => {
+    slider.classList.add('paused');
+});
+
+// Retoma ao tirar o dedo
+slider.addEventListener('touchend', () => {
+    slider.classList.remove('paused');
+    items.forEach(item => item.classList.remove('active-touch'));
+});
+
+// Destaca o item específico tocado
+items.forEach(item => {
+    item.addEventListener('touchstart', (e) => {
+        item.classList.add('active-touch');
+    });
+});
+
+// Garante que o código só rode após o HTML carregar
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    const items = document.querySelectorAll('.item');
+
+    // Verifica se o slider existe nesta página antes de prosseguir
+    if (slider) {
+        // Pausa ao tocar (touchstart)
+        slider.addEventListener('touchstart', function() {
+            slider.classList.add('paused');
+        }, {passive: true});
+
+        // Retoma ao tirar o dedo (touchend)
+        slider.addEventListener('touchend', function() {
+            slider.classList.remove('paused');
+            items.forEach(item => item.classList.remove('active-touch'));
+        }, {passive: true});
+
+        // Destaca o item específico
+        items.forEach(item => {
+            item.addEventListener('touchstart', function() {
+                item.classList.add('active-touch');
+            }, {passive: true});
+        });
+    }
+});
