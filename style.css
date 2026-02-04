@@ -702,12 +702,13 @@ transition: var(--transicao-padrao);
     /* Certifique-se de que o valor abaixo (30s) seja igual ao de cima */
     animation-delay: calc((40s / var(--quantity)) * (var(--position) - 1) - 40s) !important;
 }
-
+/* Sua animação atual */
 @keyframes autoRun {
     from { left: 100%; }
     to { left: calc(var(--width) * -1); }
 }
-/* Isso faz com que a pausa ao passar o mouse só funcione em computadores */
+
+/* 1. Efeito de pausa: APENAS para computadores (mouse) */
 @media (hover: hover) {
     .slider:hover .item {
         animation-play-state: paused !important;
@@ -717,10 +718,11 @@ transition: var(--transicao-padrao);
     .slider .item:hover {
         filter: grayscale(0);
         transform: scale(1.05);
+        transition: 0.3s;
     }
 }
 
-/* No celular, removemos o estado de pausa e os efeitos que travam a animação */
+/* 2. Correção para Celulares: Força a animação a continuar rodando */
 @media (hover: none) {
     .slider:hover .item {
         animation-play-state: running !important;
