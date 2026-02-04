@@ -845,12 +845,26 @@ transition: var(--transicao-padrao);
 /* ============================================================
    BOTÃO "TENHO INTERESSE" E RODAPÉ DA CATEGORIA
    ============================================================ */
-
+/* Ajuste no container para centralizar o botão na página */
 .botao-galeria-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
+}
+
+/* Ajuste no botão para centralizar o texto dentro dele */
+.tema-galeria .botao-contato.whatsapp {
+    display: flex;            /* Transforma em flexbox */
+    justify-content: center;  /* Centraliza o texto horizontalmente */
+    align-items: center;      /* Centraliza o texto/ícone verticalmente */
+    text-align: center;
+    width: 100%;              /* Ocupa a largura definida no container */
+    max-width: 280px;         /* Limita o tamanho para não ficar gigante */
+    min-height: 50px;         /* Garante uma boa área de toque */
+    padding: 12px 20px;
 }
 
 /* Estilo do botão verde (baseado na sua imagem) */
@@ -863,7 +877,14 @@ transition: var(--transicao-padrao);
     font-weight: bold;
   
 }
-
+@media (max-width: 768px) {
+    .tema-galeria .botao-contato.whatsapp {
+        width: 85%;           /* Largura ideal para telas pequenas */
+        max-width: 320px;     /* Impede que cresça demais em tablets */
+        margin: 0 auto;       /* Reforça a centralização externa */
+        font-size: 1.1rem;    /* Melhora a leitura */
+    }
+}
 .botao-interesse:hover {
     background-color: #27ae60;
 }
