@@ -724,17 +724,19 @@ transition: var(--transicao-padrao);
         transform: scale(1.05);
     }
 }
+/* Para celulares e tablets (Touch) */
+@media (hover: none) {
+    .slider:active .item {
+        animation-play-state: paused !important;
+        filter: grayscale(1);
+    }
 
-.slider.paused .item {
-    animation-play-state: paused !important;
-    filter: grayscale(1);
+    .slider .item:active {
+        filter: grayscale(0);
+        transform: scale(1.1); /* Aumentei um pouco para dar feedback visual claro no toque */
+        transition: transform 0.2s ease;
+    }
 }
-
-.slider .item.active-touch {
-    filter: grayscale(0);
-    transform: scale(1.05);
-}
-
 /* ============================================================
    CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
    ============================================================ */
