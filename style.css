@@ -725,6 +725,16 @@ transition: var(--transicao-padrao);
     }
 }
 
+.slider.paused .item {
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+}
+
+.slider .item.active-touch {
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
 /* ============================================================
    CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
    ============================================================ */
