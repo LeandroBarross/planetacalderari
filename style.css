@@ -707,11 +707,26 @@ transition: var(--transicao-padrao);
     from { left: 100%; }
     to { left: calc(var(--width) * -1); }
 }
-
-.slider:hover .item {
-    animation-play-state: paused !important;
-    filter: grayscale(0.5) blur(1px);
+/* Isso faz com que a pausa ao passar o mouse só funcione em computadores */
+@media (hover: hover) {
+    .slider:hover .item {
+        animation-play-state: paused !important;
+        filter: grayscale(1);
+    }
+    
+    .slider .item:hover {
+        filter: grayscale(0);
+        transform: scale(1.05);
+    }
 }
+
+/* No celular, removemos o estado de pausa e os efeitos que travam a animação */
+@media (hover: none) {
+    .slider:hover .item {
+        animation-play-state: running !important;
+    }
+}
+
 
 .slider .item:hover {
     filter: grayscale(0) blur(0);
