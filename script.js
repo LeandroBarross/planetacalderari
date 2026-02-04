@@ -76,3 +76,23 @@ function moveSlide(button, direction) {
     track.style.transform = `translateX(${offset}%)`;
 }
 
+const slider = document.querySelector('.slider');
+const items = document.querySelectorAll('.item');
+
+// Pausa ao tocar
+slider.addEventListener('touchstart', () => {
+    slider.classList.add('paused');
+});
+
+// Retoma ao tirar o dedo
+slider.addEventListener('touchend', () => {
+    slider.classList.remove('paused');
+    items.forEach(item => item.classList.remove('active-touch'));
+});
+
+// Destaca o item específico tocado
+items.forEach(item => {
+    item.addEventListener('touchstart', (e) => {
+        item.classList.add('active-touch');
+    });
+});
