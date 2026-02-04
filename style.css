@@ -726,15 +726,21 @@ transition: var(--transicao-padrao);
 }
 /* Para celulares e tablets (Touch) */
 @media (hover: none) {
-    .slider:active .item {
+    /* Quando segurar o dedo no container (via CSS) */
+    .slider:active .item,
+    /* Quando o JavaScript adicionar a classe .paused */
+    .slider.paused .item {
         animation-play-state: paused !important;
-        filter: grayscale(1);
+        filter: grayscale(1) !important;
     }
 
-    .slider .item:active {
-        filter: grayscale(0);
-        transform: scale(1.1); /* Aumentei um pouco para dar feedback visual claro no toque */
+    /* Feedback visual no item tocado */
+    .slider .item:active,
+    .slider .item.active-touch {
+        filter: grayscale(0) !important;
+        transform: scale(1.1);
         transition: transform 0.2s ease;
+        z-index: 999;
     }
 }
 /* ============================================================
