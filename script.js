@@ -75,3 +75,17 @@ function moveSlide(button, direction) {
     const offset = currentIndex * -100;
     track.style.transform = `translateX(${offset}%)`;
 }
+
+// Adicione isso ao final do seu arquivo script.js
+document.addEventListener('touchstart', function(e) {
+    // Verifica se o clique FOI dentro do slider
+    const isSlider = e.target.closest('.slider');
+    
+    // Se o clique foi fora do slider, remove o foco de qualquer item
+    if (!isSlider) {
+        const items = document.querySelectorAll('.slider .item');
+        items.forEach(item => {
+            item.blur(); // Remove o foco
+        });
+    }
+}, {passive: true});
