@@ -13,6 +13,20 @@
   --transicao-padrao: all 0.3s ease-in-out; /* Transição unificada */
 }
 
+/* No topo do seu style.css */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
+}
+
 /* -------------------- Estilos Globais e Reset Básico -------------------- */
 * {
   box-sizing: border-box; /* Facilita o layout e a responsividade */
@@ -795,7 +809,7 @@ transition: var(--transicao-padrao);
     background-color: #fff; 
     padding: 15px;         /* Espaço branco entre a borda e a foto */
     border-radius: 25px;   /* Cantos bem arredondados */
-     box-shadow: 0 10px 30px rgba(153, 148, 148, 0.537); /* Sombra suave para "flutuar" */
+    box-shadow: 0 10px 30px rgba(153, 148, 148, 0.537); /* Sombra suave para "flutuar" */
     
     overflow: hidden;
 }
