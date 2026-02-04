@@ -725,12 +725,6 @@ transition: var(--transicao-padrao);
     }
 }
 
-/* No Celular: A pausa só acontece se a imagem estiver com foco */
-.slider .item:focus,
-.slider .item:active {
-    animation-play-state: paused !important;
-    filter: grayscale(0);
-}
 /* ============================================================
    CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
    ============================================================ */
