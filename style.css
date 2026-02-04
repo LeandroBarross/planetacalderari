@@ -795,7 +795,7 @@ transition: var(--transicao-padrao);
     background-color: #fff; 
     padding: 15px;         /* Espaço branco entre a borda e a foto */
     border-radius: 25px;   /* Cantos bem arredondados */
-    box-shadow: 0 10px 30px rgba(86, 86, 86, 0.537); /* Sombra suave para "flutuar" */
+    box-shadow: 0 10px 30px rgba(165, 161, 161, 0.537); /* Sombra suave para "flutuar" */
     
     overflow: hidden;
 }
