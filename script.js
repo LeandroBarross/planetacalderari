@@ -5,17 +5,33 @@ let carouselsInitialized = false; // Esta variável não é mais estritamente ne
 document.addEventListener('DOMContentLoaded', (event) => {
     
     // --- Lógica do Menu Hambúrguer ---
-    const menuToggleLabel = document.getElementById('menu-toggle-label');
-    const menuLinks = document.querySelector('.menu-links');
-    const menuFecharLabel = document.getElementById('menu-fechar-label');
-    const navLinks = document.querySelectorAll('.menu-links a');
+    // --- Lógica do Menu Hambúrguer Atualizada ---
+const menuToggleLabel = document.getElementById('menu-toggle-label');
+const menuLinks = document.querySelector('.menu-links');
+const menuFecharLabel = document.getElementById('menu-fechar-label');
+const navLinks = document.querySelectorAll('.menu-links a');
 
-// No seu script.js, dentro de menuToggleLabel.addEventListener:
-menuToggleLabel.addEventListener('click', () => {
-    menuLinks.classList.add('menu-aberto');
-    document.body.style.overflow = 'hidden'; // Trava a rolagem do fundo
+// Função para fechar o menu e destravar a tela
+function fecharMenu() {
+    menuLinks.classList.remove('menu-aberto');
+    document.body.style.overflow = ''; // Libera a rolagem
+}
+
+if (menuToggleLabel && menuLinks) {
+    menuToggleLabel.addEventListener('click', () => {
+        menuLinks.classList.add('menu-aberto');
+        document.body.style.overflow = 'hidden'; // Trava a rolagem ao abrir
+    });
+}
+
+if (menuFecharLabel) {
+    menuFecharLabel.addEventListener('click', fecharMenu);
+}
+
+// Garante que ao clicar em qualquer link (mesmo âncoras), o menu feche e a tela destrave
+navLinks.forEach(link => {
+    link.addEventListener('click', fecharMenu);
 });
-
 // E no fechar:
 menuFecharLabel.addEventListener('click', () => {
     menuLinks.classList.remove('menu-aberto');
