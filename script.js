@@ -76,31 +76,3 @@ function moveSlide(button, direction) {
     track.style.transform = `translateX(${offset}%)`;
 }
 
-// Adicione isso ao final do seu arquivo script.js
-document.addEventListener('touchstart', function(e) {
-    // Verifica se o clique FOI dentro do slider
-    const isSlider = e.target.closest('.slider');
-    
-    // Se o clique foi fora do slider, remove o foco de qualquer item
-    if (!isSlider) {
-        const items = document.querySelectorAll('.slider .item');
-        items.forEach(item => {
-            item.blur(); // Remove o foco
-        });
-    }
-}, {passive: true});
-
-/* --- CÓDIGO PARA DESTRAVAR O CARROSSEL NO CELULAR --- */
-
-// 1. Remove o foco da imagem ao clicar/tocar em qualquer lugar fora do carrossel
-document.addEventListener('mousedown', function(e) {
-    const slider = document.querySelector('.slider');
-    // Se o clique não foi no slider, remove o foco de qualquer item ativo
-    if (slider && !slider.contains(e.target)) {
-        if (document.activeElement instanceof HTMLElement) {
-            document.activeElement.blur();
-        }
-    }
-});
-
-
