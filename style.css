@@ -867,11 +867,6 @@ transition: var(--transicao-padrao);
     -webkit-touch-callout: none; /* Impede o menu de contexto no iOS */
 }
 
-/* Garante que o item aceite o foco para pausar */
-.slider .item {
-    outline: none;
-}
-
 /* No celular, a animação pausa quando o item recebe foco ou é clicado */
 .slider .item:focus,
 .slider .item:active {
