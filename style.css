@@ -866,9 +866,3 @@ transition: var(--transicao-padrao);
     user-select: none;       /* Impede selecionar o texto/imagem */
     -webkit-touch-callout: none; /* Impede o menu de contexto no iOS */
 }
-
-/* No celular, a animação pausa quando o item recebe foco ou é clicado */
-.slider .item:focus,
-.slider .item:active {
-    animation-play-state: paused !important;
-}
