@@ -10,6 +10,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const menuFecharLabel = document.getElementById('menu-fechar-label');
     const navLinks = document.querySelectorAll('.menu-links a');
 
+// No seu script.js, dentro de menuToggleLabel.addEventListener:
+menuToggleLabel.addEventListener('click', () => {
+    menuLinks.classList.add('menu-aberto');
+    document.body.style.overflow = 'hidden'; // Trava a rolagem do fundo
+});
+
+// E no fechar:
+menuFecharLabel.addEventListener('click', () => {
+    menuLinks.classList.remove('menu-aberto');
+    document.body.style.overflow = ''; // Libera a rolagem do fundo
+});
+
     if (menuToggleLabel && menuLinks) {
         menuToggleLabel.addEventListener('click', () => {
             menuLinks.classList.add('menu-aberto');
@@ -53,28 +65,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-function moveSlide(button, direction) {
-    const container = button.parentElement;
-    const track = container.querySelector('.carousel-track');
-    const items = track.querySelectorAll('.carousel-item');
-    const totalItems = items.length;
-    
-    // Pega o índice atual ou define como 0
-    let currentIndex = parseInt(track.dataset.index || 0);
-    
-    currentIndex += direction;
-    
-    // Lógica para loop infinito
-    if (currentIndex >= totalItems) {
-        currentIndex = 0;
-    } else if (currentIndex < 0) {
-        currentIndex = totalItems - 1;
-    }
-    
-    track.dataset.index = currentIndex;
-    const offset = currentIndex * -100;
-    track.style.transform = `translateX(${offset}%)`;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const tracks = document.querySelectorAll('.carousel-track');
+
+    tracks.forEach(track => {
+        const items = track.querySelectorAll('.carousel-item');
+        const indicatorContainer = track.parentElement.querySelector('.carousel-indicators');
+
+        // 1. Cria as bolinhas dinamicamente
+        items.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('indicator');
+            if (index === 0) dot.classList.add('active');
+            
+            // Clique na bolinha para ir até a foto
+            dot.addEventListener('click', () => {
+                track.scrollTo({
+                    left: track.offsetWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+            
+            indicatorContainer.appendChild(dot);
+        });
+
+        // 2. Atualiza qual bolinha está ativa ao deslizar
+        track.addEventListener('scroll', () => {
+            const index = Math.round(track.scrollLeft / track.offsetWidth);
+            const dots = indicatorContainer.querySelectorAll('.indicator');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        });
+    });
+});
 
 const slider = document.querySelector('.slider');
 const items = document.querySelectorAll('.item');
