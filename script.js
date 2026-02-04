@@ -103,12 +103,4 @@ document.addEventListener('mousedown', function(e) {
     }
 });
 
-// 2. Mesma lógica para telas touch (celulares)
-document.addEventListener('touchstart', function(e) {
-    const slider = document.querySelector('.slider');
-    if (slider && !slider.contains(e.target)) {
-        if (document.activeElement instanceof HTMLElement) {
-            document.activeElement.blur();
-        }
-    }
-}, {passive: true});
+
