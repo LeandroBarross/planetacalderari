@@ -1110,3 +1110,107 @@ transition: var(--transicao-padrao);
     background: #FADADD; /* Cor rosa que você usa */
     transform: scale(1.2);
 }
+
+
+
+/* Ajuste para que a seção de feedbacks suporte o carrossel de imagens */
+#feedbacks {
+    overflow: hidden; 
+    padding: 60px 0;
+    background-color: var(--branco);
+}
+#feedbacks .card-carrossel {
+    height: 100%;
+    border: none; /* Remove a borda rosa se não quiser contorno */
+    background-color: transparent; /* Garante que o fundo do card seja invisível */
+}
+
+#feedbacks .card-carrossel img {
+    width: 100%;
+    height: 100%;
+    /* MUDANÇA CHAVE: 'cover' faz a imagem ocupar TODO o espaço do card */
+    /* Se o print for cortado em partes importantes, use 'fill' */
+    object-fit: cover; 
+    background-color: transparent; /* Remove qualquer fundo branco da imagem */
+    border-radius: 10px; /* Mantém os cantos arredondados bonitos */
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #feedbacks .slider {
+        --width: 250px; /* Reduz um pouco a largura no celular */
+        --height: 450px;
+    }
+}
+
+
+/* Lógica exclusiva para o slider de feedbacks */
+.slider-feedback .list .item {
+    animation: autoRun 40s linear infinite !important;
+    animation-delay: calc((40s / var(--quantity)) * (var(--position) - 1) - 40s) !important;
+    padding: 60px 0; /* Quase nenhum espaço lateral entre os cards */
+}
+
+.slider-feedback .card-carrossel img {
+    object-fit: contain; /* Garante que o print do WhatsApp apareça inteiro */
+    background-color: #fff;
+}
+
+/* --- CORREÇÃO DA PAUSA --- */
+.slider.paused .item {
+    animation-play-state: paused !important;
+}
+
+
+.perfil-secao {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: sans-serif; /* Ou a fonte que você já usa no site */
+}
+
+.perfil-foto {
+    flex-shrink: 0;
+}
+
+.perfil-foto img {
+    width: 180px;  /* Ajuste o tamanho da foto aqui */
+    height: 180px;
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover;
+    border: 3px solid #f8c8d4; /* Cor rosa claro baseada na sua imagem */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.perfil-conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-titulo {
+    font-size: 1.2rem;
+    color: #e5a8b8; /* Tom de rosa do "Sobre Nós" da imagem */
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.perfil-texto {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .perfil-secao {
+        flex-direction: column;
+        text-align: center;
+    }
+}
