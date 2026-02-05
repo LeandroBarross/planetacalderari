@@ -727,6 +727,13 @@ transition: var(--transicao-padrao);
     to { left: calc(var(--width) * -1); }
 }
 
+/* No seu style.css, localize ou adicione: */
+.slider.paused .item, 
+.slider.paused {
+    animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important; /* Prefixo para Safari antigo */
+}
+
 /* Animação padrão */
 .slider .item {
     animation: autoRun 40s linear infinite;
