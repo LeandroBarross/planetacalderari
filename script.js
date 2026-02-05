@@ -1,126 +1,157 @@
-console.log('Script.js carregado na página:', window.location.pathname);
+console.log('Script.js carregado com sucesso!');
 
-let carouselsInitialized = false; // Esta variável não é mais estritamente necessária, mas mantive para evitar erros de referência se o HTML ainda a chamar.
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. LÓGICA DO MENU HAMBÚRGUER ---
+    const menuToggleLabel = document.getElementById('menu-toggle-label');
+    const menuLinks = document.querySelector('.menu-links');
+    const menuFecharLabel = document.getElementById('menu-fechar-label');
+    const navLinks = document.querySelectorAll('.menu-links a');
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    
-    // --- Lógica do Menu Hambúrguer ---
-    // --- Lógica do Menu Hambúrguer Atualizada ---
-const menuToggleLabel = document.getElementById('menu-toggle-label');
-const menuLinks = document.querySelector('.menu-links');
-const menuFecharLabel = document.getElementById('menu-fechar-label');
-const navLinks = document.querySelectorAll('.menu-links a');
+    function fecharMenu() {
+        if (menuLinks) menuLinks.classList.remove('menu-aberto');
+        document.body.style.overflow = '';
+    }
 
-// Função para fechar o menu e destravar a tela
-function fecharMenu() {
-    menuLinks.classList.remove('menu-aberto');
-    document.body.style.overflow = ''; // Libera a rolagem
-}
+    if (menuToggleLabel && menuLinks) {
+        menuToggleLabel.addEventListener('click', () => {
+            menuLinks.classList.add('menu-aberto');
+            document.body.style.overflow = 'hidden';
+        });
+    }
 
-if (menuToggleLabel && menuLinks) {
-    menuToggleLabel.addEventListener('click', () => {
-        menuLinks.classList.add('menu-aberto');
-        document.body.style.overflow = 'hidden'; // Trava a rolagem ao abrir
+    if (menuFecharLabel) {
+        menuFecharLabel.addEventListener('click', fecharMenu);
+    }
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', fecharMenu);
     });
-}
 
-if (menuFecharLabel) {
-    menuFecharLabel.addEventListener('click', fecharMenu);
-}
+    // --- 2. LÓGICA DO SUBMENU (CATEGORIAS) ---
+    const toggleSubmenu = document.querySelector('.toggle-submenu');
+    const submenu = document.querySelector('.submenu');
 
-// Garante que ao clicar em qualquer link (mesmo âncoras), o menu feche e a tela destrave
-navLinks.forEach(link => {
-    link.addEventListener('click', fecharMenu);
-});
-// E no fechar:
-menuFecharLabel.addEventListener('click', () => {
-    menuLinks.classList.remove('menu-aberto');
-    document.body.style.overflow = ''; // Libera a rolagem do fundo
-});
+    if (toggleSubmenu && submenu) {
+        toggleSubmenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+            submenu.classList.toggle('is-open');
+        });
 
-    if (menuToggleLabel && menuLinks) {
-        menuToggleLabel.addEventListener('click', () => {
-            menuLinks.classList.add('menu-aberto');
-        });
-    }
-    
-    if (menuFecharLabel && menuLinks) {
-        menuFecharLabel.addEventListener('click', () => {
-            menuLinks.classList.remove('menu-aberto');
-        });
-    }
-    
-    if (navLinks && menuLinks) {
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuLinks.classList.remove('menu-aberto');
-            });
-        });
-    }
-
-    // A lógica do Carrossel (initializeCarousels, carousels, updateCarousel, etc.) foi removida.
-    console.log('Apenas o Menu Hambúrguer está ativo neste script.');
-
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleciona todos os botões de toggle (incluindo o de CATEGORIAS)
-    const toggleButtons = document.querySelectorAll('.toggle-submenu');
-
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // O submenu é o elemento irmão imediato do botão
-            const submenu = this.nextElementSibling;
-            
-            if (submenu && submenu.classList.contains('submenu')) {
-                // Alterna a classe 'is-open' no SUBMENU (mostra/esconde a lista)
-                submenu.classList.toggle('is-open');
-                
-                // Alterna a classe 'is-open' no BOTÃO (gira a seta)
-                this.classList.toggle('is-open');
+        document.addEventListener('click', (e) => {
+            if (!toggleSubmenu.contains(e.target) && !submenu.contains(e.target)) {
+                submenu.classList.remove('is-open');
             }
         });
+    }
+
+    // --- 3. LÓGICA DOS CARROSSEIS DE CATEGORIAS (COM AS BOLINHAS) ---
+    const containers = document.querySelectorAll('.carousel-container');
+
+    containers.forEach(container => {
+        const track = container.querySelector('.carousel-track');
+        const indicatorsContainer = container.querySelector('.carousel-indicators');
+        const items = container.querySelectorAll('.carousel-item');
+
+        if (track && indicatorsContainer && items.length > 0) {
+            // Limpa indicadores existentes para não duplicar
+            indicatorsContainer.innerHTML = '';
+
+            // Cria as bolinhas (dots)
+            items.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === 0) dot.classList.add('active');
+                
+                // Clique na bolinha leva até a foto
+                dot.addEventListener('click', () => {
+                    const itemWidth = items[0].offsetWidth;
+                    track.scrollTo({ left: itemWidth * i, behavior: 'smooth' });
+                });
+                
+                indicatorsContainer.appendChild(dot);
+            });
+
+            // Atualiza a bolinha ativa ao dar scroll
+            track.addEventListener('scroll', () => {
+                const index = Math.round(track.scrollLeft / track.offsetWidth);
+                const dots = indicatorsContainer.querySelectorAll('.dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            });
+        }
     });
-});
-document.addEventListener('DOMContentLoaded', function() {
+
+    // --- 4. LÓGICA DO SLIDER 3D (INDEX) - CORREÇÃO SAFARI ---
     const slider = document.querySelector('.slider');
-    const items = document.querySelectorAll('.item');
-    
+    const sliderItems = document.querySelectorAll('.slider .item');
+
     if (slider) {
-        // Funções de controle
-        const iniciarCarrossel = () => {
+        const playSlider = () => {
             slider.classList.remove('paused');
-            items.forEach(item => item.classList.remove('active-touch'));
+            sliderItems.forEach(item => item.classList.remove('active-touch'));
         };
 
-        const pausarCarrossel = () => {
+        const pauseSlider = () => {
             slider.classList.add('paused');
         };
 
-        // --- EVENTOS PARA MOBILE (iOS/Android) ---
+        // Touch no Slider (Mobile)
         slider.addEventListener('touchstart', (e) => {
-            pausarCarrossel();
-            // Identifica qual item foi tocado para destacar
+            pauseSlider();
             const targetItem = e.target.closest('.item');
             if (targetItem) {
-                items.forEach(i => i.classList.remove('active-touch'));
+                sliderItems.forEach(i => i.classList.remove('active-touch'));
                 targetItem.classList.add('active-touch');
             }
-        }, {passive: true});
+        }, { passive: true });
 
-        // O Safari precisa desse evento no document para "destravar" 
-        // quando o usuário toca em qualquer espaço vazio da tela
+        // SOLUÇÃO SAFARI: Retomar ao tocar fora ou dar scroll
         document.addEventListener('touchstart', (e) => {
             if (!slider.contains(e.target)) {
-                iniciarCarrossel();
+                playSlider();
             }
-        }, {passive: true});
+        }, { passive: true });
 
-        // Se o usuário arrastar a tela (scroll), o carrossel volta a rodar
-        window.addEventListener('scroll', iniciarCarrossel, {passive: true});
+        window.addEventListener('scroll', playSlider, { passive: true });
 
-
-        // --- EVENTOS PARA MOUSE (Desktop) ---
-        slider.addEventListener('mouseenter', pausarCarrossel);
-        slider.addEventListener('mouseleave', iniciarCarrossel);
+        // Desktop (Mouse)
+        slider.addEventListener('mouseenter', pauseSlider);
+        slider.addEventListener('mouseleave', playSlider);
     }
 });
+
+// --- 3. LÓGICA DO CARROSSEL (VERSÃO REFORÇADA PARA HOSPEDAGEM) ---
+function montarBolinhas() {
+    const carrosseis = document.querySelectorAll('.carousel-container');
+    
+    carrosseis.forEach(container => {
+        const track = container.querySelector('.carousel-track');
+        const indicatorsContainer = container.querySelector('.carousel-indicators');
+        const items = container.querySelectorAll('.carousel-item');
+
+        // Só executa se encontrar os elementos e se ainda não houver bolinhas
+        if (track && indicatorsContainer && items.length > 0 && indicatorsContainer.children.length === 0) {
+            
+            items.forEach((_, i) => {
+                const dot = document.createElement('div');
+                dot.classList.add('indicator');
+                if (i === 0) dot.classList.add('active');
+                indicatorsContainer.appendChild(dot);
+            });
+
+            const dots = indicatorsContainer.querySelectorAll('.indicator');
+            track.addEventListener('scroll', () => {
+                const index = Math.round(track.scrollLeft / track.offsetWidth);
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            });
+        }
+    });
+}
+
+// Tenta rodar assim que o HTML carregar
+document.addEventListener('DOMContentLoaded', montarBolinhas);
+
+// Tenta rodar novamente quando as imagens e estilos terminarem de baixar
+window.addEventListener('load', montarBolinhas);
