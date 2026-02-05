@@ -137,29 +137,24 @@ items.forEach(item => {
     });
 });
 
-// Garante que o código só rode após o HTML carregar
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.slider');
-    const items = document.querySelectorAll('.item');
-
-    // Verifica se o slider existe nesta página antes de prosseguir
+    
     if (slider) {
-        // Pausa ao tocar (touchstart)
+        // Para iPhone (iOS) e Android
         slider.addEventListener('touchstart', function() {
             slider.classList.add('paused');
         }, {passive: true});
 
-        // Retoma ao tirar o dedo (touchend)
         slider.addEventListener('touchend', function() {
-            slider.classList.remove('paused');
-            items.forEach(item => item.classList.remove('active-touch'));
+            // Um pequeno delay ajuda o iOS a processar a retomada
+            setTimeout(() => {
+                slider.classList.remove('paused');
+            }, 100);
         }, {passive: true});
 
-        // Destaca o item específico
-        items.forEach(item => {
-            item.addEventListener('touchstart', function() {
-                item.classList.add('active-touch');
-            }, {passive: true});
-        });
+        // Opcional: Manter para PC
+        slider.addEventListener('mouseenter', () => slider.classList.add('paused'));
+        slider.addEventListener('mouseleave', () => slider.classList.remove('paused'));
     }
 });
