@@ -1013,7 +1013,7 @@ transition: var(--transicao-padrao);
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: #dadada;
     transition: background-color 0.3s;
     cursor: pointer;
 }
