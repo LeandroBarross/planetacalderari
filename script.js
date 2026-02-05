@@ -45,84 +45,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. LÓGICA DOS CARROSSEIS DE CATEGORIAS (COM AS BOLINHAS) ---
-    const containers = document.querySelectorAll('.carousel-container');
+    // --- 3. NOVA LÓGICA DE PAUSA PARA OS SLIDERS (FEEDBACK E OUTROS) ---
+    // Usamos querySelectorAll para garantir que todos os sliders da página funcionem
+    const allSliders = document.querySelectorAll('.slider');
 
-    containers.forEach(container => {
-        const track = container.querySelector('.carousel-track');
-        const indicatorsContainer = container.querySelector('.carousel-indicators');
-        const items = container.querySelectorAll('.carousel-item');
-
-        if (track && indicatorsContainer && items.length > 0) {
-            // Limpa indicadores existentes para não duplicar
-            indicatorsContainer.innerHTML = '';
-
-            // Cria as bolinhas (dots)
-            items.forEach((_, i) => {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === 0) dot.classList.add('active');
-                
-                // Clique na bolinha leva até a foto
-                dot.addEventListener('click', () => {
-                    const itemWidth = items[0].offsetWidth;
-                    track.scrollTo({ left: itemWidth * i, behavior: 'smooth' });
-                });
-                
-                indicatorsContainer.appendChild(dot);
-            });
-
-            // Atualiza a bolinha ativa ao dar scroll
-            track.addEventListener('scroll', () => {
-                const index = Math.round(track.scrollLeft / track.offsetWidth);
-                const dots = indicatorsContainer.querySelectorAll('.dot');
-                dots.forEach((dot, i) => {
-                    dot.classList.toggle('active', i === index);
-                });
-            });
-        }
-    });
-
-    // --- 4. LÓGICA DO SLIDER 3D (INDEX) - CORREÇÃO SAFARI ---
-    const slider = document.querySelector('.slider');
-    const sliderItems = document.querySelectorAll('.slider .item');
-
-    if (slider) {
+    allSliders.forEach(slider => {
+        
         const playSlider = () => {
             slider.classList.remove('paused');
-            sliderItems.forEach(item => item.classList.remove('active-touch'));
         };
 
         const pauseSlider = () => {
             slider.classList.add('paused');
         };
 
-        // Touch no Slider (Mobile)
+        // Pausa quando o rato entra (Desktop)
+        slider.addEventListener('mouseenter', pauseSlider);
+        
+        // Retoma quando o rato sai (Desktop)
+        slider.addEventListener('mouseleave', playSlider);
+
+        // Pausa no toque (Telemóvel/Tablet)
         slider.addEventListener('touchstart', (e) => {
             pauseSlider();
-            const targetItem = e.target.closest('.item');
-            if (targetItem) {
-                sliderItems.forEach(i => i.classList.remove('active-touch'));
-                targetItem.classList.add('active-touch');
-            }
         }, { passive: true });
 
-        // SOLUÇÃO SAFARI: Retomar ao tocar fora ou dar scroll
-        document.addEventListener('touchstart', (e) => {
-            if (!slider.contains(e.target)) {
-                playSlider();
-            }
+        // Retoma após o toque (com um delay de 3 segundos para leitura)
+        slider.addEventListener('touchend', () => {
+            setTimeout(playSlider, 3000);
         }, { passive: true });
+    });
 
-        window.addEventListener('scroll', playSlider, { passive: true });
-
-        // Desktop (Mouse)
-        slider.addEventListener('mouseenter', pauseSlider);
-        slider.addEventListener('mouseleave', playSlider);
-    }
+    // --- 4. LÓGICA DO CARROSSEL DE BOLINHAS (INDICADORES) ---
+    montarBolinhas();
 });
 
-// --- 3. LÓGICA DO CARROSSEL (VERSÃO REFORÇADA PARA HOSPEDAGEM) ---
 function montarBolinhas() {
     const carrosseis = document.querySelectorAll('.carousel-container');
     
@@ -131,7 +88,6 @@ function montarBolinhas() {
         const indicatorsContainer = container.querySelector('.carousel-indicators');
         const items = container.querySelectorAll('.carousel-item');
 
-        // Só executa se encontrar os elementos e se ainda não houver bolinhas
         if (track && indicatorsContainer && items.length > 0 && indicatorsContainer.children.length === 0) {
             
             items.forEach((_, i) => {
@@ -150,8 +106,5 @@ function montarBolinhas() {
     });
 }
 
-// Tenta rodar assim que o HTML carregar
-document.addEventListener('DOMContentLoaded', montarBolinhas);
-
-// Tenta rodar novamente quando as imagens e estilos terminarem de baixar
+// Garante que as bolinhas funcionem mesmo se o carregamento for lento
 window.addEventListener('load', montarBolinhas);
