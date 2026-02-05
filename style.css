@@ -13,6 +13,20 @@
   --transicao-padrao: all 0.3s ease-in-out; /* Transição unificada */
 }
 
+/* No topo do seu style.css */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
+}
+
 /* -------------------- Estilos Globais e Reset Básico -------------------- */
 * {
   box-sizing: border-box; /* Facilita o layout e a responsividade */
@@ -335,21 +349,25 @@ footer {
   right: 1.5rem; /* Ajusta a posição direita */
   z-index: 1000;
 }
-
 .menu-hamburguer .menu-links {
   position: fixed;
   top: 0;
-  right: -300px; /* Aumenta a largura do menu fechado */
-  height: 100%;
-  width: 280px; /* Largura do menu aberto */
+  right: -300px;
+  height: 100vh; /* Usa a altura total da visualização */
+  width: 280px;
   background-color: var(--cinza-escuro);
-  padding-top: 6rem; /* Mais padding no topo */
-  transition: right 0.4s ease-in-out; /* Transição mais suave */
+  padding-top: 6rem;
+  transition: right 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  box-shadow: -5px 0 15px var(--sombra-media); /* Sombra no menu lateral */
+  box-shadow: -5px 0 15px var(--sombra-media);
+  
+  /* ADICIONE ESTAS LINHAS ABAIXO: */
+  overflow-y: auto;          /* Permite rolar verticalmente se necessário */
+  overflow-x: hidden;        /* Evita rolagem horizontal indesejada */
+  -webkit-overflow-scrolling: touch; /* Melhora a suavidade no iOS */
 }
 
 .menu-hamburguer .menu-links.menu-aberto {
@@ -386,12 +404,12 @@ transition: var(--transicao-padrao);
   transform: rotate(90deg); /* Efeito de rotação no fechar */
   color: var(--rosa-claro);
 }
-
 .menu-links ul {
   width: 100%;
   padding-left: 0;
   margin: 0;
   list-style: none;
+  padding-bottom: 2rem; /* Espaço extra no final da rolagem */
 }
 
 .menu-links ul li {
@@ -669,7 +687,7 @@ transition: var(--transicao-padrao);
     height: 100%;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
 }
 
 .card-carrossel img {
@@ -709,19 +727,12 @@ transition: var(--transicao-padrao);
     to { left: calc(var(--width) * -1); }
 }
 
-/* Animação padrão */
-.slider .item {
-    animation: autoRun 40s linear infinite;
-}
-
 /* Pausa quando o mouse está em cima (Computador) */
 @media (hover: hover) {
     .slider:hover .item {
         animation-play-state: paused !important;
-        filter: grayscale(1);
     }
     .slider .item:hover {
-        filter: grayscale(0);
         transform: scale(1.05);
     }
 }
@@ -732,9 +743,58 @@ transition: var(--transicao-padrao);
     /* Quando o JavaScript adicionar a classe .paused */
     .slider.paused .item {
         animation-play-state: paused !important;
-        filter: grayscale(1) !important;
     }
+  }
 
+/* No seu style.css, localize ou adicione: */
+.slider.paused .item, 
+.slider.paused {
+    animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important; /* Prefixo para Safari antigo */
+}
+
+/* Animação padrão */
+.slider .item {
+    animation: autoRun 40s linear infinite;
+}
+
+/* Efeito de Rosa Claro ao Pausar */
+.slider.paused .item,
+.slider:hover .item,
+.slider:active .item {
+    animation-play-state: paused !important;
+}
+
+/* Aplica o filtro rosa nas imagens que não estão em foco */
+.slider .item .card-carrossel {
+    position: relative;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.slider.paused .item .card-carrossel,
+.slider:hover .item .card-carrossel {
+    /* Cor rosa claro com transparência (ajuste o 0.4 para mais ou menos forte) */
+    background-color: rgb(255, 235, 235); 
+}
+
+.slider.paused .item img,
+.slider:hover .item img {
+    /* Faz a imagem se misturar com o fundo rosa */
+    mix-blend-mode: multiply; 
+    filter: none !important; /* Remove o preto e branco antigo */
+}
+
+/* Remove o rosa quando o mouse estiver EXATAMENTE em cima de uma foto específica */
+.slider .item:hover .card-carrossel,
+.slider .item.active-touch .card-carrossel {
+    background-color: transparent !important;
+}
+
+.slider .item:hover img,
+.slider .item.active-touch img {
+    mix-blend-mode: normal !important;
+}
     /* Feedback visual no item tocado */
     .slider .item:active,
     .slider .item.active-touch {
@@ -743,7 +803,7 @@ transition: var(--transicao-padrao);
         transition: transform 0.2s ease;
         z-index: 999;
     }
-}
+
 /* ============================================================
    CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
    ============================================================ */
@@ -762,15 +822,22 @@ transition: var(--transicao-padrao);
     color: #ffd0d0;
 }
 
-/* Container do Carrossel */
 .carousel-container {
-    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column; 
     align-items: center;
-    max-width: 1000px; /* Largura máxima do carrossel na tela */
-    margin: 0 auto;
-    overflow: visible; /* Permite que as setas fiquem levemente para fora se desejar */
+    position: relative;
+    width: 90%;            /* Deixa uma margem nas laterais da tela */
+    max-width: 500px;      /* Tamanho máximo para não ficar gigante no PC */
+    margin: 30px auto;     /* Centraliza e dá espaço entre os temas */
+    
+    /* ESTA É A MOLDURA BRANCA */
+    background-color: #fff; 
+    padding: 15px;         /* Espaço branco entre a borda e a foto */
+    border-radius: 25px;   /* Cantos bem arredondados */
+    box-shadow: 0 10px 30px rgba(153, 148, 148, 0.537); /* Sombra suave para "flutuar" */
+    
+    overflow: hidden;
 }
 
 /* Área que esconde as fotos que não estão em foco */
@@ -782,10 +849,18 @@ transition: var(--transicao-padrao);
     background-color: #f9f9f9; /* Fundo leve para caso a imagem seja menor */
 }
 
-/* Trilho onde as fotos deslizam */
 .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    overflow-x: auto; /* Ativa o deslize horizontal */
+    scroll-snap-type: x mandatory; /* Faz a foto "encaixar" ao parar */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Suaviza no iPhone */
+}
+
+/* Adiciona isto logo abaixo para esconder a barra de scroll feia */
+.carousel-track::-webkit-scrollbar {
+    display: none;
 }
 
 /* Cada item do carrossel */
@@ -797,50 +872,14 @@ transition: var(--transicao-padrao);
     align-items: center;
 }
 
-/* Ajuste da Imagem para não esticar */
 .carousel-item img {
     width: 100%;
-    height: 100%;
-    object-fit: contain; /* Garante que a foto inteira apareça sem distorção */
+    height: auto;
     display: block;
+    border-radius: 15px;   /* Arredondamento da foto dentro da moldura */
+    object-fit: cover;
 }
 
-/* ============================================================
-   ESTILO DAS SETAS (BOTÕES)
-   ============================================================ */
-
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 182, 193, 0.9); /* Rosa suave com transparência */
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-}
-
-.carousel-btn:hover {
-    background-color: #ff69b4; /* Rosa mais forte no hover */
-    transform: translateY(-50%) scale(1.1);
-}
-
-/* Posicionamento das setas nas laterais internas */
-.prev {
-    left: 15px;
-}
-
-.next {
-    right: 15px;
-}
 
 /* ============================================================
    BOTÃO "TENHO INTERESSE" E RODAPÉ DA CATEGORIA
@@ -865,6 +904,17 @@ transition: var(--transicao-padrao);
     max-width: 280px;         /* Limita o tamanho para não ficar gigante */
     min-height: 50px;         /* Garante uma boa área de toque */
     padding: 12px 20px;
+}
+.tema-galeria {
+    padding: 40px 0;
+    border-bottom: 1px solid #f0f0f0; /* Linha sutil separando as categorias */
+}
+
+.titulo-categoria {
+    text-align: center;
+    color: var(--rosa-claro);
+    margin-bottom: 20px;
+    font-size: 1.8rem;
 }
 
 /* Estilo do botão verde (baseado na sua imagem) */
@@ -912,4 +962,63 @@ transition: var(--transicao-padrao);
     justify-content: center;
     align-items: center;
   }
+}
+
+.submenu {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Adicione esta linha abaixo para garantir que itens fiquem invisíveis */
+    visibility: hidden; 
+}
+
+.submenu.is-open {
+    max-height: 500px; /* Aumentei um pouco para caber todos os itens */
+    visibility: visible;
+}
+
+/* Container que permite o deslize */
+.carousel-track {
+    display: flex;
+    overflow-x: auto; /* Permite scroll */
+    scroll-snap-type: x mandatory; /* Faz a foto "grudar" no centro */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
+}
+
+/* Remove a barra de rolagem visualmente */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    min-width: 100%; /* Cada foto ocupa a tela toda do container */
+    scroll-snap-align: start; /* Onde a foto deve travar */
+}
+
+/* Estilo das Bolinhas (Indicadores) */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: var(--rosa-claro); /* Fica rosa quando ativa */
+    transform: scale(1.2);
 }
