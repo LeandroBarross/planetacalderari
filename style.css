@@ -1022,7 +1022,6 @@ transition: var(--transicao-padrao);
     background-color: var(--rosa-claro); /* Fica rosa quando ativa */
     transform: scale(1.2);
 }
-
 .dot {
     width: 10px;
     height: 10px;
