@@ -13,7 +13,6 @@
   --transicao-padrao: all 0.3s ease-in-out; /* Transição unificada */
 }
 
-/* No topo do seu style.css */
 html {
     scroll-behavior: smooth;
 }
@@ -41,6 +40,9 @@ body {
   line-height: 1.6;
   scroll-behavior: smooth; /* Rolagem suave para âncoras */
 }
+
+
+
 
 /* -------------------- Cabeçalho -------------------- */
 header {
@@ -75,6 +77,9 @@ header h2 {
   box-shadow: 0 0 15px var(--sombra-media); /* Sombra no logo */
 }
 
+
+
+
 /* -------------------- Seções Gerais -------------------- */
 section {
   padding: 4rem 1.5rem; /* Mais padding para seções */
@@ -101,6 +106,8 @@ section h2 {
   text-align: center;
   position: relative;
 }
+
+
 
 
 /* -------------------- Galeria de Fotos (index.html e categorias.html) -------------------- */
@@ -136,6 +143,9 @@ section h2 {
 .galeria-foto:hover img {
   transform: scale(1.08); /* Zoom sutil na imagem ao passar o mouse */
 }
+
+
+
 
 /* -------------------- Botões de Contato (Geral) -------------------- */
 #contato {
@@ -194,6 +204,10 @@ section h2 {
   font-size: 1.4rem; /* Ícone maior */
 }
 
+
+
+
+
 /* -------------------- Rodapé -------------------- */
 footer {
   text-align: center;
@@ -203,6 +217,9 @@ footer {
   font-size: 0.9rem;
   margin-top: 3rem; /* Mais espaço antes do rodapé */
 }
+
+
+
 
 /* -------------------- Festas e Preços (festas.html) -------------------- */
 #festas-e-precos {
@@ -342,6 +359,8 @@ footer {
   box-shadow: 0 8px 20px var(--sombra-media);
 }
 
+
+
 /* -------------------- Menu Hambúrguer e Sanfona -------------------- */
 .menu-hamburguer {
   position: fixed;
@@ -363,8 +382,6 @@ footer {
   align-items: flex-start;
   justify-content: flex-start;
   box-shadow: -5px 0 15px var(--sombra-media);
-  
-  /* ADICIONE ESTAS LINHAS ABAIXO: */
   overflow-y: auto;          /* Permite rolar verticalmente se necessário */
   overflow-x: hidden;        /* Evita rolagem horizontal indesejada */
   -webkit-overflow-scrolling: touch; /* Melhora a suavidade no iOS */
@@ -532,6 +549,9 @@ transition: var(--transicao-padrao);
   padding-left: 45px; 
 }
 
+
+
+
 /* -------------------- Responsividade -------------------- */
 @media (max-width: 1024px) {
   header h1 {
@@ -555,6 +575,9 @@ transition: var(--transicao-padrao);
     gap: 2rem;
   }
 }
+
+
+
 
 @media (max-width: 768px) {
   header {
@@ -645,6 +668,8 @@ transition: var(--transicao-padrao);
   }
 }
 
+
+
 @media (max-width: 480px) {
   header h1 {
     font-size: 2rem;
@@ -675,6 +700,11 @@ transition: var(--transicao-padrao);
     padding: 10px 10px 10px 30px;
   }
 }
+
+
+
+
+
 /* Estilização do Carrossel */
 #galeria-carrossel {
     padding: 40px 0;
@@ -721,11 +751,17 @@ transition: var(--transicao-padrao);
     /* Certifique-se de que o valor abaixo (30s) seja igual ao de cima */
     animation-delay: calc((40s / var(--quantity)) * (var(--position) - 1) - 40s) !important;
 }
+
+
+
 /* Sua animação atual */
 @keyframes autoRun {
     from { left: 100%; }
     to { left: calc(var(--width) * -1); }
 }
+
+
+
 
 /* Pausa quando o mouse está em cima (Computador) */
 @media (hover: hover) {
@@ -736,6 +772,10 @@ transition: var(--transicao-padrao);
         transform: scale(1.05);
     }
 }
+
+
+
+
 /* Para celulares e tablets (Touch) */
 @media (hover: none) {
     /* Quando segurar o dedo no container (via CSS) */
@@ -757,6 +797,9 @@ transition: var(--transicao-padrao);
 .slider .item {
     animation: autoRun 40s linear infinite;
 }
+
+
+
 
 /* Efeito de Rosa Claro ao Pausar */
 .slider.paused .item,
@@ -804,6 +847,12 @@ transition: var(--transicao-padrao);
         z-index: 999;
     }
 
+
+
+
+
+
+
 /* ============================================================
    CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
    ============================================================ */
@@ -839,6 +888,11 @@ transition: var(--transicao-padrao);
     
     overflow: hidden;
 }
+
+
+
+
+
 
 /* Área que esconde as fotos que não estão em foco */
 .carousel-wrapper {
@@ -881,6 +935,10 @@ transition: var(--transicao-padrao);
 }
 
 
+
+
+
+
 /* ============================================================
    BOTÃO "TENHO INTERESSE" E RODAPÉ DA CATEGORIA
    ============================================================ */
@@ -917,6 +975,10 @@ transition: var(--transicao-padrao);
     font-size: 1.8rem;
 }
 
+
+
+
+
 /* Estilo do botão verde (baseado na sua imagem) */
 .botao-interesse {
     background-color: #2ecc71;
@@ -938,6 +1000,10 @@ transition: var(--transicao-padrao);
 .botao-interesse:hover {
     background-color: #27ae60;
 }
+
+
+
+
 
 /* Responsividade para Celular */
 @media (max-width: 768px) {
@@ -982,6 +1048,10 @@ transition: var(--transicao-padrao);
     visibility: visible;
 }
 
+
+
+
+
 /* Container que permite o deslize */
 .carousel-track {
     display: flex;
@@ -1000,6 +1070,11 @@ transition: var(--transicao-padrao);
     min-width: 100%; /* Cada foto ocupa a tela toda do container */
     scroll-snap-align: start; /* Onde a foto deve travar */
 }
+
+
+
+
+
 
 /* Estilo das Bolinhas (Indicadores) */
 .carousel-indicators {
