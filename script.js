@@ -81,80 +81,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-document.addEventListener('DOMContentLoaded', () => {
-    const tracks = document.querySelectorAll('.carousel-track');
-
-    tracks.forEach(track => {
-        const items = track.querySelectorAll('.carousel-item');
-        const indicatorContainer = track.parentElement.querySelector('.carousel-indicators');
-
-        // 1. Cria as bolinhas dinamicamente
-        items.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('indicator');
-            if (index === 0) dot.classList.add('active');
-            
-            // Clique na bolinha para ir até a foto
-            dot.addEventListener('click', () => {
-                track.scrollTo({
-                    left: track.offsetWidth * index,
-                    behavior: 'smooth'
-                });
-            });
-            
-            indicatorContainer.appendChild(dot);
-        });
-
-        // 2. Atualiza qual bolinha está ativa ao deslizar
-        track.addEventListener('scroll', () => {
-            const index = Math.round(track.scrollLeft / track.offsetWidth);
-            const dots = indicatorContainer.querySelectorAll('.indicator');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        });
-    });
-});
-
-const slider = document.querySelector('.slider');
-const items = document.querySelectorAll('.item');
-
-// Pausa ao tocar
-slider.addEventListener('touchstart', () => {
-    slider.classList.add('paused');
-});
-
-// Retoma ao tirar o dedo
-slider.addEventListener('touchend', () => {
-    slider.classList.remove('paused');
-    items.forEach(item => item.classList.remove('active-touch'));
-});
-
-// Destaca o item específico tocado
-items.forEach(item => {
-    item.addEventListener('touchstart', (e) => {
-        item.classList.add('active-touch');
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.querySelector('.slider');
+    const items = document.querySelectorAll('.item');
     
     if (slider) {
-        // Para iPhone (iOS) e Android
-        slider.addEventListener('touchstart', function() {
+        // Funções de controle
+        const iniciarCarrossel = () => {
+            slider.classList.remove('paused');
+            items.forEach(item => item.classList.remove('active-touch'));
+        };
+
+        const pausarCarrossel = () => {
             slider.classList.add('paused');
+        };
+
+        // --- EVENTOS PARA MOBILE (iOS/Android) ---
+        slider.addEventListener('touchstart', (e) => {
+            pausarCarrossel();
+            // Identifica qual item foi tocado para destacar
+            const targetItem = e.target.closest('.item');
+            if (targetItem) {
+                items.forEach(i => i.classList.remove('active-touch'));
+                targetItem.classList.add('active-touch');
+            }
         }, {passive: true});
 
-        slider.addEventListener('touchend', function() {
-            // Um pequeno delay ajuda o iOS a processar a retomada
-            setTimeout(() => {
-                slider.classList.remove('paused');
-            }, 100);
+        // O Safari precisa desse evento no document para "destravar" 
+        // quando o usuário toca em qualquer espaço vazio da tela
+        document.addEventListener('touchstart', (e) => {
+            if (!slider.contains(e.target)) {
+                iniciarCarrossel();
+            }
         }, {passive: true});
 
-        // Opcional: Manter para PC
-        slider.addEventListener('mouseenter', () => slider.classList.add('paused'));
-        slider.addEventListener('mouseleave', () => slider.classList.remove('paused'));
+        // Se o usuário arrastar a tela (scroll), o carrossel volta a rodar
+        window.addEventListener('scroll', iniciarCarrossel, {passive: true});
+
+
+        // --- EVENTOS PARA MOUSE (Desktop) ---
+        slider.addEventListener('mouseenter', pausarCarrossel);
+        slider.addEventListener('mouseleave', iniciarCarrossel);
     }
 });
