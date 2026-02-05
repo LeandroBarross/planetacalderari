@@ -727,23 +727,37 @@ transition: var(--transicao-padrao);
     to { left: calc(var(--width) * -1); }
 }
 
-/* No seu style.css, localize ou adicione: */
-.slider.paused .item, 
-.slider.paused {
-    animation-play-state: paused !important;
-    -webkit-animation-play-state: paused !important; /* Prefixo para Safari antigo */
-}
+/* No seu style.css, substitua as regras de pausa por estas: */
 
-/* Animação padrão */
+/* Garante que a animação rode por padrão */
 .slider .item {
     animation: autoRun 40s linear infinite;
+    -webkit-animation: autoRun 40s linear infinite;
+    animation-play-state: running;
+    -webkit-animation-play-state: running;
 }
 
-/* Efeito de Rosa Claro ao Pausar */
-.slider.paused .item,
-.slider:hover .item,
-.slider:active .item {
+/* Força a pausa apenas quando a classe .paused estiver presente */
+.slider.paused .item {
     animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important;
+}
+
+/* Efeito visual de filtro quando pausado */
+.slider.paused .item .card-carrossel {
+    background-color: rgb(255, 235, 235);
+}
+
+.slider.paused .item img {
+    mix-blend-mode: multiply;
+}
+
+/* Remove o filtro APENAS do item que está sendo tocado no momento */
+.slider .item.active-touch .card-carrossel {
+    background-color: transparent !important;
+}
+.slider .item.active-touch img {
+    mix-blend-mode: normal !important;
 }
 
 /* Aplica o filtro rosa nas imagens que não estão em foco */
