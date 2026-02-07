@@ -824,16 +824,18 @@ transition: var(--transicao-padrao);
     margin: 15px;
 }
 
-/* Estilização de cada Card individual */
+/* Estilização do Card Individual */
 .tema-card {
     background: #ffffff;
     border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombreado suave */
+    padding: 20px 0px; /* MUDANÇA: 20px em cima/baixo, 0 nas laterais */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    justify-content: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
 }
 
 .tema-card:hover {
@@ -847,15 +849,14 @@ transition: var(--transicao-padrao);
     text-align: center;
 }
 
-
+/* Container do Carrossel */
 .tema-card .carousel-container {
     width: 100%;
-    border-radius: 25px;
-    height: 350px; /* Ou a altura que você escolheu */
-    position: relative; /* ESSENCIAL para as bolinhas flutuarem aqui dentro */
+    border-radius: 0; /* Remove o arredondamento interno para encostar no card */
+    height: 350px; 
+    position: relative; 
     overflow: hidden;
-    margin-bottom: none; /* Remove espaços inúteis */
-    background-color: transparent; /* Remove o fundo preto/branco se sobrar algo */
+    margin-bottom: 0; 
 }
 
 
@@ -887,7 +888,7 @@ transition: var(--transicao-padrao);
     overflow: hidden;
     width: 100%;
     border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(91, 91, 91, 0.1);
     background-color: #f9f9f9; /* Fundo leve para caso a imagem seja menor */
 }
 
@@ -919,12 +920,13 @@ transition: var(--transicao-padrao);
     overflow: hidden;
 }
 
+/* Imagem ocupando tudo */
 .carousel-item img {
     width: 100%;
-    height: 100%; /* Força a imagem a preencher toda a altura */
+    height: 95%;
     display: block;
-    border-radius: 15px;
-    object-fit: cover; /* Faz a foto preencher sem esticar ou sobrar */
+    object-fit: cover; /* Preenche o espaço lateral e vertical */
+    border-radius: 0;   /* A imagem assume o formato do card pai */
 }
 
 
@@ -935,61 +937,7 @@ transition: var(--transicao-padrao);
 /* ============================================================
    BOTÃO "TENHO INTERESSE" E RODAPÉ DA CATEGORIA
    ============================================================ */
-/* Ajuste no container para centralizar o botão na página */
-.botao-galeria-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    width: 100%;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
 
-/* Ajuste no botão para centralizar o texto dentro dele */
-.tema-galeria .botao-contato.whatsapp {
-    display: flex;            /* Transforma em flexbox */
-    justify-content: center;  /* Centraliza o texto horizontalmente */
-    align-items: center;      /* Centraliza o texto/ícone verticalmente */
-    text-align: center;
-    width: 100%;              /* Ocupa a largura definida no container */
-    max-width: 280px;         /* Limita o tamanho para não ficar gigante */
-    min-height: 50px;         /* Garante uma boa área de toque */
-    padding: 12px 20px;
-}
-.tema-galeria {
-    padding: 40px 0;
-    border-bottom: 1px solid #f0f0f0; /* Linha sutil separando as categorias */
-}
-
-.titulo-categoria {
-    text-align: center;
-    color: var(--rosa-claro);
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-}
-
-
-/* Estilo do botão verde (baseado na sua imagem) */
-.botao-interesse {
-    background-color: #2ecc71;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-  
-}
-@media (max-width: 768px) {
-    .tema-galeria .botao-contato.whatsapp {
-        width: 85%;           /* Largura ideal para telas pequenas */
-        max-width: 320px;     /* Impede que cresça demais em tablets */
-        margin: 0 auto;       /* Reforça a centralização externa */
-        font-size: 1.1rem;    /* Melhora a leitura */
-    }
-}
-.botao-interesse:hover {
-    background-color: #27ae60;
-}
 
 
 
@@ -1020,7 +968,6 @@ transition: var(--transicao-padrao);
 
 
 
-
 /* Container que permite o deslize */
 .carousel-track {
     display: flex;
@@ -1045,17 +992,20 @@ transition: var(--transicao-padrao);
 
 
 
-/* Estilo das Bolinhas (Indicadores) */
-/* Container que segura as bolinhas */
+/* Container das bolinhas - SEMPRE dentro da foto */
 .carousel-indicators {
-    position: absolute;    /* Faz as bolinhas flutuarem SOBRE a imagem */
-    bottom: 20px;          /* Distância da parte de baixo da imagem */
-    left: 50%;             /* Move para o meio */
-    transform: translateX(-50%); /* Centraliza perfeitamente */
+    position: absolute;    /* Garante que flutuem sobre a imagem */
+    bottom: 15px;          /* Distância da borda inferior da foto */
+    left: 50%;             /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste preciso do centro */
     display: flex;
-    gap: 10px;
-    z-index: 5;            /* Garante que fique na frente da foto */
+    gap: 8px;
+    z-index: 10;           /* Fica à frente da imagem */
+    background: rgba(0, 0, 0, 0.2); /* Fundo subtil para visibilidade no mobile */
+    padding: 5px 10px;
+    border-radius: 20px;
 }
+
 .indicator {
     width: 10px;
     height: 10px;
