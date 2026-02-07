@@ -841,7 +841,7 @@ transition: var(--transicao-padrao);
 }
 
 .tema-card h3 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     margin-bottom: 15px;
     color: #ffcbcb;
     text-align: center;
@@ -1195,8 +1195,6 @@ transition: var(--transicao-padrao);
         text-align: center;
     }
 }
-
-
 
 
 
