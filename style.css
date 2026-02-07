@@ -785,12 +785,11 @@ transition: var(--transicao-padrao);
 
 
 
-
 /* ============================================================
-   CONFIGURAÇÃO GERAL DAS CATEGORIAS (CATEGORIAS.HTML)
+    CONFIGURAÇÃO GERAL DAS CATEGORIAS (Corrigido para Safari)
    ============================================================ */
 
-/* Centraliza o título "Chá de Bebê", "Festa Infantil", etc. */
+/* Container que segura o título da página */
 .tema-galeria {
     text-align: center;
     padding: 40px 20px;
@@ -798,49 +797,46 @@ transition: var(--transicao-padrao);
     margin: 0 auto;
 }
 
-
-
-.carousel-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    position: relative;
-    width: 90%;            /* Deixa uma margem nas laterais da tela */
-    max-width: 7000px;      /* Tamanho máximo para não ficar gigante no PC */
-    margin: 20px auto;     /* Centraliza e dá espaço entre os temas */
-    
-  
-}
-
-
-
-/* Container que segura todos os cards */
+/* Grid que organiza os cards na tela */
 .grid-categorias {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas automáticas */
-    gap: 50px 20px;/* Espaço entre os cards */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px 25px;
     padding: 20px;
-    max-width: none;
-    margin: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Estilização do Card Individual */
+/* O CARD PRINCIPAL (Fundo Vermelho) */
 .tema-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 20px 0px; /* MUDANÇA: 20px em cima/baixo, 0 nas laterais */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    justify-content: center;
+    background-color: #ffffff; /* Cor vermelha vibrante do fundo */
+    border-radius: 25px;
+    padding: 20px 15px;      /* Espaço interno para os elementos não tocarem a borda */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
-    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    
+    /* Correção Safari */
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
 }
 
 .tema-card:hover {
-    transform: translateY(-5px); /* Efeito de levante ao passar o mouse */
+    transform: translateY(-8px);
 }
+
+/* Título dentro do card (Chá de Bebê) */
+.tema-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+}
+
 
 .tema-card h3 {
     font-size: 1.65rem;
@@ -849,88 +845,132 @@ transition: var(--transicao-padrao);
     text-align: center;
 }
 
-/* Container do Carrossel */
-.tema-card .carousel-container {
+/* MOLDURA BRANCA DA IMAGEM */
+.carousel-container {
+    background-color: #ffffff;
+    padding: 10px;           /* Espessura da moldura branca */
+    border-radius: 20px;
     width: 100%;
-    border-radius: 0; /* Remove o arredondamento interno para encostar no card */
-    height: 350px; 
-    position: relative; 
+    height: 350px;
+    position: relative;
     overflow: hidden;
-    margin-bottom: 0; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Distância entre a imagem e o botão */
+    margin-bottom: 25px; 
 }
 
-
-/* Informações e Botão no rodapé do card */
-.card-info {
-    text-align: center;
-}
-
-.card-info p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 15px;
-}
-
-.card-info .botao-contato {
-    width: 100%; /* Botão ocupa a largura toda do card */
-    display: block;
-    box-sizing: border-box;
-}
-
-
-
-
-
-
-
-/* Área que esconde as fotos que não estão em foco */
-.carousel-wrapper {
-    overflow: hidden;
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(91, 91, 91, 0.1);
-    background-color: #f9f9f9; /* Fundo leve para caso a imagem seja menor */
-}
-
-/* O "Trilho" do carrossel */
+/* Trilho das fotos */
 .carousel-track {
     display: flex;
     width: 100%;
-    height: 100%; /* Garante que o trilho use a altura do container */
+    height: 100%;
     overflow-x: auto;
-    overflow-y: hidden; /* IMPEDE o movimento para cima e para baixo */
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
 }
 
-/* Adiciona isto logo abaixo para esconder a barra de scroll feia */
+/* Esconder barra de scroll */
 .carousel-track::-webkit-scrollbar {
     display: none;
 }
 
-
-/* Cada item do carrossel */
 .carousel-item {
-    min-width: 100%; 
-    height: 100%; /* Força o item a ter a mesma altura do container (300px) */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    min-width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
 }
 
-/* Imagem ocupando tudo */
 .carousel-item img {
     width: 100%;
-    height: 95%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    object-fit: cover; /* Preenche o espaço lateral e vertical */
-    border-radius: 0;   /* A imagem assume o formato do card pai */
+    border-radius: 12px; /* Arredondamento leve na foto interna */
 }
 
+/* Bolinhas indicadoras sobre a foto */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    z-index: 5;
+}
 
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
 
+.dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+/* ============================================================
+    SEÇÃO EXCLUSIVA DO BOTÃO "TENHO INTERESSE"
+   ============================================================ */
+
+.botao-interesse {
+    /* Layout e Cores */
+    background-color: #2ecc71; /* Verde */
+    color: #ffffff;
+    width: 95%;               /* Quase a largura total do card */
+    padding: 16px 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    
+    /* Bordas e Sombra */
+    border: none;
+    border-radius: 50px;      /* Estilo pílula */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Comportamento */
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+    display: block;
+    
+    /* CORREÇÕES SAFARI IPHONE */
+    -webkit-appearance: none; /* Remove degradê padrão do iOS */
+    -webkit-tap-highlight-color: transparent; /* Remove brilho azul ao tocar */
+}
+
+.botao-interesse:hover {
+    background-color: #27ae60;
+    transform: scale(1.02);
+}
+
+.botao-interesse:active {
+    transform: scale(0.98); /* Feedback ao clicar no celular */
+}
+
+/* Ajustes para telas muito pequenas (iPhone SE/Mini) */
+@media (max-width: 480px) {
+    .tema-card {
+        padding: 15px 10px;
+    }
+    .carousel-container {
+        height: 280px;
+        margin-bottom: 20px;
+    }
+    .botao-interesse {
+        font-size: 1.1rem;
+        padding: 14px 0;
+    }
+}
 
 
 
@@ -967,7 +1007,6 @@ transition: var(--transicao-padrao);
 }
 
 
-
 /* Container que permite o deslize */
 .carousel-track {
     display: flex;
@@ -986,10 +1025,6 @@ transition: var(--transicao-padrao);
     min-width: 100%; /* Cada foto ocupa a tela toda do container */
     scroll-snap-align: start; /* Onde a foto deve travar */
 }
-
-
-
-
 
 
 /* Container das bolinhas - SEMPRE dentro da foto */
@@ -1143,5 +1178,16 @@ transition: var(--transicao-padrao);
     }
 }
 
-
-
+.botao-interesse {
+    background-color: #2ecc71; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 50px;       /* Botão estilo pílula */
+    padding: 15px 30px;
+    width: 90%;                /* Para ficar parecido com o da foto */
+    font-weight: bold;
+    
+    /* Ajuste para Safari (remove estilos padrão de botões iOS) */
+    -webkit-appearance: none;
+    cursor: pointer;
+}
