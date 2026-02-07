@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 
@@ -47,7 +48,6 @@ body {
 /* -------------------- Cabeçalho -------------------- */
 header {
   background-color: var(--rosa-claro);
-  color: var(--cinza-escuro); /* Texto do cabeçalho em cinza escuro para melhor legibilidade */
   padding: 2rem 1rem; /* Aumenta o padding para mais espaço */
   text-align: center;
   display: flex;
@@ -106,44 +106,6 @@ section h2 {
   text-align: center;
   position: relative;
 }
-
-
-
-
-/* -------------------- Galeria de Fotos (index.html e categorias.html) -------------------- */
-.galeria-fotos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Melhor adaptação */
-  gap: 25px; /* Aumenta o espaçamento */
-  max-width: 1100px; /* Aumenta a largura máxima da grid */
-  margin: 0 auto 3rem auto; /* Centraliza e adiciona margem inferior */
-}
-
-.galeria-foto {
-  overflow: hidden;
-  border-radius: 10px; /* Bordas mais arredondadas */
-  box-shadow: 0 6px 15px var(--sombra-leve);
-  transition: var(--transicao-padrao);
-  background-color: var(--branco);
-}
-
-.galeria-foto:hover {
-  transform: translateY(-8px) scale(1.02); /* Efeito de "levantar" e aumentar */
-  box-shadow: 0 12px 25px var(--sombra-media);
-}
-
-.galeria-foto img {
-  width: 100%;
-  height: 250px; /* Altura ligeiramente ajustada */
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease; /* Transição para zoom na imagem */
-}
-
-.galeria-foto:hover img {
-  transform: scale(1.08); /* Zoom sutil na imagem ao passar o mouse */
-}
-
 
 
 
@@ -284,52 +246,8 @@ footer {
   margin-top: auto; /* Empurra o botão para baixo */
 }
 
-/* -------------------- Feedbacks (festas.html) -------------------- */
-#feedbacks {
-  text-align: center;
-}
 
-.feedback-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajuste para 300px */
-  gap: 2rem;
-  padding: 2rem 1rem;
-}
 
-.feedback-item {
-  background-color: var(--branco);
-  padding: 2.5rem; /* Mais padding */
-  border-radius: 10px;
-  box-shadow: 0 6px 15px var(--sombra-leve);
-  border-left: 6px solid var(--rosa-claro); /* Borda mais grossa */
-  transition: var(--transicao-padrao);
-  text-align: left; /* Alinha o texto do feedback à esquerda */
-}
-
-.feedback-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px var(--sombra-media);
-}
-
-.feedback-item .avaliacao {
-  color: var(--amarelo-estrela);
-  margin-bottom: 1.2rem;
-  font-size: 1.2rem; /* Estrelas maiores */
-}
-
-.feedback-item .comentario {
-  font-style: italic;
-  color: var(--cinza-escuro);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.feedback-item .cliente {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: var(--rosa-claro);
-  font-size: 1.1rem;
-}
 
 /* -------------------- Botão "Tenho interesse!" (categorias.html) -------------------- */
 .botao-galeria-container {
@@ -549,6 +467,23 @@ transition: var(--transicao-padrao);
   padding-left: 45px; 
 }
 
+.submenu {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Adicione esta linha abaixo para garantir que itens fiquem invisíveis */
+    visibility: hidden; 
+}
+
+.submenu.is-open {
+    max-height: 500px; /* Aumentei um pouco para caber todos os itens */
+    visibility: visible;
+}
 
 
 
@@ -753,14 +688,13 @@ transition: var(--transicao-padrao);
 }
 
 
+/* carrosel da pagina inicial, index*/
 
 /* Sua animação atual */
 @keyframes autoRun {
     from { left: 100%; }
     to { left: calc(var(--width) * -1); }
 }
-
-
 
 
 /* Pausa quando o mouse está em cima (Computador) */
@@ -772,8 +706,6 @@ transition: var(--transicao-padrao);
         transform: scale(1.05);
     }
 }
-
-
 
 
 /* Para celulares e tablets (Touch) */
@@ -838,6 +770,7 @@ transition: var(--transicao-padrao);
 .slider .item.active-touch img {
     mix-blend-mode: normal !important;
 }
+
     /* Feedback visual no item tocado */
     .slider .item:active,
     .slider .item.active-touch {
@@ -865,11 +798,7 @@ transition: var(--transicao-padrao);
     margin: 0 auto;
 }
 
-.tema-galeria h2 {
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #ffd0d0;
-}
+
 
 .carousel-container {
     display: flex;
@@ -881,13 +810,79 @@ transition: var(--transicao-padrao);
     margin: 30px auto;     /* Centraliza e dá espaço entre os temas */
     
     /* ESTA É A MOLDURA BRANCA */
-    background-color: #fff; 
-    padding: 15px;         /* Espaço branco entre a borda e a foto */
-    border-radius: 25px;   /* Cantos bem arredondados */
-    box-shadow: 0 10px 30px rgba(153, 148, 148, 0.537); /* Sombra suave para "flutuar" */
+    padding: 0 !important;       /* Remove a folga que cria a borda branca */
+    background-color: transparent; /* Garante que não haja cor de fundo sobrando */
+    border: none;                /* Remove qualquer borda residual */
+    overflow: hidden;            /* Mantém o corte arredondado perfeito */
+    box-shadow: 0 10px 30px rgba(100, 100, 100, 0.537); /* Sombra suave para "flutuar" */
     
     overflow: hidden;
 }
+
+
+
+/* Container que segura todos os cards */
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Cria colunas automáticas */
+    gap: 50px 20px;/* Espaço entre os cards */
+    padding: 20px;
+    max-width: none;
+    margin: 15px;
+}
+
+/* Estilização de cada Card individual */
+.tema-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombreado suave */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.tema-card:hover {
+    transform: translateY(-5px); /* Efeito de levante ao passar o mouse */
+}
+
+.tema-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #ffcbcb;
+    text-align: center;
+}
+
+
+.tema-card .carousel-container {
+    width: 100%;
+    border-radius: 25px;
+    height: 350px; /* Ou a altura que você escolheu */
+    position: relative; /* ESSENCIAL para as bolinhas flutuarem aqui dentro */
+    overflow: hidden;
+    margin-bottom: none; /* Remove espaços inúteis */
+    background-color: transparent; /* Remove o fundo preto/branco se sobrar algo */
+}
+
+
+/* Informações e Botão no rodapé do card */
+.card-info {
+    text-align: center;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.card-info .botao-contato {
+    width: 100%; /* Botão ocupa a largura toda do card */
+    display: block;
+    box-sizing: border-box;
+}
+
 
 
 
@@ -903,13 +898,16 @@ transition: var(--transicao-padrao);
     background-color: #f9f9f9; /* Fundo leve para caso a imagem seja menor */
 }
 
+/* O "Trilho" do carrossel */
 .carousel-track {
     display: flex;
     width: 100%;
-    overflow-x: auto; /* Ativa o deslize horizontal */
-    scroll-snap-type: x mandatory; /* Faz a foto "encaixar" ao parar */
+    height: 100%; /* Garante que o trilho use a altura do container */
+    overflow-x: auto;
+    overflow-y: hidden; /* IMPEDE o movimento para cima e para baixo */
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch; /* Suaviza no iPhone */
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Adiciona isto logo abaixo para esconder a barra de scroll feia */
@@ -917,21 +915,23 @@ transition: var(--transicao-padrao);
     display: none;
 }
 
+
 /* Cada item do carrossel */
 .carousel-item {
     min-width: 100%; 
-    height: 450px; /* Altura fixa para manter a simetria */
+    height: 100%; /* Força o item a ter a mesma altura do container (300px) */
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .carousel-item img {
     width: 100%;
-    height: auto;
+    height: 100%; /* Força a imagem a preencher toda a altura */
     display: block;
-    border-radius: 15px;   /* Arredondamento da foto dentro da moldura */
-    object-fit: cover;
+    border-radius: 15px;
+    object-fit: cover; /* Faz a foto preencher sem esticar ou sobrar */
 }
 
 
@@ -976,9 +976,6 @@ transition: var(--transicao-padrao);
 }
 
 
-
-
-
 /* Estilo do botão verde (baseado na sua imagem) */
 .botao-interesse {
     background-color: #2ecc71;
@@ -1000,8 +997,6 @@ transition: var(--transicao-padrao);
 .botao-interesse:hover {
     background-color: #27ae60;
 }
-
-
 
 
 
@@ -1029,25 +1024,6 @@ transition: var(--transicao-padrao);
     align-items: center;
   }
 }
-
-.submenu {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* Adicione esta linha abaixo para garantir que itens fiquem invisíveis */
-    visibility: hidden; 
-}
-
-.submenu.is-open {
-    max-height: 500px; /* Aumentei um pouco para caber todos os itens */
-    visibility: visible;
-}
-
 
 
 
@@ -1078,17 +1054,23 @@ transition: var(--transicao-padrao);
 
 /* Estilo das Bolinhas (Indicadores) */
 .carousel-indicators {
+    position: absolute; /* Faz flutuar */
+    bottom: 15px;      /* Distância da borda inferior da foto */
+    left: 50%;         /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino da centralização */
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
+    gap: 8px;          /* Espaço entre as bolinhas */
+    z-index: 10;       /* Garante que fiquem em cima da imagem */
+    background: rgba(0, 0, 0, 0.3); /* Um fundinho escuro opcional para dar contraste */
+    padding: 5px 10px;
+    border-radius: 20px;
 }
 
 .indicator {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #dadada;
+    background-color: #bfbfbf;
     transition: background-color 0.3s;
     cursor: pointer;
 }
@@ -1101,7 +1083,7 @@ transition: var(--transicao-padrao);
 .dot {
     width: 10px;
     height: 10px;
-    background: #ccc;
+    background: #b6acac;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s;
@@ -1110,6 +1092,8 @@ transition: var(--transicao-padrao);
     background: #FADADD; /* Cor rosa que você usa */
     transform: scale(1.2);
 }
+
+
 
 
 
@@ -1145,6 +1129,8 @@ transition: var(--transicao-padrao);
 }
 
 
+
+
 /* Lógica exclusiva para o slider de feedbacks */
 .slider-feedback .list .item {
     animation: autoRun 40s linear infinite !important;
@@ -1163,6 +1149,8 @@ transition: var(--transicao-padrao);
 }
 
 
+
+/* --- Area do perfil, index --- */ 
 .perfil-secao {
     display: flex;
     align-items: center;
@@ -1214,3 +1202,6 @@ transition: var(--transicao-padrao);
         text-align: center;
     }
 }
+
+
+
