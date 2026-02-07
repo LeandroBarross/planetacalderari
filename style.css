@@ -1175,16 +1175,4 @@ transition: var(--transicao-padrao);
     }
 }
 
-.botao-interesse {
-    background-color: #2ecc71; /* Verde */
-    color: white;
-    border: none;
-    border-radius: 50px;       /* Botão estilo pílula */
-    padding: 15px 30px;
-    width: 90%;                /* Para ficar parecido com o da foto */
-    font-weight: bold;
-    
-    /* Ajuste para Safari (remove estilos padrão de botões iOS) */
-    -webkit-appearance: none;
-    cursor: pointer;
-}
+
