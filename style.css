@@ -841,7 +841,7 @@ transition: var(--transicao-padrao);
 }
 
 .tema-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.65rem;
     margin-bottom: 15px;
     color: #ffcbcb;
     text-align: center;
@@ -1046,19 +1046,16 @@ transition: var(--transicao-padrao);
 
 
 /* Estilo das Bolinhas (Indicadores) */
+/* Container que segura as bolinhas */
 .carousel-indicators {
-    position: absolute; /* Faz flutuar */
-    bottom: 15px;      /* Distância da borda inferior da foto */
-    left: 50%;         /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Ajuste fino da centralização */
+    position: absolute;    /* Faz as bolinhas flutuarem SOBRE a imagem */
+    bottom: 20px;          /* Distância da parte de baixo da imagem */
+    left: 50%;             /* Move para o meio */
+    transform: translateX(-50%); /* Centraliza perfeitamente */
     display: flex;
-    gap: 8px;          /* Espaço entre as bolinhas */
-    z-index: 10;       /* Garante que fiquem em cima da imagem */
-    background: rgba(0, 0, 0, 0.3); /* Um fundinho escuro opcional para dar contraste */
-    padding: 5px 10px;
-    border-radius: 20px;
+    gap: 10px;
+    z-index: 5;            /* Garante que fique na frente da foto */
 }
-
 .indicator {
     width: 10px;
     height: 10px;
