@@ -236,7 +236,7 @@ footer {
 
 /* Botão de orçamento dentro do item da festa */
 .festa-item .botao-contato.whatsapp {
-  padding: 1.1rem 5rem;
+  padding: 0.6rem 4rem;
   font-size: 1rem;
   margin-top: auto; /* Empurra o botão para baixo */
 }
