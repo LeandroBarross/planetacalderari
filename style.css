@@ -809,14 +809,6 @@ transition: var(--transicao-padrao);
     max-width: 500px;      /* Tamanho máximo para não ficar gigante no PC */
     margin: 30px auto;     /* Centraliza e dá espaço entre os temas */
     
-    /* ESTA É A MOLDURA BRANCA */
-    padding: 0 !important;       /* Remove a folga que cria a borda branca */
-    background-color: transparent; /* Garante que não haja cor de fundo sobrando */
-    border: none;                /* Remove qualquer borda residual */
-    overflow: hidden;            /* Mantém o corte arredondado perfeito */
-    box-shadow: 0 10px 30px rgba(100, 100, 100, 0.537); /* Sombra suave para "flutuar" */
-    
-    overflow: hidden;
 }
 
 
