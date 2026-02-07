@@ -806,9 +806,10 @@ transition: var(--transicao-padrao);
     align-items: center;
     position: relative;
     width: 90%;            /* Deixa uma margem nas laterais da tela */
-    max-width: 500px;      /* Tamanho máximo para não ficar gigante no PC */
-    margin: 30px auto;     /* Centraliza e dá espaço entre os temas */
+    max-width: 7000px;      /* Tamanho máximo para não ficar gigante no PC */
+    margin: 20px auto;     /* Centraliza e dá espaço entre os temas */
     
+  
 }
 
 
@@ -1194,6 +1195,8 @@ transition: var(--transicao-padrao);
         text-align: center;
     }
 }
+
+
 
 
 
