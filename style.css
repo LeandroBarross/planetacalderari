@@ -245,223 +245,151 @@ footer {
 
 
 
-
-/* -------------------- Botão "Tenho interesse!" (categorias.html) -------------------- */
-.botao-galeria-container {
-  text-align: center;
-  margin-top: 2.5rem; /* Mais espaço acima do botão */
-  margin-bottom: 2rem;
-}
-
-.botao-interesse {
-  display: inline-block; /* Para centralizar melhor */
-  background-color: var(--verde-whatsapp);
-  color: var(--branco);
-  padding: 1rem 2.5rem; /* Aumenta o padding */
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px;
-  transition: var(--transicao-padrao);
-  box-shadow: 0 4px 10px var(--sombra-leve);
-  font-size: 1.1rem; /* Aumenta a fonte */
-  text-align: center;
-  min-width: 200px; /* Largura mínima para o botão */
-}
-
-.botao-interesse:hover {
-  background-color: var(--verde-whatsapp-hover);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px var(--sombra-media);
-}
-
-
-
 /* -------------------- Menu Hambúrguer e Sanfona -------------------- */
 .menu-hamburguer {
-  position: fixed;
-  top: 1.5rem; /* Ajusta a posição superior */
-  right: 1.5rem; /* Ajusta a posição direita */
-  z-index: 1000;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
 }
+
 .menu-hamburguer .menu-links {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  height: 100vh; /* Usa a altura total da visualização */
-  width: 280px;
-  background-color: var(--cinza-escuro);
-  padding-top: 6rem;
-  transition: right 0.4s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  box-shadow: -5px 0 15px var(--sombra-media);
-  overflow-y: auto;          /* Permite rolar verticalmente se necessário */
-  overflow-x: hidden;        /* Evita rolagem horizontal indesejada */
-  -webkit-overflow-scrolling: touch; /* Melhora a suavidade no iOS */
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 280px;
+    background-color: var(--cinza-escuro);
+    padding-top: 5rem;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu-hamburguer .menu-links.menu-aberto {
-  right: 0;
+    right: 0;
 }
 
+
+/* ÍCONE DE ABRIR (As 3 linhas) */
 .menu-hamburguer .menu-icone {
-color: var(--cinza-escuro); /* MUDANÇA: Cor das linhas (ícone) é preta */
-font-size: 2.2rem; 
-cursor: pointer;
-background-color: var(--branco); /* MUDANÇA: Cor de fundo do círculo é branca */
-padding: 0.6rem; 
-border-radius: 8px; 
-box-shadow: 0 3px 8px var(--sombra-leve);
-transition: var(--transicao-padrao);
+    display: inline-block; /* Garante que o tamanho do bloco respeite o padding */
+    color: var(--cinza-escuro) !important; 
+    font-size: 2.2rem; 
+    cursor: pointer;
+    background-color: var(--branco); 
+    padding: 0.6rem; 
+    border-radius: 8px; 
+    box-shadow: 0 3px 8px var(--sombra-leve);
+    transition: var(--transicao-padrao);
 }
 
 .menu-hamburguer .menu-icone:hover {
-  transform: scale(1.1);
-  box-shadow: 0 5px 12px var(--sombra-media);
+    transform: scale(1.1);
+    box-shadow: 0 5px 12px var(--sombra-media);
 }
 
+
+/* ÍCONE DE FECHAR (O "X") */
 .menu-hamburguer .menu-fechar {
-  position: absolute;
-  top: 1.5rem; /* Ajusta a posição superior */
-  right: 1.5rem; /* Ajusta a posição direita */
-  color: var(--branco);
-  font-size: 2.2rem; /* Ícone maior */
-  cursor: pointer;
-  transition: var(--transicao-padrao);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--branco) !important;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+    display: block; /* Garante visibilidade */
+    z-index: 1002;
 }
 
 .menu-hamburguer .menu-fechar:hover {
-  transform: rotate(90deg); /* Efeito de rotação no fechar */
-  color: var(--rosa-claro);
-}
-.menu-links ul {
-  width: 100%;
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
-  padding-bottom: 2rem; /* Espaço extra no final da rolagem */
+    transform: rotate(90deg);
+    color: var(--rosa-claro) !important;
 }
 
-.menu-links ul li {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
+
+.menu-hamburguer .menu-links {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 280px;
+    background-color: var(--cinza-escuro);
+    padding-top: 5rem;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    z-index: 1001;
 }
 
-.menu-links ul li:last-child {
-  border-bottom: none;
-}
 
-.menu-links ul li a {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  text-decoration: none;
-  padding: 18px 20px; /* Padding ajustado */
-  font-size: 1.1rem; /* Fonte ligeiramente menor para mais itens */
-  font-weight: 500; /* Peso da fonte ajustado */
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  transition: var(--transicao-padrao);
-  box-sizing: border-box;
-}
-
-.menu-links ul li a:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 25px; /* Pequeno efeito de deslize no hover */
-}
-
+/* 1. RESET E UNIFICAÇÃO TOTAL (O segredo do alinhamento) */
+.menu-links ul li a, 
 .toggle-submenu {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 18px 20px;
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  box-sizing: border-box;
-  transition: var(--transicao-padrao);
+    display: flex;             /* Flex para alinhar texto verticalmente */
+    align-items: center;       /* Centraliza o texto no meio da altura */
+    width: 100%;
+    color: var(--branco);
+    text-decoration: none;
+    
+    padding: 0 20px;           /* Padding apenas nas laterais */
+    height: 55px;              /* ALTURA FIXA: Força todos a serem iguais */
+    
+    font-size: 1.1rem; 
+    font-weight: 500;
+    text-align: left;
+    
+    background: transparent;   /* Remove fundos de sistema do botão */
+    border: none;              /* Remove bordas de sistema do botão */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* LINHA DIVISÓRIA AQUI */
+    
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: var(--transicao-padrao);
+    margin: 0;
+    font-family: inherit;
+    position: relative;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
+/* 2. HOVER UNIFICADO */
+.menu-links ul li a:hover,
 .toggle-submenu:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 25px;
+    background-color: var(--rosa-claro) !important;
+    color: var(--cinza-escuro) !important;
+    padding-left: 25px;
 }
 
+/* 3. SETA (FONTAWESOME) */
 .toggle-submenu::after {
-  content: '\f078'; /* Ícone de seta para baixo (Font Awesome) */
-  font-family: "Font Awesome 6 Free"; /* Garante que o ícone seja renderizado */
-  font-weight: 900; /* Para ícones sólidos */
-  color: white;
-  position: absolute;
-  right: 20px; /* Ajusta a posição da seta */
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  transition: transform 0.3s ease;
-  font-size: 0.9rem;
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Centralização vertical real */
+    font-size: 0.8rem;
+    color: inherit;              /* Segue a cor do texto no hover */
+    transition: transform 0.3s ease;
 }
 
 .toggle-submenu.is-open::after {
-  content: '\f077'; /* Ícone de seta para cima (Font Awesome) */
-  transform: translateY(-50%) rotate(0deg); /* Não rotaciona, apenas muda o ícone */
+    content: '\f077';
 }
 
-.submenu {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out; /* Transição mais suave */
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Fundo sutil para o submenu */
-}
-
-.submenu.is-open {
-  max-height: 300px; /* Altura máxima ajustada */
-}
-
-.submenu li {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador mais leve */
-}
-
-.submenu li:last-child {
-  border-bottom: none;
-}
-
-.submenu li a {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  font-size: 1rem; /* Fonte ligeiramente menor para subitens */
-  font-weight: normal;
-  padding: 15px 20px 15px 40px; /* Recuo ajustado */
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  transition: var(--transicao-padrao);
-  box-sizing: border-box;
-}
-
-.submenu li a:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 45px; 
+/* 4. SUBMENU (ESTRUTURA) */
+.has-submenu {
+    display: flex;
+    flex-direction: column;
 }
 
 .submenu {
@@ -470,17 +398,37 @@ transition: var(--transicao-padrao);
     margin: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    visibility: hidden;
+    transition: max-height 0.5s ease-in-out;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* Adicione esta linha abaixo para garantir que itens fiquem invisíveis */
-    visibility: hidden; 
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo um pouco mais escuro */
 }
 
 .submenu.is-open {
-    max-height: 500px; /* Aumentei um pouco para caber todos os itens */
+    max-height: 2000px;
     visibility: visible;
 }
+
+/* Itens internos do Submenu */
+.submenu li a {
+    height: 48px;              /* Subitens ligeiramente menores */
+    padding-left: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.submenu li a:hover {
+    padding-left: 45px;
+}
+
+/* Remove borda da LI principal para não duplicar */
+.menu-links ul li {
+    border-bottom: none !important;
+}
+
+
+
 
 
 
@@ -1174,5 +1122,4 @@ transition: var(--transicao-padrao);
         text-align: center;
     }
 }
-
 
