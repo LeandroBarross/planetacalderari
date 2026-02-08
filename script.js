@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleSubmenu.addEventListener('click', (e) => {
             e.stopPropagation();
             submenu.classList.toggle('is-open');
+            toggleSubmenu.classList.toggle('is-open');
         });
 
         document.addEventListener('click', (e) => {
@@ -108,3 +109,4 @@ function montarBolinhas() {
 
 // Garante que as bolinhas funcionem mesmo se o carregamento for lento
 window.addEventListener('load', montarBolinhas);
+
