@@ -98,8 +98,8 @@ section:hover {
 }
 
 section h2 {
-  font-size: 2.2rem; /* Títulos de seção maiores */
-  color: var(--rosa-claro);
+  font-size: 1.8rem; /* Títulos de seção maiores */
+  color: #ffd4d4;
   border-bottom: 3px solid var(--rosa-claro); /* Borda mais grossa */
   padding-bottom: 0.8rem;
   margin-bottom: 3rem; /* Mais espaço abaixo do título */
@@ -108,66 +108,121 @@ section h2 {
 }
 
 
+/* ---------------Entre em contato pelas nossas redes sociais!-------------*/
 
-/* -------------------- Botões de Contato (Geral) -------------------- */
 #contato {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
 }
+
+
 
 #contato p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
+
 }
 
+
+
+/*-------- botões inferiores das 3 paginas ----------------*/
+/* Container dos botões de contato */
 .contato-botoes {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* Aumenta o espaçamento entre botões */
+  gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
+
+/* Estilo Base para os dois */
 .botao-contato {
   text-decoration: none;
-  color: var(--branco);
+  color: #ffffff; /* ou var(--branco) */
   padding: 0.6rem 2.85rem;
   border-radius: 50px;
   font-weight: bold;
   font-size: 1.5rem;
   display: flex;
-  align-items: center;      /* Centraliza verticalmente */
-  justify-content: center;   /* Centraliza horizontalmente */
-  text-align: center;
-  transition: var(--transicao-padrao);
-  box-shadow: 0 4px 10px var(--sombra-leve);
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+.botao-contato:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Cores específicas */
 .botao-contato.instagram {
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
 .botao-contato.whatsapp {
-  background-color: var(--verde-whatsapp);
-}
-
-.botao-contato:hover {
-  transform: translateY(-5px) scale(1.05); /* Efeito mais pronunciado no hover */
-  box-shadow: 0 8px 20px var(--sombra-media);
-}
-
-.botao-contato.whatsapp:hover {
-  background-color: var(--verde-whatsapp-hover);
+  background-color: #25d366; /* var(--verde-whatsapp) */
 }
 
 .botao-contato i {
-  margin-right: 0.8rem; /* Mais espaço para o ícone */
-  font-size: 1.4rem; /* Ícone maior */
+  margin-right: 0.8rem;
+  font-size: 1.4rem;
 }
 
 
 
+/* -------------botão para solicitar orçamento, pagina categorias----------------- */
+.btn-solicitar-orcamento {
+  display: inline-block;
+  background-color: #ffbfbf; 
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%; /* Ajuste conforme o layout do card */
+  margin: 10px auto;
+
+
+}
+
+.btn-solicitar-orcamento:hover {
+  background-color: #ff9c9c;
+  filter: brightness(1.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
+/* -------------botão tenho interesse, pagina festas----------------- */
+.btn-tenho-interesse {
+  display: inline-block;
+  background-color: #ffbfbf;/* Verde do botão da imagem 2 */
+  color: white;
+  padding: 1px 10px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  width: 90%; /* Para ocupar a largura do card como na foto */
+  margin: 1px auto;
+}
+
+.btn-tenho-interesse:hover {
+  background-color: #ff9c9c;
+  filter: brightness(1.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
 
 /* -------------------- Rodapé -------------------- */
@@ -222,10 +277,14 @@ footer {
   box-shadow: 0 2px 8px var(--sombra-leve);
 }
 
-.festa-item h3 {
-  color: var(--rosa-claro);
-  font-size: 1.6rem; /* Título do item maior */
-  margin-bottom: 0.8rem;
+.festa-item h2 {
+  font-size: 1.1rem; /* Títulos de seção maiores */
+  color: #ffd4d4;
+  border-bottom: 3px solid var(--rosa-claro); /* Borda mais grossa */
+  padding-bottom: 0.8rem;
+  margin-bottom: 3rem; /* Mais espaço abaixo do título */
+  text-align: center;
+  position: relative;
 }
 
 .festa-item .preco {
@@ -697,7 +756,7 @@ footer {
 .slider.paused .item .card-carrossel,
 .slider:hover .item .card-carrossel {
     /* Cor rosa claro com transparência (ajuste o 0.4 para mais ou menos forte) */
-    background-color: rgb(255, 235, 235); 
+    background-color: rgb(255, 255, 255); 
 }
 
 .slider.paused .item img,
@@ -754,7 +813,7 @@ footer {
     margin: 0 auto;
 }
 
-/* O CARD PRINCIPAL (Fundo Vermelho) */
+/* O CARD PRINCIPAL  */
 .tema-card {
     background-color: #ffffff; /* Cor vermelha vibrante do fundo */
     border-radius: 25px;
@@ -864,93 +923,7 @@ footer {
     transform: scale(1.2);
 }
 
-/* ============================================================
-    SEÇÃO EXCLUSIVA DO BOTÃO "TENHO INTERESSE"
-   ============================================================ */
 
-.botao-interesse {
-    /* Layout e Cores */
-    background-color: #2ecc71; /* Verde */
-    color: #ffffff;
-    width: 95%;               /* Quase a largura total do card */
-    padding: 16px 0;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: center;
-    text-decoration: none;
-    
-    /* Bordas e Sombra */
-    border: none;
-    border-radius: 50px;      /* Estilo pílula */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    
-    /* Comportamento */
-    cursor: pointer;
-    transition: var(--transicao-padrao);
-    display: block;
-    
-    /* CORREÇÕES SAFARI IPHONE */
-    -webkit-appearance: none; /* Remove degradê padrão do iOS */
-    -webkit-tap-highlight-color: transparent; /* Remove brilho azul ao tocar */
-}
-
-.botao-interesse:hover {
-    background-color: #27ae60;
-    transform: scale(1.02);
-}
-
-.botao-interesse:active {
-    transform: scale(0.98); /* Feedback ao clicar no celular */
-}
-
-/* Ajustes para telas muito pequenas (iPhone SE/Mini) */
-@media (max-width: 480px) {
-    .tema-card {
-        padding: 15px 10px;
-    }
-    .carousel-container {
-        height: 280px;
-        margin-bottom: 20px;
-    }
-    .botao-interesse {
-        font-size: 1.1rem;
-        padding: 14px 0;
-    }
-}
-
-
-
-/* ============================================================
-   BOTÃO "TENHO INTERESSE" E RODAPÉ DA CATEGORIA
-   ============================================================ */
-
-
-
-
-/* Responsividade para Celular */
-@media (max-width: 768px) {
-    .carousel-item {
-        height: 300px; /* Menor em telas pequenas */
-    }
-    
-    .carousel-btn {
-        width: 35px;
-        height: 35px;
-    }
-}
-
-@media (max-width: 768px) {
-  .botao-contato {
-    width: 90%;            /* Aumentado para melhor toque no celular */
-    max-width: 300px;
-    margin: 0 auto;
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-    display: flex;         /* Garante que o flex continue ativo */
-    justify-content: center;
-    align-items: center;
-  }
-}
 
 
 /* Container que permite o deslize */
