@@ -178,7 +178,7 @@ section h2 {
 .btn-solicitar-orcamento {
   display: inline-block;
   background-color: #25d366; 
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 12px 20px;
   border-radius: 25px;
   text-decoration: none;
@@ -218,7 +218,7 @@ section h2 {
 }
 
 .btn-tenho-interesse:hover {
-  background-color: #00ff336d;
+  background-color: #ff9c9c;
   filter: brightness(1.1);
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
