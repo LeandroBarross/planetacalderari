@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
 :root {
   --rosa-claro: #FADADD;
   --branco: #ffffff; /* Cor principal de fundo e texto claro */
@@ -11,6 +12,19 @@
   --sombra-leve: rgba(224, 224, 224, 0.999); /* Sombra mais suave */
   --sombra-media: rgba(255, 255, 255, 0.811); /* Sombra para hover */
   --transicao-padrao: all 0.3s ease-in-out; /* Transição unificada */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
 }
 
 /* -------------------- Estilos Globais e Reset Básico -------------------- */
@@ -28,10 +42,12 @@ body {
   scroll-behavior: smooth; /* Rolagem suave para âncoras */
 }
 
+
+
+
 /* -------------------- Cabeçalho -------------------- */
 header {
   background-color: var(--rosa-claro);
-  color: var(--cinza-escuro); /* Texto do cabeçalho em cinza escuro para melhor legibilidade */
   padding: 2rem 1rem; /* Aumenta o padding para mais espaço */
   text-align: center;
   display: flex;
@@ -61,6 +77,9 @@ header h2 {
   box-shadow: 0 0 15px var(--sombra-media); /* Sombra no logo */
 }
 
+
+
+
 /* -------------------- Seções Gerais -------------------- */
 section {
   padding: 4rem 1.5rem; /* Mais padding para seções */
@@ -79,8 +98,8 @@ section:hover {
 }
 
 section h2 {
-  font-size: 2.2rem; /* Títulos de seção maiores */
-  color: var(--rosa-claro);
+  font-size: 1.8rem; /* Títulos de seção maiores */
+  color: #ffd4d4;
   border-bottom: 3px solid var(--rosa-claro); /* Borda mais grossa */
   padding-bottom: 0.8rem;
   margin-bottom: 3rem; /* Mais espaço abaixo do título */
@@ -89,95 +108,122 @@ section h2 {
 }
 
 
-/* -------------------- Galeria de Fotos (index.html e categorias.html) -------------------- */
-.galeria-fotos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Melhor adaptação */
-  gap: 25px; /* Aumenta o espaçamento */
-  max-width: 1100px; /* Aumenta a largura máxima da grid */
-  margin: 0 auto 3rem auto; /* Centraliza e adiciona margem inferior */
-}
+/* ---------------Entre em contato pelas nossas redes sociais!-------------*/
 
-.galeria-foto {
-  overflow: hidden;
-  border-radius: 10px; /* Bordas mais arredondadas */
-  box-shadow: 0 6px 15px var(--sombra-leve);
-  transition: var(--transicao-padrao);
-  background-color: var(--branco);
-}
-
-.galeria-foto:hover {
-  transform: translateY(-8px) scale(1.02); /* Efeito de "levantar" e aumentar */
-  box-shadow: 0 12px 25px var(--sombra-media);
-}
-
-.galeria-foto img {
-  width: 100%;
-  height: 250px; /* Altura ligeiramente ajustada */
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s ease; /* Transição para zoom na imagem */
-}
-
-.galeria-foto:hover img {
-  transform: scale(1.08); /* Zoom sutil na imagem ao passar o mouse */
-}
-
-/* -------------------- Botões de Contato (Geral) -------------------- */
 #contato {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+
 }
+
+
 
 #contato p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
+
 }
 
+
+
+/*-------- botões inferiores das 3 paginas ----------------*/
+/* Container dos botões de contato */
 .contato-botoes {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* Aumenta o espaçamento entre botões */
+  gap: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
 
+/* Estilo Base para os dois */
 .botao-contato {
   text-decoration: none;
-  color: var(--branco);
-  padding: 1rem 2rem; /* Aumenta o padding dos botões */
+  color: #ffffff; /* ou var(--branco) */
+  padding: 0.6rem 2.85rem;
   border-radius: 50px;
   font-weight: bold;
-  font-size: 1.1rem; /* Aumenta a fonte */
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
-  transition: var(--transicao-padrao);
-  box-shadow: 0 4px 10px var(--sombra-leve);
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+.botao-contato:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Cores específicas */
 .botao-contato.instagram {
   background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
 .botao-contato.whatsapp {
-  background-color: var(--verde-whatsapp);
-}
-
-.botao-contato:hover {
-  transform: translateY(-5px) scale(1.05); /* Efeito mais pronunciado no hover */
-  box-shadow: 0 8px 20px var(--sombra-media);
-}
-
-.botao-contato.whatsapp:hover {
-  background-color: var(--verde-whatsapp-hover);
+  background-color: #25d366; /* var(--verde-whatsapp) */
 }
 
 .botao-contato i {
-  margin-right: 0.8rem; /* Mais espaço para o ícone */
-  font-size: 1.4rem; /* Ícone maior */
+  margin-right: 0.8rem;
+  font-size: 1.4rem;
 }
+
+
+
+/* -------------botão para solicitar orçamento, pagina categorias----------------- */
+.btn-solicitar-orcamento {
+  display: inline-block;
+  background-color: #25d366; 
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 100%; /* Ajuste conforme o layout do card */
+  margin: 10px auto;
+
+
+}
+
+.btn-solicitar-orcamento:hover {
+  background-color: #ff9c9c;
+  filter: brightness(1.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+
+/* -------------botão tenho interesse, pagina festas----------------- */
+.btn-tenho-interesse {
+  display: inline-block;
+  background-color: #25d366;/* Verde do botão da imagem 2 */
+  color: white;
+  padding: 1px 10px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  width: 90%; /* Para ocupar a largura do card como na foto */
+  margin: 1px auto;
+}
+
+.btn-tenho-interesse:hover {
+  background-color: #ff9c9c;
+  filter: brightness(1.1);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
 
 /* -------------------- Rodapé -------------------- */
 footer {
@@ -188,6 +234,9 @@ footer {
   font-size: 0.9rem;
   margin-top: 3rem; /* Mais espaço antes do rodapé */
 }
+
+
+
 
 /* -------------------- Festas e Preços (festas.html) -------------------- */
 #festas-e-precos {
@@ -203,7 +252,7 @@ footer {
 
 .festa-item {
   background-color: var(--branco);
-  padding: 2rem; /* Mais padding */
+  padding: 0.5rem; /* Mais padding */
   border-radius: 10px;
   box-shadow: 0 6px 15px var(--sombra-leve);
   transition: var(--transicao-padrao);
@@ -220,22 +269,22 @@ footer {
 
 .festa-item img {
   width: 100%;
-  height: 220px; /* Altura da imagem */
-  object-fit: cover;
+  height: 220px; 
+  object-fit: contain; /* Altere de cover para contain */
+  background-color: #f5f5f5; /* Adiciona um fundo neutro para evitar espaços vazios brancos */
   border-radius: 8px;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px var(--sombra-leve);
 }
 
-.festa-item h3 {
-  color: var(--rosa-claro);
-  font-size: 1.6rem; /* Título do item maior */
-  margin-bottom: 0.8rem;
-}
-
-.festa-item p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+.festa-item h2 {
+  font-size: 1.1rem; /* Títulos de seção maiores */
+  color: #ffd4d4;
+  border-bottom: 3px solid var(--rosa-claro); /* Borda mais grossa */
+  padding-bottom: 0.8rem;
+  margin-bottom: 3rem; /* Mais espaço abaixo do título */
+  text-align: center;
+  position: relative;
 }
 
 .festa-item .preco {
@@ -247,271 +296,201 @@ footer {
 
 /* Botão de orçamento dentro do item da festa */
 .festa-item .botao-contato.whatsapp {
-  padding: 0.8rem 1.8rem;
+  padding: 0.6rem 4rem;
   font-size: 1rem;
   margin-top: auto; /* Empurra o botão para baixo */
 }
 
-/* -------------------- Feedbacks (festas.html) -------------------- */
-#feedbacks {
-  text-align: center;
-}
 
-.feedback-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajuste para 300px */
-  gap: 2rem;
-  padding: 2rem 1rem;
-}
 
-.feedback-item {
-  background-color: var(--branco);
-  padding: 2.5rem; /* Mais padding */
-  border-radius: 10px;
-  box-shadow: 0 6px 15px var(--sombra-leve);
-  border-left: 6px solid var(--rosa-claro); /* Borda mais grossa */
-  transition: var(--transicao-padrao);
-  text-align: left; /* Alinha o texto do feedback à esquerda */
-}
 
-.feedback-item:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px var(--sombra-media);
-}
-
-.feedback-item .avaliacao {
-  color: var(--amarelo-estrela);
-  margin-bottom: 1.2rem;
-  font-size: 1.2rem; /* Estrelas maiores */
-}
-
-.feedback-item .comentario {
-  font-style: italic;
-  color: var(--cinza-escuro);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.feedback-item .cliente {
-  margin-top: 1rem;
-  font-weight: bold;
-  color: var(--rosa-claro);
-  font-size: 1.1rem;
-}
-
-/* -------------------- Botão "Tenho interesse!" (categorias.html) -------------------- */
-.botao-galeria-container {
-  text-align: center;
-  margin-top: 2.5rem; /* Mais espaço acima do botão */
-  margin-bottom: 2rem;
-}
-
-.botao-interesse {
-  display: inline-block; /* Para centralizar melhor */
-  background-color: var(--verde-whatsapp);
-  color: var(--branco);
-  padding: 1rem 2.5rem; /* Aumenta o padding */
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 50px;
-  transition: var(--transicao-padrao);
-  box-shadow: 0 4px 10px var(--sombra-leve);
-  font-size: 1.1rem; /* Aumenta a fonte */
-  text-align: center;
-  min-width: 200px; /* Largura mínima para o botão */
-}
-
-.botao-interesse:hover {
-  background-color: var(--verde-whatsapp-hover);
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px var(--sombra-media);
-}
 
 /* -------------------- Menu Hambúrguer e Sanfona -------------------- */
 .menu-hamburguer {
-  position: fixed;
-  top: 1.5rem; /* Ajusta a posição superior */
-  right: 1.5rem; /* Ajusta a posição direita */
-  z-index: 1000;
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
 }
 
 .menu-hamburguer .menu-links {
-  position: fixed;
-  top: 0;
-  right: -300px; /* Aumenta a largura do menu fechado */
-  height: 100%;
-  width: 280px; /* Largura do menu aberto */
-  background-color: var(--cinza-escuro);
-  padding-top: 6rem; /* Mais padding no topo */
-  transition: right 0.4s ease-in-out; /* Transição mais suave */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  box-shadow: -5px 0 15px var(--sombra-media); /* Sombra no menu lateral */
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 280px;
+    background-color: var(--cinza-escuro);
+    padding-top: 5rem;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .menu-hamburguer .menu-links.menu-aberto {
-  right: 0;
+    right: 0;
 }
 
+
+/* ÍCONE DE ABRIR (As 3 linhas) */
 .menu-hamburguer .menu-icone {
-color: var(--cinza-escuro); /* MUDANÇA: Cor das linhas (ícone) é preta */
-font-size: 2.2rem; 
-cursor: pointer;
-background-color: var(--branco); /* MUDANÇA: Cor de fundo do círculo é branca */
-padding: 0.6rem; 
-border-radius: 8px; 
-box-shadow: 0 3px 8px var(--sombra-leve);
-transition: var(--transicao-padrao);
+    display: inline-block; /* Garante que o tamanho do bloco respeite o padding */
+    color: var(--cinza-escuro) !important; 
+    font-size: 2.2rem; 
+    cursor: pointer;
+    background-color: var(--branco); 
+    padding: 0.6rem; 
+    border-radius: 8px; 
+    box-shadow: 0 3px 8px var(--sombra-leve);
+    transition: var(--transicao-padrao);
 }
 
 .menu-hamburguer .menu-icone:hover {
-  transform: scale(1.1);
-  box-shadow: 0 5px 12px var(--sombra-media);
+    transform: scale(1.1);
+    box-shadow: 0 5px 12px var(--sombra-media);
 }
 
+
+/* ÍCONE DE FECHAR (O "X") */
 .menu-hamburguer .menu-fechar {
-  position: absolute;
-  top: 1.5rem; /* Ajusta a posição superior */
-  right: 1.5rem; /* Ajusta a posição direita */
-  color: var(--branco);
-  font-size: 2.2rem; /* Ícone maior */
-  cursor: pointer;
-  transition: var(--transicao-padrao);
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: var(--branco) !important;
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+    display: block; /* Garante visibilidade */
+    z-index: 1002;
 }
 
 .menu-hamburguer .menu-fechar:hover {
-  transform: rotate(90deg); /* Efeito de rotação no fechar */
-  color: var(--rosa-claro);
+    transform: rotate(90deg);
+    color: var(--rosa-claro) !important;
 }
 
-.menu-links ul {
-  width: 100%;
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
+
+.menu-hamburguer .menu-links {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    height: 100vh;
+    width: 280px;
+    background-color: var(--cinza-escuro);
+    padding-top: 5rem;
+    transition: right 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    z-index: 1001;
 }
 
-.menu-links ul li {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador sutil */
-}
 
-.menu-links ul li:last-child {
-  border-bottom: none;
-}
-
-.menu-links ul li a {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  text-decoration: none;
-  padding: 18px 20px; /* Padding ajustado */
-  font-size: 1.1rem; /* Fonte ligeiramente menor para mais itens */
-  font-weight: 500; /* Peso da fonte ajustado */
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  transition: var(--transicao-padrao);
-  box-sizing: border-box;
-}
-
-.menu-links ul li a:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 25px; /* Pequeno efeito de deslize no hover */
-}
-
+/* 1. RESET E UNIFICAÇÃO TOTAL (O segredo do alinhamento) */
+.menu-links ul li a, 
 .toggle-submenu {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  font-size: 1.1rem;
-  font-weight: 500;
-  padding: 18px 20px;
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  box-sizing: border-box;
-  transition: var(--transicao-padrao);
+    display: flex;             /* Flex para alinhar texto verticalmente */
+    align-items: center;       /* Centraliza o texto no meio da altura */
+    width: 100%;
+    color: var(--branco);
+    text-decoration: none;
+    
+    padding: 0 20px;           /* Padding apenas nas laterais */
+    height: 55px;              /* ALTURA FIXA: Força todos a serem iguais */
+    
+    font-size: 1.1rem; 
+    font-weight: 500;
+    text-align: left;
+    
+    background: transparent;   /* Remove fundos de sistema do botão */
+    border: none;              /* Remove bordas de sistema do botão */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* LINHA DIVISÓRIA AQUI */
+    
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: var(--transicao-padrao);
+    margin: 0;
+    font-family: inherit;
+    position: relative;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
+/* 2. HOVER UNIFICADO */
+.menu-links ul li a:hover,
 .toggle-submenu:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 25px;
+    background-color: var(--rosa-claro) !important;
+    color: var(--cinza-escuro) !important;
+    padding-left: 25px;
 }
 
+/* 3. SETA (FONTAWESOME) */
 .toggle-submenu::after {
-  content: '\f078'; /* Ícone de seta para baixo (Font Awesome) */
-  font-family: "Font Awesome 6 Free"; /* Garante que o ícone seja renderizado */
-  font-weight: 900; /* Para ícones sólidos */
-  color: white;
-  position: absolute;
-  right: 20px; /* Ajusta a posição da seta */
-  top: 50%;
-  transform: translateY(-50%) rotate(0deg);
-  transition: transform 0.3s ease;
-  font-size: 0.9rem;
+    content: '\f078';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Centralização vertical real */
+    font-size: 0.8rem;
+    color: inherit;              /* Segue a cor do texto no hover */
+    transition: transform 0.3s ease;
 }
 
 .toggle-submenu.is-open::after {
-  content: '\f077'; /* Ícone de seta para cima (Font Awesome) */
-  transform: translateY(-50%) rotate(0deg); /* Não rotaciona, apenas muda o ícone */
+    content: '\f077';
+}
+
+/* 4. SUBMENU (ESTRUTURA) */
+.has-submenu {
+    display: flex;
+    flex-direction: column;
 }
 
 .submenu {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-in-out; /* Transição mais suave */
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.2); /* Fundo sutil para o submenu */
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    transition: max-height 0.5s ease-in-out;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Fundo um pouco mais escuro */
 }
 
 .submenu.is-open {
-  max-height: 300px; /* Altura máxima ajustada */
+    max-height: 2000px;
+    visibility: visible;
 }
 
-.submenu li {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separador mais leve */
-}
-
-.submenu li:last-child {
-  border-bottom: none;
-}
-
+/* Itens internos do Submenu */
 .submenu li a {
-  display: block;
-  width: 100%;
-  color: var(--branco);
-  font-size: 1rem; /* Fonte ligeiramente menor para subitens */
-  font-weight: normal;
-  padding: 15px 20px 15px 40px; /* Recuo ajustado */
-  line-height: 1.2;
-  text-align: left;
-  vertical-align: top;
-  transition: var(--transicao-padrao);
-  box-sizing: border-box;
+    height: 48px;              /* Subitens ligeiramente menores */
+    padding-left: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .submenu li a:hover {
-  background-color: var(--rosa-claro);
-  color: var(--cinza-escuro);
-  padding-left: 45px; /* Efeito de deslize no hover */
+    padding-left: 45px;
 }
+
+/* Remove borda da LI principal para não duplicar */
+.menu-links ul li {
+    border-bottom: none !important;
+}
+
+
+
+
+
 
 /* -------------------- Responsividade -------------------- */
 @media (max-width: 1024px) {
@@ -537,6 +516,9 @@ transition: var(--transicao-padrao);
   }
 }
 
+
+
+
 @media (max-width: 768px) {
   header {
     padding: 1.5rem 1rem;
@@ -560,7 +542,7 @@ transition: var(--transicao-padrao);
     margin-bottom: 2rem;
   }
   .galeria-fotos-grid {
-    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
   }
   .galeria-foto img {
@@ -571,14 +553,14 @@ transition: var(--transicao-padrao);
     gap: 1rem;
   }
   .botao-contato {
-    width: 80%; /* Ocupa mais largura */
+    width: 80%;
     max-width: 300px;
     margin: 0 auto;
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
   }
   .festa-container, .feedback-container {
-    grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    grid-template-columns: 1fr; 
     gap: 1.5rem;
   }
   .festa-item {
@@ -626,6 +608,8 @@ transition: var(--transicao-padrao);
   }
 }
 
+
+
 @media (max-width: 480px) {
   header h1 {
     font-size: 2rem;
@@ -643,7 +627,7 @@ transition: var(--transicao-padrao);
     width: 90%;
   }
   .menu-hamburguer .menu-links {
-    width: 180px; /* Largura ainda menor para telas muito pequenas */
+    width: 180px; 
     right: -180px;
   }
   .menu-links ul li a,
@@ -656,3 +640,460 @@ transition: var(--transicao-padrao);
     padding: 10px 10px 10px 30px;
   }
 }
+
+
+
+
+
+/* Estilização do Carrossel */
+#galeria-carrossel {
+    padding: 40px 0;
+    text-align: center;
+    overflow: hidden; /* Evita barra de rolagem horizontal */
+}
+
+.card-carrossel {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.card-carrossel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Altere de cover para contain */
+    background-color: #fff; /* Fundo branco para as áreas que sobrarem */
+}
+
+.slider {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    /*mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent)*/
+    margin-top: 20px;
+}
+
+.slider .list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+.slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    /* Aumente o valor abaixo (ex: de 15s para 30s) para ficar mais lento */
+    animation: autoRun 40s linear infinite; 
+    transition: filter 0.5s;
+    /* Certifique-se de que o valor abaixo (30s) seja igual ao de cima */
+    animation-delay: calc((40s / var(--quantity)) * (var(--position) - 1) - 40s) !important;
+}
+
+
+/* carrosel da pagina inicial, index*/
+
+/* Sua animação atual */
+@keyframes autoRun {
+    from { left: 100%; }
+    to { left: calc(var(--width) * -1); }
+}
+
+
+/* Pausa quando o mouse está em cima (Computador) */
+@media (hover: hover) {
+    .slider:hover .item {
+        animation-play-state: paused !important;
+    }
+    .slider .item:hover {
+        transform: scale(1.05);
+    }
+}
+
+
+/* Para celulares e tablets (Touch) */
+@media (hover: none) {
+    /* Quando segurar o dedo no container (via CSS) */
+    .slider:active .item,
+    /* Quando o JavaScript adicionar a classe .paused */
+    .slider.paused .item {
+        animation-play-state: paused !important;
+    }
+  }
+
+/* No seu style.css, localize ou adicione: */
+.slider.paused .item, 
+.slider.paused {
+    animation-play-state: paused !important;
+    -webkit-animation-play-state: paused !important; /* Prefixo para Safari antigo */
+}
+
+/* Animação padrão */
+.slider .item {
+    animation: autoRun 40s linear infinite;
+}
+
+
+
+
+/* Efeito de Rosa Claro ao Pausar */
+.slider.paused .item,
+.slider:hover .item,
+.slider:active .item {
+    animation-play-state: paused !important;
+}
+
+/* Aplica o filtro rosa nas imagens que não estão em foco */
+.slider .item .card-carrossel {
+    position: relative;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.slider.paused .item .card-carrossel,
+.slider:hover .item .card-carrossel {
+    /* Cor rosa claro com transparência (ajuste o 0.4 para mais ou menos forte) */
+    background-color: rgb(255, 255, 255); 
+}
+
+.slider.paused .item img,
+.slider:hover .item img {
+    /* Faz a imagem se misturar com o fundo rosa */
+    mix-blend-mode: multiply; 
+    filter: none !important; /* Remove o preto e branco antigo */
+}
+
+/* Remove o rosa quando o mouse estiver EXATAMENTE em cima de uma foto específica */
+.slider .item:hover .card-carrossel,
+.slider .item.active-touch .card-carrossel {
+    background-color: transparent !important;
+}
+
+.slider .item:hover img,
+.slider .item.active-touch img {
+    mix-blend-mode: normal !important;
+}
+
+    /* Feedback visual no item tocado */
+    .slider .item:active,
+    .slider .item.active-touch {
+        filter: grayscale(0) !important;
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+        z-index: 999;
+    }
+
+
+
+
+
+
+/* ============================================================
+    CONFIGURAÇÃO GERAL DAS CATEGORIAS (Corrigido para Safari)
+   ============================================================ */
+
+/* Container que segura o título da página */
+.tema-galeria {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Grid que organiza os cards na tela */
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* O CARD PRINCIPAL  */
+.tema-card {
+    background-color: #ffffff; /* Cor vermelha vibrante do fundo */
+    border-radius: 25px;
+    padding: 20px 15px;      /* Espaço interno para os elementos não tocarem a borda */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    
+    /* Correção Safari */
+    -webkit-appearance: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.tema-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Título dentro do card (Chá de Bebê) */
+.tema-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+.tema-card h3 {
+    font-size: 1.65rem;
+    margin-bottom: 15px;
+    color: #ffcbcb;
+    text-align: center;
+}
+
+/* MOLDURA BRANCA DA IMAGEM */
+.carousel-container {
+    background-color: #ffffff;
+    padding: 10px;           /* Espessura da moldura branca */
+    border-radius: 20px;
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Distância entre a imagem e o botão */
+    margin-bottom: 25px; 
+}
+
+/* Trilho das fotos */
+.carousel-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
+}
+
+/* Esconder barra de scroll */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Altere de cover para contain */
+    background-color: #fff; /* Fundo branco para as áreas que sobrarem */
+}
+
+/* Bolinhas indicadoras sobre a foto */
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 20px;
+    z-index: 5;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #ffffff;
+    transform: scale(1.2);
+}
+
+
+
+
+/* Container que permite o deslize */
+.carousel-track {
+    display: flex;
+    overflow-x: auto; /* Permite scroll */
+    scroll-snap-type: x mandatory; /* Faz a foto "grudar" no centro */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
+}
+
+/* Remove a barra de rolagem visualmente */
+.carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    min-width: 100%; /* Cada foto ocupa a tela toda do container */
+    scroll-snap-align: start; /* Onde a foto deve travar */
+}
+
+
+/* Container das bolinhas - SEMPRE dentro da foto */
+.carousel-indicators {
+    position: absolute;    /* Garante que flutuem sobre a imagem */
+    bottom: 15px;          /* Distância da borda inferior da foto */
+    left: 50%;             /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajuste preciso do centro */
+    display: flex;
+    gap: 8px;
+    z-index: 10;           /* Fica à frente da imagem */
+    background: rgb(255, 255, 255); /* Fundo subtil para visibilidade no mobile */
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fdf1f1;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: var(--rosa-claro); /* Fica rosa quando ativa */
+    transform: scale(1.2);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #000000;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.dot.active {
+    background: #000000; /* Cor rosa que você usa */
+    transform: scale(1.2);
+}
+
+
+
+
+
+/* Ajuste para que a seção de feedbacks suporte o carrossel de imagens */
+#feedbacks {
+    overflow: hidden; 
+    padding: 60px 0;
+    background-color: var(--branco);
+}
+#feedbacks .card-carrossel {
+    height: 100%;
+    border: none; /* Remove a borda rosa se não quiser contorno */
+    background-color: transparent; /* Garante que o fundo do card seja invisível */
+}
+
+#feedbacks .card-carrossel img {
+    width: 100%;
+    height: 100%;
+    /* MUDANÇA CHAVE: 'cover' faz a imagem ocupar TODO o espaço do card */
+    /* Se o print for cortado em partes importantes, use 'fill' */
+    object-fit: cover; 
+    background-color: transparent; /* Remove qualquer fundo branco da imagem */
+    border-radius: 10px; /* Mantém os cantos arredondados bonitos */
+}
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    #feedbacks .slider {
+        --width: 250px; /* Reduz um pouco a largura no celular */
+        --height: 450px;
+    }
+}
+
+
+
+
+/* Lógica exclusiva para o slider de feedbacks */
+.slider-feedback .list .item {
+    animation: autoRun 40s linear infinite !important;
+    animation-delay: calc((40s / var(--quantity)) * (var(--position) - 1) - 40s) !important;
+    padding: 60px 0; /* Quase nenhum espaço lateral entre os cards */
+}
+
+.slider-feedback .card-carrossel img {
+    object-fit: contain; /* Garante que o print do WhatsApp apareça inteiro */
+    background-color: #fff;
+}
+
+/* --- CORREÇÃO DA PAUSA --- */
+.slider.paused .item {
+    animation-play-state: paused !important;
+}
+
+
+
+/* --- Area do perfil, index --- */ 
+.perfil-secao {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: sans-serif; /* Ou a fonte que você já usa no site */
+}
+
+.perfil-foto {
+    flex-shrink: 0;
+}
+
+.perfil-foto img {
+    width: 180px;  /* Ajuste o tamanho da foto aqui */
+    height: 180px;
+    border-radius: 50%; /* Faz a foto ficar redonda */
+    object-fit: cover;
+    border: 3px solid #f8c8d4; /* Cor rosa claro baseada na sua imagem */
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.perfil-conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.perfil-titulo {
+    font-size: 1.2rem;
+    color: #fdc5c5; /* Tom de rosa do "Sobre Nós" da imagem */
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.perfil-texto {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 600px) {
+    .perfil-secao {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+

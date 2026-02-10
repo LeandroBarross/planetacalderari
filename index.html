@@ -6,6 +6,7 @@
     <title>Planeta Calderari - Decorações</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
       
@@ -13,68 +14,99 @@
     <label id="menu-toggle-label" class="menu-icone">
         <i class="fas fa-bars"></i>
     </label>
-    
+
     <div class="menu-links">
         <label id="menu-fechar-label" class="menu-fechar">
             <i class="fas fa-xmark"></i>
         </label>
-        
+
         <ul>
             <li><a href="index.html">Página Inicial</a></li>
             <li><a href="festas.html">Pegue e monte</a></li>
             
             <li class="has-submenu">
-                <button class="toggle-submenu">CATEGORIAS</button> 
+                <button type="button" class="toggle-submenu">Categorias</button>
                 
                 <ul class="submenu">
-                   <li><a href="categorias.html#galeria-temas">Ver Tudo</a></li>
-                    <li><a href="categorias.html#cha-de-bebe">Chá de Bebê</a></li>
-                    <li><a href="categorias.html#festa-infantil">Festa Infantil</a></li>
-                    <li><a href="categorias.html#aniversario-adulto">Aniversário Adulto</a></li>
+                    <li><a href="categorias.html#tema-galeria">Ver Tudo</a></li>
+                    <li><a href="categorias.html#masha-e-o-urso">Masha e o urso</a></li>
+                    <li><a href="categorias.html#barbie">Barbie</a></li>
+                    <li><a href="categorias.html#bolo-fofo">Bolo Fofo</a></li>
+                    <li><a href="categorias.html#borboletas">Borboletas</a></li>
+                    <li><a href="categorias.html#branca-de-neve">Branca de Neve</a></li>
+                    <li><a href="categorias.html#carros">Carros</a></li>
+                    <li><a href="categorias.html#cocomelon">Cocomelon</a></li>
+                    <li><a href="categorias.html#looney-tunes">Looney Tunes</a></li>
+                    <li><a href="categorias.html#minnie-safari">Minnie Safari</a></li>
+                    <li><a href="categorias.html#patati-patata">Patati e Patatá</a></li>
+                    <li><a href="categorias.html#pequena-sereia">Pequena Sereia</a></li>
+                    <li><a href="categorias.html#pequeno-principe">Pequeno Príncipe</a></li>
+                    <li><a href="categorias.html#poderoso-chefinho">Poderoso Chefinho</a></li>
+                    <li><a href="categorias.html#raio-de-sol">Raio de Sol</a></li>
+                    <li><a href="categorias.html#rei-leao">Rei Leão</a></li>
+                </ul>
             </li>
-        </ul>
-        
-            <li><a href="#sobre-nos">Sobre Nós</a></li>
+             <li><a href="#sobre-nos">Sobre Nós</a></li>
             <li><a href="#contato">Contato</a></li>
-            
-        
+            <li><a href="festas.html#feedbacks">Feedbacks</a></li>
+        </ul>
     </div>
 </nav>
 
     <!-- Cabeçalho -->
     <header>
-        <img src="img/logo.png" alt="Logo do Planeta Calderari" class="logo">
+        <img src="img/perfilLogo/logo.png" alt="Logo do Planeta Calderari" class="logo">
         <h1>Planeta Calderari</h1>
         <h2>Venha realizar seu sonho!</h2>
     </header>
 
-   <section id="galeria">
+  <section id="galeria-carrossel">
     <h2>Nossas festas</h2>
     
-    <div class="galeria-fotos-grid"> 
-        
-        <div class="galeria-foto"> 
-            <img src="img/foto1.jpeg" alt="Festa 'CARROS'">
+    <div class="slider" style="--width: 250px; --height: 250px; --quantity: 9;">
+        <div class="list">
+            <div class="item" style="--position: 1">
+                <div class="card-carrossel">
+                    <img src="img/fotosInicial/foto1.jpeg" alt="Festa Carros" draggable="false">
+                </div>
+            </div>
+            <div class="item" style="--position: 2">
+                <div class="card-carrossel">
+                    <img src="img/fotosInicial/foto2.jpeg" alt="Festa Bolo Fofo" draggable="false">
+                </div>
+            </div>
+            <div class="item" style="--position: 3">
+                <div class="card-carrossel">
+                    <img src="img/fotosInicial/foto3.jpeg" alt="Festa Simba" draggable="false">
+                </div>
+            </div>
+            <div class="item" style="--position: 4"><div class="card-carrossel"><img src="img/fotosInicial/foto1.jpeg" alt="Festa"></div></div>
+            <div class="item" style="--position: 5"><div class="card-carrossel"><img src="img/fotosInicial/foto2.jpeg"alt="Festa"></div></div>
+            <div class="item" style="--position: 6"><div class="card-carrossel"><img src="img/fotosInicial/foto3.jpeg" alt="Festa"></div></div>
+            <div class="item" style="--position: 7"><div class="card-carrossel"><img src="img/fotosInicial/foto4.jpeg" alt="Festa"></div></div>
+            <div class="item" style="--position: 8"><div class="card-carrossel"><img src="img/fotosInicial/foto5.jpeg"alt="Festa"></div></div>
+            <div class="item" style="--position: 9"><div class="card-carrossel"><img src="img/fotosInicial/foto6.jpeg"alt="Festa"></div></div>
         </div>
-        
-        <div class="galeria-foto"> 
-            <img src="img/foto2.jpeg" alt="Festa 'BOLO FOFO'">
-        </div>
-
-        <div class="galeria-foto"> 
-            <img src="img/foto3.jpeg" alt="Festa 'SIMBA'">
-        </div>
-        
-    </div> </section>
-
+    </div>
+</section>
     <section id="sobre-nos">
         <h2>Sobre Nós</h2>
-        <p>
-            O Planeta Calderari é especializado em tornar cada celebração única e inesquecível.
-            Nossa missão é transformar seus sonhos em realidade, cuidando de cada detalhe, desde
-            o planejamento até a execução. Com anos de experiência e uma equipe apaixonada,
-            garantimos que seu evento seja um sucesso absoluto.
+       <div class="perfil-secao">
+    <div class="perfil-foto">
+        <img src="img/perfilLogo/perfil.jpeg" alt="Claudia Calderari">
+    </div>
+
+    <div class="perfil-conteudo">
+        <h2 class="perfil-titulo">Claudia Calderari</h2>
+        
+        <p class="perfil-texto">
+            No Planeta Calderari, acreditamos que uma celebração vai muito além de um simples evento; 
+            ela é a materialização de uma história. Fundado por mim, <strong>Claudia Calderari</strong>, 
+            em 2023, este projeto nasceu de uma paixão genuína por transformar espaços comuns em 
+            cenários extraordinários e inesquecíveis.
         </p>
+    </div>
+</div>
     </section>
 
      <!-- Contato -->
@@ -86,17 +118,20 @@
             <a href="https://www.instagram.com/planetacalderari/" target="_blank" class="botao-contato instagram">
                 <i class="fab fa-instagram"></i> Instagram
             </a>
-            <a href="https://api.whatsapp.com/send?phone=5511959455698" target="_blank" class="botao-contato whatsapp">
+            <a href="https://api.whatsapp.com/send?phone=5511959455698&text=Olá! Vim pelo seu site. Tenho interesse em suas decorações.%20%20%20%20%20%20%20%20%20" target="_blank" class="botao-contato whatsapp">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Planeta Calderari. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Planeta Calderari. Todos os direitos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
 
 </body>
 </html>
+
+
+
