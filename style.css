@@ -177,7 +177,7 @@ section h2 {
 /* -------------botão para solicitar orçamento, pagina categorias----------------- */
 .btn-solicitar-orcamento {
   display: inline-block;
-  background-color: #ffbfbf; 
+  background-color: #25d366; 
   color: white;
   padding: 12px 20px;
   border-radius: 25px;
@@ -204,7 +204,7 @@ section h2 {
 /* -------------botão tenho interesse, pagina festas----------------- */
 .btn-tenho-interesse {
   display: inline-block;
-  background-color: #ffbfbf;/* Verde do botão da imagem 2 */
+  background-color: #25d366;/* Verde do botão da imagem 2 */
   color: white;
   padding: 1px 10px;
   border-radius: 25px;
@@ -218,7 +218,7 @@ section h2 {
 }
 
 .btn-tenho-interesse:hover {
-  background-color: #ff9c9c;
+  background-color: #00ff336d;
   filter: brightness(1.1);
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
